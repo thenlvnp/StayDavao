@@ -1,0 +1,107 @@
+/**
+ * Flexbox grid
+  based on https://codepen.io/harrycresswell/pen/MrYvmZ
+  and https://www.taniarascia.com/easiest-flex-grid-ever/
+ */
+
+ /*
+ Object: Core Flexbox grid
+ */
+
+
+ // Mobie first (grids forms a single column on smaller screens)
+
+.Flex-column {
+  flex-basis: 100%;
+}
+
+// Flex when screens get larger
+
+@include at-least($phone-wide) {
+  .Flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .Flex-column {
+    flex: 1;
+  }
+
+}
+
+/**
+ * Object Modifiers: Flexbox styles.
+ */
+
+/**
+ * Column sizes.
+ * Add to Flex-column to modify individual cells
+ * E.g. class="Flex-column Flex--75"
+ */
+
+ // This needs updating to something less hacky
+
+@include at-least($phone-wide) {
+
+  .Flex--75 {
+    flex: 7.5;
+  }
+
+  .Flex--65 {
+    flex: 6.5;
+  }
+
+  .Flex--50 {
+    flex: 5;
+  }
+
+  .Flex--30 {
+    flex: 3;
+  }
+
+  .Flex--25 {
+    flex: 2.5;
+  }
+
+  .Flex--15 {
+    flex: 1.5;
+  }
+
+}
+
+/**
+ * Add Gutters to columns.
+ * Add to Flex-row to give columns gutters
+ * E.g. class="Flex-row Flex--gutters"
+ */
+
+
+.Flex--gutters > div {
+  margin: 16px;
+}
+
+/**
+ * Non-responsive grids.
+ * Add to Flex-row to keep grids even on smaller screens
+ * E.g. class="Flex-row Flex--nr"
+ */
+
+.Flex-row.Flex--nr{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/**
+ * Object Modifiers: Demo specific modifer, don not use in production.
+ */
+
+.Flex-demo {
+  transition: background-color 0.3s ease;
+  border: 1px solid #33cccc;
+
+  &:hover {
+   background: rgba(51, 153, 204,.6);
+ }
+}

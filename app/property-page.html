@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script defer type="text/javascript" src="js/main.js"></script>
+    <script defer type="text/javascript" src="js/mobile_menu.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <title>Property Page</title>
+  </head>
+  <body class="container__property">
+    <div id="overlay"></div>
+    <!-- HEADER -->
+    <header class="header header--main">
+        <nav class="header__nav nav">
+          <a href="/" class="nav__brand">
+            <img src="/img/logo-alt.png" alt="" />
+          </a>
+
+          <div class="nav__left hide-on-small-desktop">
+            <ul class="nav nav--menu">
+              <li class="nav--link">
+                <a href="./listing.html">Properties for Sale</a>
+              </li>
+              <li class="nav--link">
+                <a href="./listing.html">Properties for Rent</a>
+              </li>
+              <li class="nav--link">
+                <a href="#">Leisure</a>
+              </li>
+              <li class="nav--link">
+                <a href="./agents.html">Agents</a>
+              </li>
+              <li class="nav--link">
+                <a href="#">About Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav__right">
+              <a
+              data-modal-target="#sign-in-modal"
+              class="btn btn--small btn--outline btn--outline-blue hide-on-small-desktop"
+            >
+              Sign up
+          </a>
+            <a href="./register.html" class="btn btn--small btn--blue hide-on-small-desktop">
+              Register
+            </a>
+
+            <div id="menu_icon" class="nav__icon show-on-small-desktop">
+              <div class="icon--menu"></div>
+            </div>
+          </div>
+        </nav>
+        <div id="mobile-menu" class="nav__mobile" >
+          <!-- MOBILE MENU SCREEN -->
+          <div  class="mobile">
+            <div class="mobile__nav">
+              <ul>
+                <li>
+                  <a href="#">Properties for Sale</a>
+                </li>
+                <li>
+                  <a href="#">Properties for Rent</a>
+                </li>
+                <li><a href="#">Leisure</a></li>
+                <li><a href="./agents.html">Agents</a></li>
+                <li><a href="#">About Us</a></li>
+              </ul>
+              <div class="mobile__divider"></div>
+            </div>
+           
+            <div class="mobile__btns">
+              <button
+                data-modal-target="#sign-in-modal"
+                class="btn btn--small btn--blue"
+              >
+                Sign in
+              </button>
+
+              <button href="/" class="btn btn--small btn--blue">Register</button>
+            </div>
+          </div>
+          <!-- MOBILE MENU SCREEN -->
+        </div>
+      </header>
+      <!-- SIGN IN MODAL -->
+      <section class="register__form form__login modal_form" id="sign-in-modal">
+        <button data-close-button class="exit_btn exit_btn--is-blue">
+          &times;
+        </button>
+
+        <div class="register__form--title">
+          <h4 class="text--blue">Sign In to StayDavao</h4>
+        </div>
+        <div class="register__form--content">
+          <input type="text" name="email" placeholder="Email Address" />
+          <input type="password" name="password" placeholder="Password" />
+
+          <span class="span__form--btn">
+            <button class="btn btn--small btn--blue">
+              Login
+            </button>
+            <button class="btn btn--small btn-is--facebook">
+              <span class="icon--white"><i class="fab fa-facebook-f"></i></span>
+              Create with Facebook
+            </button>
+          </span>
+        </div>
+      </section>
+      <!-- SIGN IN MODAL -->
+      <!-- HEADER -->
+    <section class="property">
+      <div class="property__overview">
+        <figure class="property__overview--image">
+          <a href="/" class="map-icon mobile-only">
+            <i class="fas fa-map-marker-alt"></i
+          ></a>
+          <img src="img/property_image.png" alt="" />
+        </figure>
+
+        <div class="property__overview--card">
+          <h2 class="card__title">3BR Condominium Unit in C.M. Recto, Davao</h2>
+          <h2 class="card__address">
+            <span><i class="fas fa-map-marker-alt"></i></span>C.M. Recto, Davao
+          </h2>
+          <h2 class="card__price">Php 20,000.00</h2>
+
+          <span class="card__features">
+            <div class="card__features--size">
+              <span><i class="fas fa-ruler-combined"></i></span>
+
+              <span class="feature__value">
+                135
+              </span>
+
+              <span class="feature__unit">sqm</span>
+            </div>
+            <div class="card__features--bedroom">
+              <span><i class="fas fa-bed"></i></span>
+              <span class="feature__value">
+                2
+              </span>
+              <span class="feature__unit">Beds</span>
+            </div>
+            <div class="card__features--bathrrom">
+              <span><i class="fas fa-bath"></i></span>
+              <span class="feature__value">
+                4
+              </span>
+              <span class="feature__unit">Baths</span>
+            </div>
+          </span>
+          <hr class="card__divider" />
+
+          <div class="card__buttons">
+            <button  data-modal-target="#agent-contact-modal" class="btn btn--blue card__button btn_dialog">
+              Contact Owner/Agent
+            </button>
+            <button class="btn btn--outline btn--outline-blue card__button">
+              Set Appointment
+            </button>
+          </div>
+          <!-- AGENT CONTACT MODAL -->
+          <div class="agent__contact--section drop-shadow modal_form" id="agent-contact-modal">
+              <div class="agent__contact">
+                <div class="agent__contact--avatar">
+                  <img src="img/agent_avatar.png" alt="" />
+                  <div class="agent-info">
+                    <h4 class="text-color--blue">Jane Doe</h4>
+                    <h6 class="text-color--blue">Licensed Real Estate Broker</h6>
+                    <h6 class="info-email">janed@gmail.com</h6>
+                    <h6 class="info-contact">213-3234 / 0923-785-2345</h6>
+                  </div>
+                </div>
+                <div class="agent__contact--content ">
+                  <input
+                    class="input--form-black"
+                    type="text"
+                    name="emailaddress"
+                    id=""
+                    placeholder="Your Email Address"
+                  />
+                  <input
+                    type="text"
+                    name="contactno"
+                    id=""
+                    placeholder="Your Contact no"
+                  />
+                  <input type="text" name="message" id="" placeholder="Your Message" />
+        
+                  <a href="#" class="primary-btn--blue">Send Message</a>
+                </div>
+              </div>
+            </div>
+          <!-- AGENT CONTACT MODAL -->
+        </div>
+        <div class="property__overview--tabs">
+          <input
+            id="tab1"
+            class="tab__toggle"
+            type="radio"
+            name="tabs"
+            checked
+          />
+          <label for="tab1" class="tab__title">Overview</label>
+
+          <input id="tab2" class="tab__toggle" type="radio" name="tabs" />
+          <label for="tab2" class="tab__title">Features and Amenities</label>
+
+          <section id="content1" class="tab__content">
+            <p>
+              Aenean sed nibh a magna posuere tempor. Nunc faucibus pellentesque
+              nunc in aliquet. Donec congue, nunc vel tempor congue, enim sapien
+              lobortis ipsum, in volutpat sem ex in ligula. Nunc purus est,
+              consequat condimentum faucibus sed, iaculis sit amet massa. Fusce
+              ac condimentum turpis. Ut consequat lacinia augue, vitae aliquam
+              sapien ullamcorper at. Donec efficitur, ligula ut lacinia viverra,
+              lorem lacus condimentum leo, eu luctus dolor ex at quam. Fusce a
+              nisi at erat dapibus posuere eget sed nulla. Nam sem odio,
+              hendrerit vel mi ut, pharetra viverra massa. Class aptent taciti
+              sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos. Nunc placerat ante vel eros semper bibendum. Donec
+              ultricies vestibulum interdum. Duis pretium gravida enim, vel
+              maximus ligula fermentum a. Sed rhoncus eget ex id egestas. Nam
+              nec nisl placerat, tempus erat a, condimentum metus. Curabitur
+              nulla nisi, lacinia at lobortis at, suscipit at nibh. Proin quis
+              lectus finibus, mollis purus vitae, rutrum neque.
+            </p>
+          </section>
+
+          <section id="content2" class="tab__content">
+            <p>
+              Jerky jowl pork chop tongue, kielbasa shank venison. Capicola
+              shank pig ribeye leberkas filet mignon brisket beef kevin
+              tenderloin porchetta. Capicola fatback venison shank kielbasa,
+              drumstick ribeye landjaeger beef kevin tail meatball pastrami
+              prosciutto pancetta. Tail kevin spare ribs ground round ham ham
+              hock brisket shoulder. Corned beef tri-tip leberkas flank sausage
+              ham hock filet mignon beef ribs pancetta turkey.
+            </p>
+          </section>
+        </div>
+      </div>
+      <div class="property__slides">
+        <img src="img/slider-placeholder.png" alt="" />
+      </div>
+      <div class="property__map"><img src="img/Map.png" alt="" /></div>
+
+      <!-- PROPERTY CARDS -->
+      <div class="property__cards">
+        <div class="divider"></div>
+        <h2>Similar Properties</h2>
+        <div class="sd-cards">
+            <div class="card card-shadow">
+              <div class="card__image">
+                  <img  src="img/space_image.png" alt="" />
+                  <h4 class="card__image--price text-shadow">Php 20,000</h4>
+              </div>
+             
+  
+              <article class="card__details">
+                <div class="card__details--name">
+                  <h4 class="card__details--name">Property Name</h4>
+                  <h5 class="card__details--location">
+                    <span><i class="fas fa-map-marker-alt"></i></span>Property
+                    Location or Address
+                  </h5>
+                </div>
+  
+                <div class="card__details--features">
+                  <ul class="features ">
+                    <li class="features--item">
+                      <span><i class="fas fa-ruler-combined"></i></span>
+  
+                      <span class="feature__value">
+                        135
+                      </span>
+  
+                      <span class="feature__unit">sqm</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bed"></i></span>
+                      <span class="feature__value">
+                        2
+                      </span>
+                      <span class="feature__unit">Beds</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bath"></i></span>
+                      <span class="feature__value">
+                        4
+                      </span>
+                      <span class="feature__unit">Baths</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+            <div class="card card-shadow">
+              <div class="card__image">
+                  <img  src="img/space_image.png" alt="" />
+                  <h4 class="card__image--price text-shadow">Php 20,000</h4>
+              </div>
+             
+  
+              <article class="card__details">
+                <div class="card__details--name">
+                  <h4 class="card__details--name">Property Name</h4>
+                  <h5 class="card__details--location">
+                    <span><i class="fas fa-map-marker-alt"></i></span>Property
+                    Location or Address
+                  </h5>
+                </div>
+  
+                <div class="card__details--features">
+                  <ul class="features ">
+                    <li class="features--item">
+                      <span><i class="fas fa-ruler-combined"></i></span>
+  
+                      <span class="feature__value">
+                        135
+                      </span>
+  
+                      <span class="feature__unit">sqm</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bed"></i></span>
+                      <span class="feature__value">
+                        2
+                      </span>
+                      <span class="feature__unit">Beds</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bath"></i></span>
+                      <span class="feature__value">
+                        4
+                      </span>
+                      <span class="feature__unit">Baths</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+            <div class="card card-shadow">
+              <div class="card__image">
+                  <img  src="img/space_image.png" alt="" />
+                  <h4 class="card__image--price text-shadow">Php 20,000</h4>
+              </div>
+             
+  
+              <article class="card__details">
+                <div class="card__details--name">
+                  <h4 class="card__details--name">Property Name</h4>
+                  <h5 class="card__details--location">
+                    <span><i class="fas fa-map-marker-alt"></i></span>Property
+                    Location or Address
+                  </h5>
+                </div>
+  
+                <div class="card__details--features">
+                  <ul class="features ">
+                    <li class="features--item">
+                      <span><i class="fas fa-ruler-combined"></i></span>
+  
+                      <span class="feature__value">
+                        135
+                      </span>
+  
+                      <span class="feature__unit">sqm</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bed"></i></span>
+                      <span class="feature__value">
+                        2
+                      </span>
+                      <span class="feature__unit">Beds</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bath"></i></span>
+                      <span class="feature__value">
+                        4
+                      </span>
+                      <span class="feature__unit">Baths</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+            <div class="card card-shadow">
+              <div class="card__image">
+                  <img  src="img/space_image.png" alt="" />
+                  <h4 class="card__image--price text-shadow">Php 20,000</h4>
+              </div>
+             
+  
+              <article class="card__details">
+                <div class="card__details--name">
+                  <h4 class="card__details--name">Property Name</h4>
+                  <h5 class="card__details--location">
+                    <span><i class="fas fa-map-marker-alt"></i></span>Property
+                    Location or Address
+                  </h5>
+                </div>
+  
+                <div class="card__details--features">
+                  <ul class="features ">
+                    <li class="features--item">
+                      <span><i class="fas fa-ruler-combined"></i></span>
+  
+                      <span class="feature__value">
+                        135
+                      </span>
+  
+                      <span class="feature__unit">sqm</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bed"></i></span>
+                      <span class="feature__value">
+                        2
+                      </span>
+                      <span class="feature__unit">Beds</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bath"></i></span>
+                      <span class="feature__value">
+                        4
+                      </span>
+                      <span class="feature__unit">Baths</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+         
+          
+            <div class="card card-shadow">
+              <div class="card__image">
+                  <img  src="img/space_image.png" alt="" />
+                  <h4 class="card__image--price text-shadow">Php 20,000</h4>
+              </div>
+             
+  
+              <article class="card__details">
+                <div class="card__details--name">
+                  <h4 class="card__details--name">Property Name</h4>
+                  <h5 class="card__details--location">
+                    <span><i class="fas fa-map-marker-alt"></i></span>Property
+                    Location or Address
+                  </h5>
+                </div>
+  
+                <div class="card__details--features">
+                  <ul class="features ">
+                    <li class="features--item">
+                      <span><i class="fas fa-ruler-combined"></i></span>
+  
+                      <span class="feature__value">
+                        135
+                      </span>
+  
+                      <span class="feature__unit">sqm</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bed"></i></span>
+                      <span class="feature__value">
+                        2
+                      </span>
+                      <span class="feature__unit">Beds</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bath"></i></span>
+                      <span class="feature__value">
+                        4
+                      </span>
+                      <span class="feature__unit">Baths</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+            <div class="card card-shadow">
+              <div class="card__image">
+                  <img  src="img/space_image.png" alt="" />
+                  <h4 class="card__image--price text-shadow">Php 20,000</h4>
+              </div>
+             
+  
+              <article class="card__details">
+                <div class="card__details--name">
+                  <h4 class="card__details--name">Property Name</h4>
+                  <h5 class="card__details--location">
+                    <span><i class="fas fa-map-marker-alt"></i></span>Property
+                    Location or Address
+                  </h5>
+                </div>
+  
+                <div class="card__details--features">
+                  <ul class="features ">
+                    <li class="features--item">
+                      <span><i class="fas fa-ruler-combined"></i></span>
+  
+                      <span class="feature__value">
+                        135
+                      </span>
+  
+                      <span class="feature__unit">sqm</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bed"></i></span>
+                      <span class="feature__value">
+                        2
+                      </span>
+                      <span class="feature__unit">Beds</span>
+                    </li>
+                    <li class="features--item">
+                      <span><i class="fas fa-bath"></i></span>
+                      <span class="feature__value">
+                        4
+                      </span>
+                      <span class="feature__unit">Baths</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+      </div>
+      <!-- PROPERTY CARDS -->
+    </section>
+
+    <footer class="footer">
+      <figure class="footer__image">
+        <a href=""> <img src="img/site_logo.png" alt=""/></a>
+      </figure>
+      <div class="footer__content">
+        <div class="content_span">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="content_span">
+          <h4>Support</h4>
+          <ul>
+            <li>
+              <a href=""> Benefits Working with Us</a>
+            </li>
+            <li><a href="">How StayDavao Works</a></li>
+            <li>
+              <a href="">Contact Us</a>
+            </li>
+            <li><a href=""> FAQs</a></li>
+          </ul>
+        </div>
+        <div class="content_span">
+          <h4>Other Info</h4>
+          <ul>
+            <li>
+              <a href=""> Property for Sale</a>
+            </li>
+            <li><a href="">Property for Rent</a></li>
+            <li><a href="">Agents</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__social">
+        <div class="footer__social--icons">
+          <a href=""><i class="fab fa-facebook-f"></i></a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fab fa-instagram"></i></a>
+          <a href=""><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <h4>Copyright 2019 | All Rights Reserved</h4>
+      </div>
+    </footer>
+  </body>
+</html>

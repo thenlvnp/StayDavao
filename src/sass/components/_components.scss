@@ -1,0 +1,592 @@
+%input_form_white {
+  display: block;
+  box-sizing: border-box;
+  border: none;
+
+  font-weight: 300;
+  transition: 0.2s ease;
+  border-bottom: 1px solid $white;
+  &::placeholder {
+    color: $white;
+  }
+
+  &:focus {
+    border-bottom: 2px solid $white;
+
+    transition: 0.2s ease;
+  }
+}
+.register__form {
+  padding: 3rem;
+
+  position: relative;
+
+  width: 65.9rem;
+  max-width: 80%;
+  height: 55.1rem;
+  max-height: 90%;
+
+  background-color: $white;
+  &--title {
+    color: $blue;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  &--content {
+    display: grid;
+    grid-gap: 1rem;
+  }
+  input[type="text"],
+  input[type="password"] {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 3rem;
+    width: 100%;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid black;
+
+    font-weight: 300;
+    font-size: 15px;
+    transition: 0.2s ease;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-bottom: 2px solid $blue;
+
+    transition: 0.2s ease;
+  }
+
+  .span_terms {
+    display: flex;
+    margin-bottom: 2rem;
+    a {
+      color: black;
+    }
+  }
+  .span_name {
+    display: flex;
+
+    input:first-child {
+      margin-right: 0.5rem;
+    }
+  }
+  .span__form--btn {
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+      flex-grow: 1;
+      flex-basis: 0;
+
+      margin-right: 0.5rem;
+    }
+  }
+}
+.form__buyer {
+  background-color: $blue;
+  :not(button) {
+    color: $white;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    border: none;
+    border-bottom: 1px solid $white;
+    background-color: $blue;
+    &::placeholder {
+      color: $white;
+    }
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-bottom: 2px solid $dark-blue;
+
+    transition: 0.2s ease;
+  }
+  .span_terms {
+    a {
+      color: $white;
+    }
+  }
+}
+.form__login {
+  background-color: $white;
+
+  height: 30.1rem;
+
+  h1 {
+    color: $blue;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    border: none;
+    border-bottom: 1px solid $blue;
+    background-color: $white;
+    font-family: $font-primary;
+    &::placeholder {
+      color: black;
+    }
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-bottom: 2px solid $dark-blue;
+
+    transition: 0.2s ease;
+  }
+  .span_terms {
+    a {
+      color: $white;
+    }
+  }
+}
+// CARD STYLES
+.sd-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 3rem;
+
+  z-index: 200;
+  @include for-tablet-portrait-up {
+    grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+  }
+  @include for-phone-only {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+
+  .card {
+    border-radius: 0.5rem;
+    background-color: $white;
+
+    display: grid;
+    min-height: 80%;
+    grid-template-rows: [card-image]25rem [card-details]auto;
+
+    &__image {
+      grid-column: 1/ -1;
+      grid-row: card-image;
+      position: relative;
+
+      &--price {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        margin: 0 0rem 1rem 1rem;
+
+        color: white;
+        font-size: 2rem;
+      }
+      img {
+        border-radius: 0.5rem 0.5rem 0 0;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__details {
+      grid-column: 1/ -1;
+      grid-row: card-details;
+      padding: 2rem 1.5rem;
+      display: grid;
+      grid-gap: 1.5rem;
+      &--name {
+        font-size: 2rem;
+        color: $blue;
+        font-weight: normal;
+        :last-child {
+          margin-top: 0.5rem;
+        }
+        :last-child:not(i) {
+          font-size: 1rem;
+          font-weight: normal;
+          color: black;
+        }
+        :last-child > i {
+          font-size: 1.2rem;
+        }
+      }
+
+      .fas {
+        color: $blue;
+      }
+
+      &--features {
+        grid-column: 1/ -1;
+        grid-row: card-features;
+
+        font-size: 2rem;
+        ul {
+          list-style: none;
+        }
+        .features {
+          display: flex;
+
+          &--item {
+            &:nth-child(2) {
+              margin: 0 1rem;
+            }
+            .feature__value {
+              font-size: 1.8rem;
+              font-weight: bold;
+            }
+
+            .feature__unit {
+              font-size: 1rem;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// APPOINTMENT STYLES
+
+.appointment {
+  background-color: $blue;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  position: relative;
+  height: 56rem;
+  width: 100.4rem;
+
+  border-radius: 1.5rem;
+  overflow: hidden;
+  &__agent {
+    background-color: $white;
+    padding: 2rem;
+
+    display: flex;
+    justify-content: center;
+    .agent {
+      display: flex;
+      align-items: center;
+      &__image {
+        margin-right: 0.5rem;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      &__details {
+        &--name {
+          color: $blue;
+          font-size: 2.5rem;
+        }
+        &--title {
+          color: $blue;
+          font-weight: 300;
+          font-size: 1.5rem;
+        }
+        &--email {
+          color: black;
+          font-size: 1rem;
+        }
+        &--contact {
+          color: black;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  &__details {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    &--date_time {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &--info {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        @extend %input_form_white;
+
+        background-color: transparent;
+        height: 3.5rem;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+.timepicker {
+  position: relative;
+
+  display: inline-block;
+  width: 30rem;
+  height: 100%;
+
+  border-radius: 1rem;
+  border: 1px solid $white;
+  overflow: hidden;
+  &__title {
+    text-align: center;
+    background-color: $white;
+
+    padding: 1rem 0.5rem;
+
+    color: $blue;
+  }
+  &__timeofDay {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+    background-color: rgb(230, 230, 230);
+    h3 {
+      font-weight: 300;
+      font-size: 1.5rem;
+      color: black;
+    }
+  }
+  &__timeSlot {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem 0.5rem;
+    &--morning,
+    &--afternoon,
+    &--evening {
+      display: grid;
+    }
+  }
+}
+// TIMESLOT STYLE
+.time {
+  &__toggle {
+    display: none;
+  }
+  &__title {
+    display: inline-block;
+
+    padding: 1rem 2.3rem;
+
+    font-size: 2rem;
+
+    text-align: center;
+    color: $white;
+    border: 1px solid transparent;
+
+    &:hover {
+      color: rgb(209, 209, 209);
+      cursor: pointer;
+    }
+  }
+  &__toggle:checked + &__title {
+    color: $blue;
+    box-sizing: border-box;
+    background-color: $white;
+    border-radius: 1rem;
+
+    display: inline-block;
+    padding: 1rem 2.3rem;
+  }
+}
+
+.display__grid {
+  display: grid;
+}
+.display__flex {
+  display: flex;
+  &--column {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.Card {
+  background: $white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04), 0 4px 5px 0 rgba(0, 0, 0, 0.04),
+    0 1px 10px 0 rgba(0, 0, 0, 0.05);
+
+  position: relative;
+  top: 0;
+  transition: all 0.1s ease-in;
+  width: 100%;
+}
+.card--thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.Card-grid {
+  display: grid;
+  grid-gap: 1rem;
+}
+.grid__card--landscape {
+  display: grid;
+  grid-template-columns: minmax(20rem, 40rem) 1fr;
+
+  @include for-tablet-portrait-up {
+    grid-template-columns: none;
+    grid-template-rows: minmax(10rem, 18rem) 1fr;
+  }
+}
+
+// AGENT CONTACT DIALOG
+.agent__contact--section {
+  background-color: $white;
+  width: 50rem;
+  height: auto;
+  max-width: 70%;
+  padding: 3rem;
+  .agent__contact {
+    display: grid;
+    justify-items: center;
+
+    &--avatar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+
+      @include for-phone-only {
+        flex-wrap: wrap;
+      }
+      img {
+        @include for-phone-only {
+          margin: auto;
+        }
+      }
+      .agent-info {
+        transition: all 0.2s ease-in-out;
+        margin-left: 1rem;
+        * {
+          margin: 0.5rem 0;
+        }
+        font-size: 1.5rem;
+        font-weight: 300;
+        :first-child {
+          font-size: 2rem;
+        }
+        .info-email {
+          position: relative;
+          &::before {
+            content: "Email Address:";
+            margin-right: 0.3rem;
+          }
+        }
+        .info-contact {
+          position: relative;
+          &::before {
+            content: "Contact No:";
+            margin-right: 0.3rem;
+          }
+        }
+        @include for-phone-only {
+          transition: all 0.2s ease-in-out;
+          margin: auto;
+          text-align: center;
+        }
+      }
+    }
+    &--content {
+      display: grid;
+      grid-gap: 2rem;
+      width: 100%;
+
+      input[type="text"] {
+        font-family: $font-primary;
+        font-weight: 300;
+        font-size: 1.8rem;
+        border: none;
+        width: 100%;
+        transition: all 0.2s ease-in-out;
+        border-bottom: 1px solid #707070;
+        background-color: transparent;
+        &::placeholder {
+          color: black;
+        }
+      }
+      input[type="text"]:focus {
+        border-bottom: 2px solid #707070;
+
+        transition: 0.2s ease;
+      }
+
+      a {
+        justify-self: center;
+      }
+    }
+  }
+}
+
+// ACCOUNT
+.account {
+  display: flex;
+  align-items: center;
+  &__menu {
+    margin: 0 1rem;
+    cursor: pointer;
+    position: relative;
+
+    &--items {
+      list-style: none;
+      position: absolute;
+      top: 3rem;
+      width: 12rem;
+      height: 17rem;
+      background-color: $white;
+      border-radius: 1rem;
+      display: none;
+      justify-items: center;
+      align-items: center;
+      padding: 2rem;
+
+      transform: scale(0);
+      transition: all 3ms ease-in-out;
+    }
+    .menu {
+      &--link {
+        &:hover {
+          background-color: $light-gray;
+        }
+        a {
+          text-decoration: none;
+          color: $blue;
+          &:hover {
+            color: $dark-blue;
+          }
+        }
+      }
+      &--title {
+        @include font-size(1.2rem);
+      }
+      &--icon {
+        @include font-size(1.2rem);
+      }
+      &--active {
+        transform: scale(1);
+        display: grid;
+        transition: all 3ms ease-in-out;
+      }
+    }
+  }
+  &__avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+.comp--account {
+  display: block;
+
+  @include for-reg-desktop-up {
+    display: none;
+  }
+}

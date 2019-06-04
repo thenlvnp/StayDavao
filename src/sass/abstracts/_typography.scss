@@ -1,0 +1,27 @@
+%text {
+  font-weight: normal;
+}
+h1 {
+  @extend %text;
+  @include font-size(6.5rem);
+}
+h2 {
+  @extend %text;
+  @include font-size(4.5rem);
+}
+h3 {
+  @extend %text;
+  @include font-size(2rem);
+}
+h4 {
+  @extend %text;
+  @include font-size(1.5rem);
+}
+h5 {
+  @extend %text;
+  @include font-size(1rem);
+}
+h6 {
+  @extend %text;
+  @include font-size(0.8rem);
+}

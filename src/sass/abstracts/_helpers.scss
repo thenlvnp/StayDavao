@@ -1,0 +1,135 @@
+.card-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+}
+.drop-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.text-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exit_btn {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+  padding: 1rem 1.5rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: white;
+
+  &--is-blue {
+    color: $blue;
+  }
+}
+.modal_form {
+  display: none;
+  position: fixed;
+  z-index: 500;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  &-active {
+    transform: translate(-50%, -50%) scale(1);
+    display: block;
+  }
+}
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(167, 167, 167, 0.5);
+  transition: 100ms ease-in-out;
+  pointer-events: none;
+  z-index: 350;
+}
+#overlay.overlay-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pad {
+  &--1 {
+    padding: 1rem;
+  }
+  &--2 {
+    padding: 2.2rem;
+  }
+}
+
+.text {
+  // TEXT COLORS
+  &--blue {
+    color: $blue;
+  }
+  &--white {
+    color: $white;
+  }
+  &--darkblue {
+    color: $dark-blue;
+  }
+  &--darkgray {
+    color: $dark-gray;
+  }
+  &--lightgray {
+    color: $light-gray;
+  }
+  // TEXT WEIGHTS
+  &--bold {
+    font-weight: bold;
+  }
+  &--light {
+    font-weight: 300;
+  }
+}
+.icon {
+  &--blue {
+    color: $blue;
+  }
+  &--white {
+    color: $white;
+  }
+  &--darkblue {
+    color: $dark-blue;
+  }
+  &--darkgray {
+    color: $dark-gray;
+  }
+  &--lightgray {
+    color: $light-gray;
+  }
+}
+.hidden {
+  display: none;
+}
+.full-width {
+  grid-column: full-start/full-end;
+}

@@ -1,0 +1,263 @@
+@import "../abstracts/RFS";
+// ===================================//
+
+%basic_btn {
+  cursor: pointer;
+  border: none;
+  font-family: $font-primary;
+  font-weight: normal;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  padding: 1.8rem 2rem;
+  background: transparent;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+.btn {
+  @extend %basic_btn;
+  border-radius: 0.8rem;
+
+  &__icon {
+    @include font-size(1.1rem);
+  }
+  &--group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &--white {
+    border: 0.2rem solid $white;
+    background-color: $white;
+    transition: all 0.2s ease-in;
+    color: $blue;
+    &:hover {
+      border: 0.2rem solid $light-gray;
+      color: $dark-blue;
+      background-color: $light-gray;
+      transition: all 0.3s;
+    }
+  }
+  &--blue {
+    border: 0.2rem solid $blue;
+    background-color: $blue;
+    transition: all 0.2s ease-in;
+    color: $white;
+    &:hover {
+      border: 0.2rem solid $dark-blue;
+      background-color: $dark-blue;
+      color: rgb(228, 228, 228);
+      transition: all 0.3s ease-in;
+    }
+  }
+
+  // BTN TYPE
+  &--outline {
+    background-color: transparent;
+
+    &-blue {
+      color: $blue;
+      border: 0.2rem solid $blue;
+
+      &:hover {
+        border: 0.2rem solid $dark-blue;
+        color: $dark-blue;
+
+        transition: all 0.3s;
+      }
+    }
+    &-white {
+      color: $white;
+      border: 0.2rem solid $white;
+
+      &:hover {
+        border: 0.2rem solid $dark-blue;
+        color: $dark-blue;
+
+        transition: all 0.3s;
+      }
+    }
+  }
+  // BTN SIZES
+  &--xsmall {
+    @include font-size(1.2rem);
+    padding: 1rem 2rem;
+    margin: 0 0.5rem;
+    @include for-tablet-portrait-up {
+      padding: 0.5rem 1rem;
+    }
+  }
+  &--small {
+    @include font-size(1.2rem);
+    padding: 1.5rem 2rem;
+    margin: 0 0.5rem;
+  }
+  &--medium {
+    @include font-size(1.2rem);
+    padding: 1rem 2rem;
+
+    @include for-reg-desktop-up {
+      padding: 1.5rem 2rem;
+    }
+  }
+  &--wide {
+    @include font-size(1.2rem);
+    padding: 1rem 2rem;
+    height: 4rem;
+    width: 15rem;
+
+    @include for-tablet-portrait-up {
+      height: 4rem;
+      width: auto;
+    }
+  }
+  &--slim {
+    @include font-size(1.2rem);
+    padding: 0.8rem 2rem;
+    width: 10rem;
+  }
+
+  &--large {
+    @include font-size(1.5rem);
+  }
+  &--xtralarge {
+    @include font-size(1.5rem);
+    width: 35rem;
+    height: 15rem;
+    @include for-tablet-portrait-up {
+      width: 30rem;
+      height: 10rem;
+    }
+  }
+}
+
+.hero-btn {
+  padding: 1.5rem 3.5rem;
+  font-size: 1.3rem;
+  font-weight: normal;
+
+  a {
+    text-decoration: none;
+  }
+}
+.btn-is {
+  &--facebook {
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #516aab;
+    &:hover {
+      background-color: #425b9b;
+
+      transition: all 0.3s;
+    }
+  }
+}
+
+// TOGGLE BUTTON
+
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.toggle-button {
+  position: relative;
+
+  width: 7.4rem;
+  height: 3rem;
+  transition: all 0.2s ease-in-out;
+  @include for-reg-desktop-up {
+    width: 6rem;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: $blue;
+  transition: 0.3s ease all;
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+#toggle-switch .knobs:before,
+#toggle-switch .knobs:after,
+#toggle-switch .knobs span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 9px 4px;
+  border-radius: 2px;
+  transition: 0.3s ease all;
+
+  @include for-reg-desktop-up {
+    font-size: 0.8rem;
+  }
+}
+
+#toggle-switch .knobs:before,
+#toggle-switch .knobs:after {
+  color: #4e4e4e;
+  z-index: 1;
+}
+
+#toggle-switch .knobs:before {
+  content: "ON";
+  color: $white;
+  top: 1rem;
+  left: 0;
+}
+
+#toggle-switch .knobs:after {
+  content: "OFF";
+  top: 1rem;
+  right: 1rem;
+}
+
+#toggle-switch .knobs span {
+  width: 25px;
+  left: 4.5rem;
+  background-color: $white;
+
+  z-index: 2;
+
+  @include for-reg-desktop-up {
+    left: 3rem;
+  }
+}
+
+#toggle-switch .checkbox:checked + .knobs span {
+  left: 4px;
+  background-color: $blue;
+}
+
+#toggle-switch .checkbox:checked ~ .layer {
+  background-color: $white;
+  border: 0.1rem solid $blue;
+}
+// TOGGLE BUTTON

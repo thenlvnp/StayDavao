@@ -1,0 +1,341 @@
+$header-link-size: 13px;
+$header-dark-link-color: #bbbcbf;
+$header-dark-background-color: #1b1e26;
+$header-light-link-color: #1b1e26;
+$header-light-background-color: #ffffff;
+
+@import "../abstracts/RFS";
+// ===================================//
+// ********************************************//
+
+.header {
+  grid-column: 1/-1;
+  grid-row: hero-nav;
+
+  z-index: 300;
+  &--main {
+    background-color: white;
+    min-height: 5rem;
+    padding: 0 5rem;
+  }
+  &--inverted {
+    background-color: transparent;
+    min-height: 5rem;
+    padding: 0 5rem;
+  }
+  &__nav {
+    width: 95%;
+    margin: auto;
+    max-width: 1350px;
+    height: 100%;
+    padding: 1rem 0;
+    align-self: center;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 1%;
+
+  &__brand {
+    width: 50%;
+    max-width: 23rem;
+
+    @include for-reg-desktop-up {
+      max-width: 20rem;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  // COMPONENTS
+  &--menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  &--button {
+    :first-child {
+      border: 0.2rem solid $white;
+      color: white;
+
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        border: 0.2rem solid $dark-blue;
+        color: $dark-blue;
+
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    :nth-child(2) {
+      border: 0.2rem solid $blue;
+      background-color: $blue;
+      color: white;
+
+      &:hover {
+        border: 0.2rem solid $dark-blue;
+        background-color: $dark-blue;
+        color: $light-gray;
+
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    @include for-small-desktop-up {
+      :first-child {
+        border: none;
+        color: none;
+        &:hover {
+          border: none;
+          color: none;
+        }
+      }
+    }
+  }
+  &--link {
+    margin: 0 1rem;
+    a {
+      @include font-size(1.2rem);
+      text-decoration: none;
+      color: $blue;
+
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+  }
+  &__icon {
+    display: none;
+
+    position: relative;
+    .icon--menu {
+      position: relative;
+      width: 3rem;
+      height: 0.5rem;
+      border-radius: 1rem;
+      background-color: $blue;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: -1rem;
+        width: 3rem;
+        height: 0.5rem;
+        border-radius: 1rem;
+        background-color: $blue;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        width: 3rem;
+        height: 0.5rem;
+        border-radius: 1rem;
+        background-color: $blue;
+      }
+    }
+  }
+}
+.nav--inverted {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .nav__brand {
+    width: 50%;
+    max-width: 23rem;
+
+    @include for-reg-desktop-up {
+      max-width: 20rem;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .nav__left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &:nth-child(2) {
+      border: 0.2rem solid $white;
+      color: $white;
+    }
+  }
+  // COMPONENTS
+  .nav--menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav--button {
+    :first-child {
+      border: 0.2rem solid $blue;
+      color: $blue;
+
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        border: 0.2rem solid $dark-blue;
+        color: $dark-blue;
+
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    :nth-child(2) {
+      border: 0.2rem solid $blue;
+      background-color: $blue;
+      color: white;
+
+      &:hover {
+        border: 0.2rem solid $dark-blue;
+        background-color: $dark-blue;
+        color: $light-gray;
+
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    @include for-small-desktop-up {
+      :first-child {
+        border: none;
+        color: none;
+        &:hover {
+          border: none;
+          color: none;
+        }
+      }
+    }
+  }
+  .nav--link {
+    margin: 0 1rem;
+    a {
+      @include font-size(1.2rem);
+      text-decoration: none;
+      color: $white;
+
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+  }
+  .nav__icon {
+    display: none;
+    cursor: pointer;
+    position: relative;
+    .icon--menu {
+      position: relative;
+      width: 3rem;
+      height: 0.5rem;
+      border-radius: 1rem;
+      background-color: $blue;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -1rem;
+        width: 3rem;
+        height: 0.5rem;
+        border-radius: 1rem;
+        background-color: $blue;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        width: 3rem;
+        height: 0.5rem;
+        border-radius: 1rem;
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+.nav__mobile {
+  position: absolute;
+  right: 7rem;
+  top: 7rem;
+  padding: 2rem;
+  width: 28rem;
+
+  height: 30rem;
+
+  border-radius: 1rem;
+  background-color: $white;
+
+  pointer-events: auto;
+
+  transform: scale(0.5);
+  transition: all 300ms ease-in;
+  display: none;
+
+  .mobile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &__nav {
+      height: 100%;
+      margin-bottom: auto;
+      ul {
+        list-style: none;
+        li {
+          margin: 0.5rem 0;
+
+          a {
+            @include font-size(2.2rem);
+            font-weight: 400;
+            color: $blue;
+            text-decoration: none;
+            &:hover {
+              color: $dark-blue;
+            }
+          }
+        }
+      }
+    }
+    &__divider {
+      height: 1px;
+
+      overflow: hidden;
+      background-color: $blue;
+    }
+    &__btns {
+      height: 100%;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}
+.nav--active {
+  display: block;
+  transform: scale(1);
+  transition: scale 0.25s ease-in-out;
+}
