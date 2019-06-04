@@ -1,0 +1,43 @@
+@import "../abstracts/RFS";
+// ===================================//
+
+.card {
+  border-radius: 0.6rem;
+  padding: 2rem;
+  background-color: $white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+// CARD TYPE
+.card--review {
+  display: grid;
+
+  &-rating {
+    color: yellow;
+  }
+  &-reviewer {
+    color: $blue;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    &::after {
+      content: "";
+      font-size: 4rem;
+    }
+  }
+}
+
+// CARD COMPONENTS
+.card {
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    :not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+  &__content {
+    @include font-size(1.3rem);
+  }
+}
