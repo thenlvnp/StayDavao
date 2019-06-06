@@ -1,54 +1,11 @@
 // CALENDAR
+let today = new Date();
+let currentMonth = today.getMonth();
+let currentYear = today.getFullYear();
+let selectYear = document.getElementById("year");
+let selectMonth = document.getElementById("month");
 
-function daysInMonth(month, year) {
-  return 32 - new Date(year, month, 32).getDate();
-}
-
-function showCalendar(month, year) {
-  let firstDay = new Date(year, month).getDay();
-
-  tbl = document.getElementById("calendar-body"); // body of the calendar
-  // clearing all previous cells
-  tbl.innerHTML = "";
-
-  // filing data about month and in the page via DOM.
-  monthAndYear.innerHTML = months[month] + " " + year;
-  selectYear.value = year;
-  selectMonth.value = month;
-
-  let date = 1;
-  for (let i = 0; i < 6; i++) {
-    let row = document.createElement("tr");
-
-    // created individual cells and fill with data
-
-    for (let j = 0; j < 7; j++) {
-      if (i === 0 && j < firstDay) {
-        cell = document.createElement("td");
-        cellText = document.createTextNode("");
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-      } else if (date > daysInMonth(month, year)) {
-        break;
-      } else {
-        cell = document.createElement("td");
-        cellText = document.createTextNode(date);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-        date++;
-      }
-      tbl.appendChild(row); // appending each row into calendar body.
-    }
-  }
-}
-
-today = new Date();
-currentMonth = today.getMonth();
-currentYear = today.getFullYear();
-selectYear = document.getElementById("year");
-selectMonth = document.getElementById("month");
-
-months = [
+let months = [
   "Jan",
   "Feb",
   "Mar",
@@ -63,9 +20,9 @@ months = [
   "Dec"
 ];
 
-monthAndYear = document.getElementById("monthAndYear");
+let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
-
+console.log(currentMonth);
 function next() {
   currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
   currentMonth = (currentMonth + 1) % 12;
@@ -78,8 +35,67 @@ function previous() {
   showCalendar(currentMonth, currentYear);
 }
 
-function jump() {
-  currentYear = parseInt(selectYear.value);
-  currentMonth = parseInt(selectMonth.value);
-  showCalendar(currentMonth, currentYear);
+function showCalendar(month, year) {
+  let firstDay = new Date(year, month).getDay();
+  let daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+  let tbl = document.getElementById("calendar-body"); // body of the calendar
+
+  // clearing all previous cells
+  tbl.innerHTML = "";
+
+  // filing data about month and in the page via DOM.
+  monthAndYear.innerHTML = months[month] + " " + year;
+  // selectYear.value = year;
+  // selectMonth.value = month;
+
+  // creating all cells
+  let date = 1;
+  for (let i = 0; i < 6; i++) {
+    // creates a table row
+    let row = document.createElement("tr");
+
+    //creating individual cells, filing them up with data.
+    for (let j = 0; j < 7; j++) {
+      // FILLS IN EMPTY CELLS UNTIL IT REACHES The
+      // first date of the month
+      if (i === 0 && j < firstDay) {
+        let cell = document.createElement("td");
+        let cellText = document.createTextNode("");
+
+        // console.log(j);
+
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+      }
+      // checks if the current date is larger than the
+      // days of the month
+      else if (date > daysInMonth) {
+        console.log("date is already large");
+        break;
+      } else {
+        let cell = document.createElement("td");
+        let cellText = document.createTextNode(date);
+        if (
+          date === today.getDate() &&
+          year === today.getFullYear() &&
+          month === today.getMonth()
+        ) {
+          // color today's date
+          cell.classList.add("bg-info");
+        }
+        // console.log(cellText);
+        cell.classList.add("calendar--day");
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+        date++;
+      }
+    }
+
+    tbl.appendChild(row); // appending each row into calendar body.
+  }
 }
+
+const calendarDay = document.querySelectorAll(".calendar--day");
+
+console.log(calendarDay);

@@ -109,3 +109,49 @@
     }
   }
 }
+.tab-availability {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .time {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    align-items: center;
+    span {
+      text-transform: uppercase;
+      color: $dark-gray;
+      @include font-size(1.3rem);
+
+      align-self: flex-end;
+      span {
+        color: $blue;
+      }
+    }
+    .timetable {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1rem;
+      button {
+        @include font-size(1.3rem);
+        width: 100%;
+        color: $blue;
+        border: 2px solid $blue;
+        padding: 1rem;
+        &:hover {
+          color: $dark-blue;
+          border: 2px solid $dark-blue;
+        }
+      }
+      @include for-tablet-portrait-up {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    button {
+      justify-self: center;
+    }
+  }
+}

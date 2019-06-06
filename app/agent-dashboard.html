@@ -985,67 +985,54 @@
             </div>
           </div>
           <div class="tab--pane " id="availability">
-            <div class="tab-document">
-              <div class="file">
-                <div class="file__name">Government ID 1(required)</div>
-                <div class="upload">
-                  <span class="upload__icon">
-                    <i class="fas fa-file-pdf"></i
-                  ></span>
-                  <div class="upload__name">
-                    SSS.pdf
+            <div class="tab-availability">
+                <div class="calendar--inverted drop-shadow">
+                    <div class="calendar__header">
+                      <button class="btn icon--white" id="previous" onclick="previous()">
+                        <i class="fas fa-chevron-left"></i>
+                      </button>
+                      <h3 class="calendar--month" id="monthAndYear"></h3>
+                      <button class="btn icon--white" id="next" onclick="next()">
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                    </div>
+                    <table class="calendar__content" id="calendar">
+                      <thead>
+                        <tr class="calendar--span">
+                          <th>Sun</th>
+                          <th>Mon</th>
+                          <th>Tue</th>
+                          <th>Wed</th>
+                          <th>Thu</th>
+                          <th>Fri</th>
+                          <th>Sat</th>
+                        </tr>
+                      </thead>
+              
+                      <tbody id="calendar-body"></tbody>
+                    </table>
                   </div>
-                </div>
-                <button class="btn btn--wide btn--blue">Update</button>
-                <button class="btn btn--outline btn--wide btn--outline-blue">
-                  Delete
-                </button>
+            <div class="time">
+              <span>available times  for <span>DATE</span></span>
+              <div class="timetable">
+                <button class="btn">7:00 PM</button>
+                <button class="btn">8:00 PM</button>
+                <button class="btn">9:00 PM</button>
+                <button class="btn">10:00 PM</button>
+                <button class="btn">11:00 PM</button>
+                <button class="btn">12:00 PM</button>
+                <button class="btn">1:00 PM</button>
+                <button class="btn">2:00 PM</button>
+                <button class="btn">3:00 PM</button>
+                <button class="btn">4:00 PM</button>
+                <button class="btn">5:00 PM</button>
+                <button class="btn">6:00 PM</button>
+                <button class="btn">7:00 PM</button>
+                <button class="btn">8:00 PM</button>
+                <button class="btn">9:00 PM</button>
               </div>
-              <div class="file">
-                <div class="file__name">Government ID 1(required)</div>
-                <div class="upload">
-                  <span class="upload__icon">
-                    <i class="fas fa-file-pdf"></i
-                  ></span>
-                  <div class="upload__name">
-                    SSS.pdf
-                  </div>
-                </div>
-                <button class="btn btn--wide btn--blue">Update</button>
-                <button class="btn btn--outline btn--wide btn--outline-blue">
-                  Delete
-                </button>
-              </div>
-              <div class="file">
-                <div class="file__name">Government ID 1(required)</div>
-                <div class="upload">
-                  <span class="upload__icon">
-                    <i class="fas fa-file-pdf"></i
-                  ></span>
-                  <div class="upload__name">
-                    SSS.pdf
-                  </div>
-                </div>
-                <button class="btn btn--wide btn--blue">Update</button>
-                <button class="btn btn--outline btn--wide btn--outline-blue">
-                  Delete
-                </button>
-              </div>
-              <div class="file">
-                <div class="file__name">Government ID 1(required)</div>
-                <div class="upload">
-                  <span class="upload__icon">
-                    <i class="fas fa-file-pdf"></i
-                  ></span>
-                  <div class="upload__name">
-                    SSS.pdf
-                  </div>
-                </div>
-                <button class="btn btn--wide btn--blue">Update</button>
-                <button class="btn btn--outline btn--wide btn--outline-blue">
-                  Delete
-                </button>
-              </div>
+              <button class="btn btn--wide btn--blue">Save Date</button>
+            </div>
             </div>
           </div>
         </div>

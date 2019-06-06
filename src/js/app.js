@@ -1,10 +1,12 @@
 // MOBILE MENU
 const openMenubtn = document.getElementById("menu_icon");
 const menuNav = document.getElementById("mobile-menu");
+if (openMenubtn != null) {
+  openMenubtn.addEventListener("click", menu => {
+    menuNav.classList.toggle("nav--active");
+  });
+}
 
-openMenubtn.addEventListener("click", menu => {
-  menuNav.classList.toggle("nav--active");
-});
 // MOBILE ACCOUNT
 
 // MODAL &TABS
