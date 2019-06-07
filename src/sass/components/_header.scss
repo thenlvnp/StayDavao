@@ -72,8 +72,8 @@ $header-light-background-color: #ffffff;
   }
   &--button {
     :first-child {
-      border: 0.2rem solid $white;
-      color: white;
+      border: 0.2rem solid $blue;
+      color: $blue;
 
       transition: all 0.3s ease-in-out;
       &:hover {
@@ -122,7 +122,7 @@ $header-light-background-color: #ffffff;
   }
   &__icon {
     display: none;
-
+    cursor: pointer;
     position: relative;
     .icon--menu {
       position: relative;
@@ -195,13 +195,13 @@ $header-light-background-color: #ffffff;
   }
   .nav--button {
     :first-child {
-      border: 0.2rem solid $blue;
-      color: $blue;
+      border: 0.2rem solid $white;
+      color: $white;
 
       transition: all 0.3s ease-in-out;
       &:hover {
-        border: 0.2rem solid $dark-blue;
-        color: $dark-blue;
+        border: 0.2rem solid $light-gray;
+        color: $light-gray;
 
         transition: all 0.3s ease-in-out;
       }
@@ -290,16 +290,15 @@ $header-light-background-color: #ffffff;
 
   pointer-events: auto;
 
-  transform: scale(0.5);
   transition: all 300ms ease-in;
   display: none;
 
-  .mobile {
+  .mobile__menu {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    &__nav {
+    &--nav {
       height: 100%;
       margin-bottom: auto;
       ul {
@@ -319,13 +318,8 @@ $header-light-background-color: #ffffff;
         }
       }
     }
-    &__divider {
-      height: 1px;
 
-      overflow: hidden;
-      background-color: $blue;
-    }
-    &__btns {
+    &--actions {
       height: 100%;
 
       display: flex;
@@ -336,6 +330,72 @@ $header-light-background-color: #ffffff;
 }
 .nav--active {
   display: block;
-  transform: scale(1);
+
   transition: scale 0.25s ease-in-out;
+}
+.nav--account-agent {
+  display: flex;
+  align-items: center;
+
+  .account--avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.3rem;
+    img {
+      width: 100%;
+    }
+  }
+  button {
+    @include font-size(1rem);
+
+    padding: 0.9rem;
+  }
+}
+.nav--account-buyer {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .account--avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.3rem;
+    img {
+      width: 100%;
+    }
+  }
+  .account--action {
+    @include font-size(1rem);
+    display: inline-flex;
+    align-items: center;
+  }
+  .account--menu {
+    display: none;
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+
+    background-color: $white;
+    ul {
+      list-style: none;
+      li {
+        margin: 0.5rem 0;
+      }
+    }
+    &-actions {
+      text-decoration: none;
+      color: $blue;
+      @include font-size(1.3rem);
+
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+  }
 }

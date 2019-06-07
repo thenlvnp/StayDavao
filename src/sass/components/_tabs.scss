@@ -4,7 +4,7 @@
   grid-column: full-start/full-end;
 
   max-width: 135rem;
-  width: 85%;
+  width: 95%;
   margin: auto;
 
   border-radius: 0.5rem;
@@ -80,6 +80,10 @@
       bottom: -1.8px;
     }
     a {
+      color: $blue;
+    }
+
+    .fas {
       color: $blue;
     }
   }

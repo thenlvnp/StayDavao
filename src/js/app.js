@@ -8,6 +8,11 @@ if (openMenubtn != null) {
 }
 
 // MOBILE ACCOUNT
+const accountbtn = document.getElementById("account--dropdown");
+
+accountbtn.addEventListener("click", menu => {
+  console.log(menu.nextElementSibling);
+});
 
 // MODAL &TABS
 const openModalButtons = document.querySelectorAll("[data-modal-target]");

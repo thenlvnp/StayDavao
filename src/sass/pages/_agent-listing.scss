@@ -114,12 +114,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 4rem 0;
 
   .time {
     display: grid;
     grid-template-rows: auto;
     grid-gap: 1rem;
     align-items: center;
+    margin: 1rem;
     span {
       text-transform: uppercase;
       color: $dark-gray;

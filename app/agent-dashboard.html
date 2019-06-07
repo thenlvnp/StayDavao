@@ -16,10 +16,11 @@
     />
   </head>
   <body class="container--agent">
+      <div id="overlay"></div>
     <div class="agent--section">
       <!-- HEADER -->
       <header class="header header--main drop-shadow">
-        <nav class="header__nav nav--inverted">
+        <nav class="header__nav nav">
           <a href="/" class="nav__brand">
             <img src="/img/logo-alt.png" alt="" />
           </a>
@@ -43,8 +44,9 @@
               </li>
             </ul>
           </div>
-          <div class="nav__right nav--button">
-            <a
+          <div class="nav__right ">
+           <div class="nav--button hidden">
+              <a
               data-modal-target="#sign-in-modal"
               class="btn btn--xsmall btn--outline hide-on-small-desktop"
             >
@@ -56,15 +58,41 @@
             >
               Register
             </a>
+           </div>
 
             <div id="menu_icon" class="nav__icon show-on-small-desktop">
               <div class="icon--menu"></div>
             </div>
+
+            <div class="nav--account-agent hidden">
+              <figure class="account--avatar">
+                  <img src="./img/agent_avatar.png" alt="">
+              </figure>
+              <button class="btn btn--blue  account--action">Add Listing</button>
+            </div>
+            <div class="nav--account-buyer">
+                <figure class="account--avatar">
+                    <img src="./img/agent_avatar.png" alt="">
+                </figure>
+                <button id="account--dropdown" class="btn text--blue account--action">Renter Name <i class="fas fa-caret-down"></i></button>
+        
+                <!-- ACCOUNT MENU -->
+                <div class="account--menu drop-shadow" id="account--dropdown-content">
+                  <ul>
+                  <li><a href="" class="account--menu-actions">My Profile</a> </li>
+                  <li><a href="" class="account--menu-actions">Support</a> </li>
+                  <li><a href="" class="account--menu-actions">FAQs</a> </li>
+                  <li><a href="" class="account--menu-actions">Logout</a> </li>
+                  </ul>
+                </div>
+                <!-- ACCOUNT MENU -->
+            </div>
+            
           </div>
         </nav>
-        <div class="nav__mobile">
           <!-- MOBILE MENU SCREEN -->
-          <div id="mobile-menu" class="mobile__menu">
+        <div id="mobile-menu" class="nav__mobile drop-shadow">
+          <div  class="mobile__menu">
             <div class="mobile__menu--nav">
               <ul>
                 <li>
@@ -78,20 +106,45 @@
                 <li><a href="#">About Us</a></li>
               </ul>
             </div>
-            <div class="divider"></div>
-            <div class="mobile__menu--btns">
-              <button
-                data-modal-target="#sign-in-modal"
-                class="outline-btn-is--blue "
-              >
-                Sign in
-              </button>
-
-              <a href="/" class="outline-btn-is--blue ">Register</a>
+        
+            <div class="mobile__menu--actions">
+                <div class="mobile__menu--buttons hidden">
+                    <button
+                    data-modal-target="#sign-in-modal"
+                    class="btn btn--slim btn--outline btn--outline-blue"
+                  >
+                    Sign in
+                  </button>
+    
+                  <a href="/" class="btn btn--slim btn--blue">Register</a>
+                  </div>
+                  <div class="nav--account-agent hidden">
+                      <figure class="account--avatar">
+                          <img src="./img/agent_avatar.png" alt="">
+                      </figure>
+                      <button class="btn btn--blue  account--action">Add Listing</button>
+                  </div>
+                  <div class="nav--account-buyer">
+                        <figure class="account--avatar">
+                            <img src="./img/agent_avatar.png" alt="">
+                        </figure>
+                        <button id="account--dropdown" class="btn text--blue account--action">Renter Name <i class="fas fa-caret-down"></i></button>
+        
+                        <!-- ACCOUNT MENU -->
+                        <div class="account--menu drop-shadow" id="account--dropdown-content">
+                          <ul>
+                          <li><a href="" class="account--menu-actions">My Profile</a> </li>
+                          <li><a href="" class="account--menu-actions">Support</a> </li>
+                          <li><a href="" class="account--menu-actions">FAQs</a> </li>
+                          <li><a href="" class="account--menu-actions">Logout</a> </li>
+                          </ul>
+                        </div>
+                        <!-- ACCOUNT MENU -->
+                  </div>
             </div>
           </div>
-          <!-- MOBILE MENU SCREEN -->
         </div>
+         <!-- MOBILE MENU SCREEN -->
       </header>
       <!-- SIGN IN MODAL -->
       <section class="register__form form__login modal_form" id="sign-in-modal">
@@ -801,33 +854,13 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid pad--2">
-                  <div class="Card-grid--2">
-                    <h4>John Doe</h4>
-                    <h4>1 day ago</h4>
+                <div class="Card item Grid card card--review">
+                  <div class="card__header">
+                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <h3 class="card--review-reviewer">John Doe</h3>
+                    <h3>1 day ago</h3>
                   </div>
-                  <p class="">
-                    Vestibulum commodo sapien non elit porttitor, vitae volutpat
-                    nibh mollis. Nulla porta risus id neque tempor, in efficitur
-                    justo imperdiet. Etiam a ex at ante tincidunt imperdiet.
-                    Nunc congue ex vel nisl viverra, sit amet aliquet lectus
-                    ullamcorper. Praesent luctus lacus non lorem elementum, eu
-                    tristique sapien suscipit. Sed bibendum, ipsum nec viverra
-                    malesuada, erat nisi sodales purus, eget hendrerit dui
-                    ligula eu enim. Ut non est nisi. Pellentesque tristique
-                    pretium dolor eu commodo. Proin iaculis nibh vitae lectus
-                    mollis bibendum. Quisque varius eget urna sit amet luctus.
-                    Suspendisse potenti. Curabitur ac placerat est, sit amet
-                    sodales risus. Pellentesque viverra dui auctor, ullamcorper
-                    turpis pharetra, facilisis quam.
-                  </p>
-                </div>
-                <div class="Card item Grid pad--2">
-                  <div class="Card-grid--2">
-                    <h4>John Doe</h4>
-                    <h4>1 day ago</h4>
-                  </div>
-                  <p class="">
+                  <p class="card__content">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -839,39 +872,13 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid pad--2">
-                  <div class="Card-grid--2">
-                    <h4>John Doe</h4>
-                    <h4>1 day ago</h4>
+                <div class="Card item Grid card card--review">
+                  <div class="card__header">
+                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <h3 class="card--review-reviewer">John Doe</h3>
+                    <h3>1 day ago</h3>
                   </div>
-                  <p class="">
-                    Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                    scelerisque nisi urna. Duis rutrum non risus in imperdiet.
-                    Proin molestie accumsan nulla sit amet mattis. Ut vel
-                    tristique neque. Praesent purus eros, aliquet sit amet
-                    venenatis in, sodales in odio. Curabitur ac ligula et purus
-                    cursus vulputate accumsan sit amet erat. Vestibulum ac
-                    mauris ut nisl maximus porta eu a libero. In hac habitasse
-                    platea dictumst. Proin augue urna, pretium vel mauris sed,
-                    lobortis rutrum libero. Donec dapibus mauris id odio ornare
-                    tempus. Duis sit amet accumsan justo, quis tempor ligula.
-                    Quisque quis pharetra felis. Ut quis consequat orci, at
-                    consequat felis. Suspendisse auctor laoreet placerat. Nam et
-                    risus non lacus dignissim lacinia sit amet nec eros. Nulla
-                    vel urna quis libero pharetra varius. Nulla tellus nunc,
-                    malesuada at scelerisque eget, cursus at eros. Maecenas
-                    pellentesque lacus quis erat eleifend sagittis. Sed vel
-                    maximus ante, quis mattis neque. Nullam dapibus erat sed
-                    nulla cursus accumsan. Nulla volutpat libero lacinia
-                    venenatis sodales. Ut in pellentesque velit.
-                  </p>
-                </div>
-                <div class="Card item Grid pad--2">
-                  <div class="Card-grid--2">
-                    <h4>John Doe</h4>
-                    <h4>1 day ago</h4>
-                  </div>
-                  <p class="">
+                  <p class="card__content">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -883,12 +890,13 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid pad--2">
-                  <div class="Card-grid--2">
-                    <h4>John Doe</h4>
-                    <h4>1 day ago</h4>
+                <div class="Card item Grid card card--review">
+                  <div class="card__header">
+                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <h3 class="card--review-reviewer">John Doe</h3>
+                    <h3>1 day ago</h3>
                   </div>
-                  <p class="">
+                  <p class="card__content">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -900,12 +908,13 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid pad--2">
-                  <div class="Card-grid--2">
-                    <h4>John Doe</h4>
-                    <h4>1 day ago</h4>
+                <div class="Card item Grid card card--review">
+                  <div class="card__header">
+                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <h3 class="card--review-reviewer">John Doe</h3>
+                    <h3>1 day ago</h3>
                   </div>
-                  <p class="">
+                  <p class="card__content">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -917,6 +926,61 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
+                <div class="Card item Grid card card--review">
+                  <div class="card__header">
+                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <h3 class="card--review-reviewer">John Doe</h3>
+                    <h3>1 day ago</h3>
+                  </div>
+                  <p class="card__content">
+                    Duis vestibulum elit vel neque pharetra vulputate. Quisque
+                    scelerisque nisi urna. Duis rutrum non risus in imperdiet.
+                    Proin molestie accumsan nulla sit amet mattis. Ut vel
+                    tristique neque. Praesent purus eros, aliquet sit amet
+                    venenatis in, sodales in odio. Curabitur ac ligula et purus
+                    cursus vulputate accumsan sit amet erat. Vestibulum ac
+                    mauris ut nisl maximus porta eu a libero. In hac habitasse
+                    platea dictumst. Proin augue urna, pretium vel mauris sed,
+                    lobortis rutrum libero.
+                  </p>
+                </div>
+                <div class="Card item Grid card card--review">
+                  <div class="card__header">
+                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <h3 class="card--review-reviewer">John Doe</h3>
+                    <h3>1 day ago</h3>
+                  </div>
+                  <p class="card__content">
+                    Duis vestibulum elit vel neque pharetra vulputate. Quisque
+                    scelerisque nisi urna. Duis rutrum non risus in imperdiet.
+                    Proin molestie accumsan nulla sit amet mattis. Ut vel
+                    tristique neque. Praesent purus eros, aliquet sit amet
+                    venenatis in, sodales in odio. Curabitur ac ligula et purus
+                    cursus vulputate accumsan sit amet erat. Vestibulum ac
+                    mauris ut nisl maximus porta eu a libero. In hac habitasse
+                    platea dictumst. Proin augue urna, pretium vel mauris sed,
+                    lobortis rutrum libero.
+                  </p>
+                </div>
+                <div class="Card item Grid card card--review">
+                  <div class="card__header">
+                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <h3 class="card--review-reviewer">John Doe</h3>
+                    <h3>1 day ago</h3>
+                  </div>
+                  <p class="card__content">
+                    Duis vestibulum elit vel neque pharetra vulputate. Quisque
+                    scelerisque nisi urna. Duis rutrum non risus in imperdiet.
+                    Proin molestie accumsan nulla sit amet mattis. Ut vel
+                    tristique neque. Praesent purus eros, aliquet sit amet
+                    venenatis in, sodales in odio. Curabitur ac ligula et purus
+                    cursus vulputate accumsan sit amet erat. Vestibulum ac
+                    mauris ut nisl maximus porta eu a libero. In hac habitasse
+                    platea dictumst. Proin augue urna, pretium vel mauris sed,
+                    lobortis rutrum libero.
+                  </p>
+                </div>
+               
               </div>
             </div>
           </div>
@@ -948,27 +1012,7 @@
                   </div>
                 </div>
                 <button class="btn btn--wide btn--blue">Update</button>
-                <button class="btn btn--outline btn--wide btn--outline-blue">
-                  Delete
-                </button>
-              </div>
-              <div class="file">
-                <div class="file__name">Government ID 1(required)</div>
-                <div class="upload">
-                  <span class="upload__icon">
-                    <i class="fas fa-file-pdf"></i
-                  ></span>
-                  <div class="upload__name">
-                    SSS.pdf
-                  </div>
-                </div>
-                <button class="btn btn--wide btn--blue">Update</button>
-                <button class="btn btn--outline btn--wide btn--outline-blue">
-                  Delete
-                </button>
-              </div>
-              <div class="file">
-                <div class="file__name">Government ID 1(required)</div>
+            iv class="file__name">Government ID 1(required)</div>
                 <div class="upload">
                   <span class="upload__icon">
                     <i class="fas fa-file-pdf"></i
@@ -1015,21 +1059,21 @@
             <div class="time">
               <span>available times  for <span>DATE</span></span>
               <div class="timetable">
-                <button class="btn">7:00 PM</button>
-                <button class="btn">8:00 PM</button>
-                <button class="btn">9:00 PM</button>
-                <button class="btn">10:00 PM</button>
-                <button class="btn">11:00 PM</button>
-                <button class="btn">12:00 PM</button>
-                <button class="btn">1:00 PM</button>
-                <button class="btn">2:00 PM</button>
-                <button class="btn">3:00 PM</button>
-                <button class="btn">4:00 PM</button>
-                <button class="btn">5:00 PM</button>
-                <button class="btn">6:00 PM</button>
-                <button class="btn">7:00 PM</button>
-                <button class="btn">8:00 PM</button>
-                <button class="btn">9:00 PM</button>
+                <button class="btn time--toggle">7:00 PM</button>
+                <button class="btn time--toggle">8:00 PM</button>
+                <button class="btn time--toggle">9:00 PM</button>
+                <button class="btn time--toggle">10:00 PM</button>
+                <button class="btn time--toggle">11:00 PM</button>
+                <button class="btn time--toggle">12:00 PM</button>
+                <button class="btn time--toggle">1:00 PM</button>
+                <button class="btn time--toggle">2:00 PM</button>
+                <button class="btn time--toggle">3:00 PM</button>
+                <button class="btn time--toggle">4:00 PM</button>
+                <button class="btn time--toggle">5:00 PM</button>
+                <button class="btn time--toggle">6:00 PM</button>
+                <button class="btn time--toggle">7:00 PM</button>
+                <button class="btn time--toggle">8:00 PM</button>
+                <button class="btn time--toggle">9:00 PM</button>
               </div>
               <button class="btn btn--wide btn--blue">Save Date</button>
             </div>
