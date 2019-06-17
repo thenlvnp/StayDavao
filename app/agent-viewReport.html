@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script defer src="js/app.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <title>Agent Report</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header header--main">
+      <nav class="header__nav nav">
+        <a href="/" class="nav__brand">
+          <img class="main-logo" src="img/site_logo.png" alt="" />
+          <img class="alt-logo" src="img/logo-alt.png" alt="" />
+        </a>
+
+        <div class="nav__left hide-on-small-desktop">
+          <ul class="nav nav--menu">
+            <li class="nav--link">
+              <a href="./listing.html">Properties for Sale</a>
+            </li>
+            <li class="nav--link">
+              <a href="./listing.html">Properties for Rent</a>
+            </li>
+            <li class="nav--link">
+              <a href="#">Leisure</a>
+            </li>
+            <li class="nav--link">
+              <a href="./agents.html">Agents</a>
+            </li>
+            <li class="nav--link">
+              <a href="#">About Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav__right">
+          <div id="menu_icon" class="nav__icon show-on-small-desktop">
+            <div class="icon--menu"></div>
+          </div>
+
+          <div class="nav--account hide-on-small-desktop">
+            <figure class="account--avatar">
+              <img src="./img/agent_avatar.png" alt="" />
+            </figure>
+
+            <a
+              href="./agent-list-a-property.html"
+              rol="button"
+              class="btn btn--xsmall btn--blue  "
+            >
+              Add Listing
+            </a>
+          </div>
+        </div>
+      </nav>
+      <!-- MOBILE MENU SCREEN -->
+      <div id="mobile-menu" class="nav__mobile">
+        <div class="mobile__menu">
+          <div class="mobile__menu--nav">
+            <ul>
+              <li>
+                <a href="#">Properties for Sale</a>
+              </li>
+              <li>
+                <a href="#">Properties for Rent</a>
+              </li>
+              <li><a href="#">Leisure</a></li>
+              <li><a href="./agents.html">Agents</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+
+          <div class="mobile__menu--actions">
+            <div class="mobile__menu--buttons hidden">
+              <button
+                role="button"
+                data-toggle="modal"
+                data-target="#signInModal"
+                class="btn  btn--blue"
+              >
+                Sign in
+              </button>
+
+              <button href="/" class="btn  btn--blue">
+                Register
+              </button>
+            </div>
+            <div class="nav--account hide-on-small-desktop">
+              <figure class="account--avatar">
+                <img src="./img/agent_avatar.png" alt="" />
+              </figure>
+
+              <button type="button" class="btn btn--xsmall btn--blue  ">
+                Add Listing
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- MOBILE MENU SCREEN -->
+      </div>
+    </header>
+    <!-- SIGN IN MODAL -->
+    <div
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="signInModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h3 class="modal-title text--blue">Sign in to StayDavao</h3>
+            <button
+              type="button"
+              class="close fs-2"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg fs-2"
+                id="emailAddress"
+                placeholder="Email Address"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <span class="display-flex space-between">
+              <button
+                class="btn  btn--blue btn-fullwidth flex-basis-100 m-1"
+                type="submit"
+              >
+                Login
+              </button>
+              <button
+                class="btn  btn-is--facebook flex-basis-100 m-1"
+                type="submit"
+              >
+                <i class="fab fa-facebook-f"></i>Login with Facebook
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIGN IN MODAL -->
+    <!-- HEADER -->
+
+    <div class="agent--section">
+      <div class="agent">
+        <figure class="agent__cover">
+          <img src="img/agent-cover.png" alt="" />
+        </figure>
+
+        <div class="agent--report mt-4">
+          <div class="agent--report-header">
+            <figure class="agent--report-image ">
+              <img src="img/agent-profile.png" alt="" />
+            </figure>
+            <div class="agent--report-info">
+              <h2 class="text-center text--white font-weight-bold">Jane Doe</h2>
+              <h3 class="text-center text--white">
+                Licensed Real Estate Broker
+              </h3>
+            </div>
+            <div class="dropdown generate--report">
+              <button
+                class="btn btn--outline btn--outline-white dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Generate report for
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+          <div class="agent--report-content ">
+            <div class="card--deck-report">
+              <div class="card card--report rounded  bg-gradient d-flex ">
+                <div class="card__content mx-auto d-flex flex-column">
+                  <div class="card--body flex-basis-70">
+                    <h2 class="font-weight-bold display-4 text-center">
+                      34,760
+                    </h2>
+                    <h4 class="text-center">Monthly Revenue</h4>
+                  </div>
+                  <hr class="divider" />
+                  <div class="card--footer d-flex flex-column flex-basis-30">
+                    <span class="mx-auto d-flex align-items-center"
+                      ><h2 class="text--white font-weight-bold">10%</h2>
+                      <i class="fas fa-arrow-up icon--white"></i
+                    ></span>
+                    <h4 class="text--white mx-auto">
+                      Increase from previous month
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="card card--report rounded  bg-gradient d-flex ">
+                <div class="card__content mx-auto d-flex flex-column">
+                  <div class="card--body flex-basis-70">
+                    <h2
+                      class="font-weight-bold font text-center display-4 text-center"
+                    >
+                      1354
+                    </h2>
+                    <h4 class="text-center">Monthly Viewed Reports</h4>
+                  </div>
+                  <hr class="divider" />
+                  <div class="card--footer d-flex flex-column flex-basis-30">
+                    <span class="mx-auto d-flex align-items-center"
+                      ><h2 class="text--white font-weight-bold">10%</h2>
+                      <i class="fas fa-arrow-up icon--white"></i
+                    ></span>
+                    <h4 class="text--white mx-auto">
+                      Increase from previous month
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="card card--report rounded  bg-gradient d-flex ">
+                <div class="card__content mx-auto d-flex flex-column">
+                  <div class="card--body flex-basis-70 align-self-center">
+                    <h2
+                      class="font-weight-bold font text-center display-4 text-center"
+                    >
+                      134
+                    </h2>
+                    <h4 class="text-center">Rented Properties</h4>
+                  </div>
+                  <hr class="divider" />
+                  <div class="card--footer d-flex flex-column flex-basis-30">
+                    <span class="mx-auto d-flex align-items-center"
+                      ><h2 class="text--white font-weight-bold">10%</h2>
+                      <i class="fas fa-arrow-up icon--white"></i
+                    ></span>
+                    <h4 class="text--white mx-auto">
+                      Increase from previous month
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="sd-content">
+      <section class="property--stats place-center" style="grid-row:span 1;">
+        <div class="property--graph bg--gradient">
+          <h4 class="text--blue text-center ">Properties Revenue</h4>
+          <canvas id="myChart"></canvas>
+          <script>
+              var ctx = document.getElementById('myChart').getContext('2d');
+              var myChart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                      datasets: [{
+                          label: '# of Votes',
+                          data: [12, 19, 3, 5, 2, 3],
+                          backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(54, 162, 235, 0.2)',
+                              'rgba(255, 206, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(153, 102, 255, 0.2)',
+                              'rgba(255, 159, 64, 0.2)'
+                          ],
+                          borderColor: [
+                              'rgba(255, 99, 132, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                              'rgba(153, 102, 255, 1)',
+                              'rgba(255, 159, 64, 1)'
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      scales: {
+                          yAxes: [{
+                              ticks: {
+                                  beginAtZero: true
+                              }
+                          }]
+                      }
+                  }
+              });
+              </script>
+        </div>
+        <div class="property--ranking">
+          <h4 class="text--blue text-left ">Top Ranking Properties</h4>
+          <div class="d-grid grid--3">
+            <div class="card__landscape--sm rounded p-3">
+              <figure class="card--image-box ">
+                <img class="rounded" src="img/space_image.png" alt="" />
+              </figure>
+              <div class="card__content p-1">
+                <h5 class="card--header text--white">
+                  Two Bedroom Condominium in Buhangin, Davao City
+                </h5>
+                <div class="card--footer d-flex">
+                  <div
+                    class="d-flex align-items-center bg-white rounded p-3 mx-auto"
+                  >
+                    <i class="fas fa-chart-line  icon--blue"></i>
+                    <div
+                      class="d-flex flex-column text--blue justify-content-center"
+                    >
+                      <h2>1st</h2>
+                      <h6>rank</h6>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex align-items-center bg-gradient rounded p-3 mx-auto"
+                  >
+                    <i class="far fa-eye  icon--white"></i>
+                    <div class="d-flex flex-column">
+                      <h2 class="text--white">134</h2>
+                      <h6 class="text--white">views</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card__landscape--sm rounded p-3">
+              <figure class="card--image-box ">
+                <img class="rounded" src="img/space_image.png" alt="" />
+              </figure>
+              <div class="card__content p-1">
+                <h5 class="card--header text--white">
+                  Two Bedroom Condominium in Buhangin, Davao City
+                </h5>
+                <div class="card--footer d-flex">
+                  <div
+                    class="d-flex align-items-center bg-white rounded p-3 mx-auto"
+                  >
+                    <i class="fas fa-chart-line  icon--blue"></i>
+                    <div
+                      class="d-flex flex-column text--blue justify-content-center"
+                    >
+                      <h2>1st</h2>
+                      <h6>rank</h6>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex align-items-center bg-gradient rounded p-3 mx-auto"
+                  >
+                    <i class="far fa-eye  icon--white"></i>
+                    <div class="d-flex flex-column">
+                      <h2 class="text--white">134</h2>
+                      <h6 class="text--white">views</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card__landscape--sm rounded p-3">
+              <figure class="card--image-box ">
+                <img class="rounded" src="img/space_image.png" alt="" />
+              </figure>
+              <div class="card__content p-1">
+                <h5 class="card--header text--white">
+                  Two Bedroom Condominium in Buhangin, Davao City
+                </h5>
+                <div class="card--footer d-flex">
+                  <div
+                    class="d-flex align-items-center bg-white rounded p-3 mx-auto"
+                  >
+                    <i class="fas fa-chart-line  icon--blue"></i>
+                    <div
+                      class="d-flex flex-column text--blue justify-content-center"
+                    >
+                      <h2>1st</h2>
+                      <h6>rank</h6>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex align-items-center bg-gradient rounded p-3 mx-auto"
+                  >
+                    <i class="far fa-eye  icon--white"></i>
+                    <div class="d-flex flex-column">
+                      <h2 class="text--white">134</h2>
+                      <h6 class="text--white">views</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="d-grid grid--2" >
+            <h4 class="text--blue text-center grid-full-span p-2">
+              Property Ranking
+            </h4>
+            <div
+              class="ranking--left overflow-y"
+              style="height:400px;"
+            >
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col border-bottom-0">Listing Title</th>
+                    <th scope="col">Income</th>
+                    <th scope="col">View</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="ranking--right d-grid grid-md-2">
+              <div class="card card--report rounded  bg-gradient d-flex ">
+                <div class="card__content mx-auto d-flex flex-column">
+                  <div class="card--body flex-basis-70">
+                    <h2
+                      class="font-weight-bold display-4 text-center text--white"
+                    >
+                      500,000 PHP
+                    </h2>
+                    <h4 class="text-center text--white fs-2">
+                      Total Income for current month
+                    </h4>
+                  </div>
+                  <hr class="divider" />
+                  <div class="card--footer d-flex flex-column flex-basis-30">
+                    <h4 class="text--white mx-auto">
+                      30,000 increase from previous month
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="card card--report rounded  bg-gradient d-flex ">
+                <div class="card__content mx-auto d-flex flex-column">
+                  <div class="card--body flex-basis-70">
+                    <h2
+                      class="font-weight-bold display-4 text-center text--white"
+                    >
+                      500,000 PHP
+                    </h2>
+                    <h4 class="text-center text--white fs-2">
+                      Total Income for current month
+                    </h4>
+                  </div>
+                  <hr class="divider" />
+                  <div class="card--footer d-flex flex-column flex-basis-30">
+                    <h4 class="text--white mx-auto">
+                      30,000 increase from previous month
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="property--graph">
+          <h4 class="text--blue text-left ">Viewed Properties</h4>
+        </div>
+        <div class="property--bill">
+          <div class="d-flex flex-wrap align-items-center">
+            <div class="bill--left flex-basis-60 flex-basis-md-100">
+             <div class="d-grid">
+              <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="text--blue text-left">Billing</h4>
+                  <div class="dropdown">
+                      <button
+                        class="btn btn--xsmall btn--outline btn--outline-blue dropdown-toggle"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                       Month
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </div>
+              </div>
+              <div
+              class="ranking--left overflow-y"
+              style="height:400px;"
+            >
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col border-bottom-0">Listing Title</th>
+                    <th scope="col">Total Revenue</th>
+                    <th scope="col">Commission(3%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr class="text--blue font-weight-bold">
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+             </div>
+            </div>
+            <div class="bill--right flex-basis-40 flex-basis-md-100 mt-1">
+              <div class="d-grid ">
+                <div class="d-flex justify-content-between bg-blue p-4 rounded align-items-center">
+                  <h2 class="font-weight-bold text--white">10,034.00 php</h2>
+                 <div class="ml-1">
+                    <h5 class="text--white" >Total Commission</h5>
+                    <h6 class="text--white">(3% per property)</h6>
+                 </div>
+                </div>
+                <div class="d-flex justify-content-between bg-blue p-4 rounded align-items-center">
+                  <h2 class="font-weight-bold text--white">1,034 php</h2>
+                 <div class="ml-1">
+                    <h5 class="text--white" >Premium Service</h5>
+                    <h6 class="text--white">(Monthly Pay)</h6>
+                 </div>
+                </div>
+                <div class="d-flex justify-content-between bg-blue p-4 rounded align-items-center">
+                  <h2 class="font-weight-bold text--white">324 php</h2>
+                 <div class="ml-1">
+                    <h5 class="text--white" >Membership Fee</h5>
+                    <h6 class="text--white">(One-time Payment)</h6>
+                 </div>
+                </div>
+                <div class="rounded  bg-gradient d-flex ">
+                    <div class="card__content mx-auto ">
+                      <div class="card--body">
+                        <h2
+                          class="font-weight-bold display-4 text-center text--white"
+                        >
+                         10,034 <small class="small">php</small>
+                        </h2>
+                        <h4 class="text-center text--white fs-2">
+                          Total Income for current month
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section__developers">
+        <figure>
+          <img src="img/ayala.png" alt="" />
+
+          <img src="img/megaworld.png" alt="" />
+          <img src="img/robinsons.png" alt="" />
+          <img src="img/vistaland.png" alt="" />
+          <img src="img/filinvest.png" alt="" />
+        </figure>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer--section">
+      <div class="footer">
+        <div class="footer__image">
+          <img src="img/site_logo.png" alt="" />
+        </div>
+        <div class="footer__content">
+          <div class="content_span">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="content_span">
+            <h4>Support</h4>
+            <ul>
+              <li>
+                <a href=""> Benefits Working with Us</a>
+              </li>
+              <li><a href="">How StayDavao Works</a></li>
+              <li>
+                <a href="">Contact Us</a>
+              </li>
+              <li><a href=""> FAQs</a></li>
+            </ul>
+          </div>
+          <div class="content_span">
+            <h4>Other Info</h4>
+            <ul>
+              <li>
+                <a href=""> Property for Sale</a>
+              </li>
+              <li><a href="">Property for Rent</a></li>
+              <li><a href="">Agents</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__social">
+          <div class="footer__social--icons">
+            <a href=""><i class="fas fa-anchor"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+          </div>
+
+          <h4>Copyright 2019 | All Rights Reserved</h4>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER -->
+
+   
+  </body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script defer src="js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <title>List a Property</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header header--main">
+      <nav class="header__nav nav">
+        <a href="/" class="nav__brand">
+          <img class="main-logo" src="img/site_logo.png" alt="" />
+          <img class="alt-logo" src="img/logo-alt.png" alt="" />
+        </a>
+
+        <div class="nav__left hide-on-small-desktop">
+          <ul class="nav nav--menu">
+            <li class="nav--link">
+              <a href="./listing.html">Properties for Sale</a>
+            </li>
+            <li class="nav--link">
+              <a href="./listing.html">Properties for Rent</a>
+            </li>
+            <li class="nav--link">
+              <a href="#">Leisure</a>
+            </li>
+            <li class="nav--link">
+              <a href="./agents.html">Agents</a>
+            </li>
+            <li class="nav--link">
+              <a href="#">About Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav__right">
+          <div id="menu_icon" class="nav__icon show-on-small-desktop">
+            <div class="icon--menu"></div>
+          </div>
+
+          <div class="nav--account hide-on-small-desktop">
+            <figure class="account--avatar">
+              <img src="./img/agent_avatar.png" alt="" />
+            </figure>
+
+            <button type="button" class="btn btn--xsmall btn--blue  ">
+              Add Listing
+            </button>
+          </div>
+        </div>
+      </nav>
+      <!-- MOBILE MENU SCREEN -->
+      <div id="mobile-menu" class="nav__mobile">
+        <div class="mobile__menu">
+          <div class="mobile__menu--nav">
+            <ul>
+              <li>
+                <a href="#">Properties for Sale</a>
+              </li>
+              <li>
+                <a href="#">Properties for Rent</a>
+              </li>
+              <li><a href="#">Leisure</a></li>
+              <li><a href="./agents.html">Agents</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+
+          <div class="mobile__menu--actions">
+            <div class="mobile__menu--buttons hidden">
+              <button
+                role="button"
+                data-toggle="modal"
+                data-target="#signInModal"
+                class="btn  btn--blue"
+              >
+                Sign in
+              </button>
+
+              <button href="/" class="btn  btn--blue">
+                Register
+              </button>
+            </div>
+            <div class="nav--account hide-on-small-desktop">
+              <figure class="account--avatar">
+                <img src="./img/agent_avatar.png" alt="" />
+              </figure>
+
+              <button type="button" class="btn btn--xsmall btn--blue  ">
+                Add Listing
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- MOBILE MENU SCREEN -->
+      </div>
+    </header>
+    <!-- SIGN IN MODAL -->
+    <div
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="signInModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h3 class="modal-title text--blue">Sign in to StayDavao</h3>
+            <button
+              type="button"
+              class="close fs-2"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg fs-2"
+                id="emailAddress"
+                placeholder="Email Address"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <span class="display-flex space-between">
+              <button
+                class="btn  btn--blue btn-fullwidth flex-basis-100 m-1"
+                type="submit"
+              >
+                Login
+              </button>
+              <button
+                class="btn  btn-is--facebook flex-basis-100 m-1"
+                type="submit"
+              >
+                <i class="fab fa-facebook-f"></i>Login with Facebook
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIGN IN MODAL -->
+    <!-- HEADER -->
+    <main class="sd-content">
+      <div
+        class="listing-form place-center d-grid grid--2 "
+        style="grid-column-gap:1rem;"
+      >
+        <div class="form--header grid-full-span">
+          <h1 class="text--blue text--bold">List Your Property</h1>
+        </div>
+        <div class="form--left border-right border-bottom">
+          <div class="section--basicInformation ">
+            <h3 class="border-bottom">Basic Information</h3>
+            <form class="p-3">
+              <div class="form-group">
+                <label
+                  class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                  for="fromType"
+                  >Offer Type</label
+                >
+
+                <div
+                  class="btn-group btn-group-toggle w-100 align-items-center"
+                  data-toggle="buttons"
+                >
+                  <label
+                    class="btn btn--outline-blue  rounded-left active fs-2 btn--toggle"
+                  >
+                    <input
+                      type="radio"
+                      name="options"
+                      id="option1"
+                      autocomplete="off"
+                      checked
+                    />
+                    For Sale
+                  </label>
+                  <label
+                    class="btn btn--outline btn--outline-blue fs-2 btn--toggle"
+                  >
+                    <input
+                      type="radio"
+                      name="options"
+                      id="option2"
+                      autocomplete="off"
+                    />
+                    For Rent
+                  </label>
+                </div>
+              </div>
+              <div class="d-grid Grid--2 grid-gap-1">
+                <div class="form-group">
+                  <label
+                    class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                    for="exampleFormControlSelect1"
+                    >Property Type</label
+                  >
+                  <select class="form-control form--outline-blue" required>
+                    <option value="">Residential</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label
+                    class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                    for="exampleFormControlSelect1"
+                    >Subtype</label
+                  >
+                  <select class="form-control form--outline-blue" required>
+                    <option value="">Condominium</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="d-grid Grid--3 grid-gap-1">
+                <div class="form-group ">
+                  <label
+                    class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                    for="inputbedroom"
+                    >Bedrooms</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form--outline-blue"
+                    id="inputbedroom"
+                    placeholder="Bedrooms"
+                  />
+                </div>
+                <div class="form-group ">
+                  <label
+                    class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                    for="inputBathroom"
+                    >Bathrooms</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form--outline-blue"
+                    id="inputBathroom"
+                    placeholder="Bathrooms"
+                  />
+                </div>
+                <div class="form-group ">
+                  <label
+                    class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                    for="inputArea"
+                    >Area</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form--outline-blue"
+                    id="inputArea"
+                    placeholder="Area"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="d-grid Grid--2">
+                  <label
+                    class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                    for="inputLocation"
+                    >Address</label
+                  >
+                  <a
+                    role="button"
+                    data-toggle="modal"
+                    data-target="#locateModal"
+                    class="text--blue font-weight-bold justify-self-end"
+                    href=""
+                    >Locate on map</a
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control form--outline-blue"
+                  id="inputLocation"
+                  aria-describedby="location"
+                  placeholder="Enter Location"
+                />
+                <!-- LOCATE ON MAP MODAL -->
+                <div
+                  class="modal fade"
+                  id="locateModal"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="locateModal"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered"
+                    role="document"
+                  >
+                    <div class="modal-content ">
+                      <div class="modal-body">
+                        Map Goes Here
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- LOCATE ON MAP MODAL -->
+              </div>
+
+              <div class="form-group">
+                <label
+                  class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                  for="exampleInputEmail1"
+                  >Price</label
+                >
+                <input
+                  type="number"
+                  class="form-control form--outline-blue"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Price"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="section--amenities ">
+            <div class="mb-2 border-bottom ">
+              <h3>Amenitites</h3>
+            </div>
+            <form class="p-3">
+              <h4>select included amenities</h4>
+              <div class="d-flex flex-wrap align-items-center ">
+                <button class="form--toggle ">Hot and Cold Shower</button>
+                <button class="form--toggle">Wifi</button>
+                <button class="form--toggle">Fitness Gym</button>
+                <button class="form--toggle">Parking Space</button>
+                <button class="form--toggle">BBQ Area</button>
+                <button class="form--toggle">24/6 Security</button>
+                <button class="form--toggle">Restaurant</button>
+                <button class="form--toggle">Bar</button>
+                <button class="form--toggle">Spa</button>
+                <button class="form--toggle">Clubhouse</button>
+                <button class="form--toggle">PLayground</button>
+                <button class="form--toggle">Tennis Court</button>
+                <button class="form--toggle">Basketball Court</button>
+              </div>
+            </form>
+          </div>
+          <div class="section--contactInformation ">
+            <div class="border-bottom"><h3>Review Contact Information</h3></div>
+            <div class="d-grid Grid--2 p-3">
+              <div class="form-group ">
+                <label
+                  class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                  for="inputEmail4"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control form--outline-blue"
+                  id="inputEmail4"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-group ">
+                <label
+                  class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                  for="inputEmail4"
+                  >Contact Number</label
+                >
+                <input
+                  type="number"
+                  class="form-control form--outline-blue"
+                  id="inputEmail4"
+                  placeholder="Contact Number"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-right">
+          <div class="section--details">
+            <h3 class="border-bottom">Details</h3>
+
+            <div class="form-group  pl-4">
+              <label
+                class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                for="listingTitle"
+                >Listing Title</label
+              >
+              <input
+                type="text"
+                class="form-control form--outline-blue"
+                id="listingTitle"
+                placeholder="eg.Two Bedroom Condominium in Buhangin, Davao City"
+              />
+            </div>
+
+            <div class="form-group pl-4">
+              <label
+                class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                for="listingDescription"
+                >Listing Description</label
+              >
+              <textarea
+                class="form-control form--outline-blue"
+                id="listingDescription"
+                rows="3"
+                placeholder="eg.Two Bedroom"
+              ></textarea>
+            </div>
+          </div>
+          <div class="section--media ">
+            <h3 class="border-bottom">Media</h3>
+            <div class="media-form pl-4">
+              <h3 class="fs-1 text-uppercase text--darkgray font-weight-bold">
+                Upload Property Photos
+              </h3>
+            </div>
+          </div>
+          <div class="section--authorization">
+            <div class="pl-4">
+              <label class="fs-1 text-uppercase text--darkgray font-weight-bold"
+                >Upload Proof of ownership/Authorization</label
+              >
+              <div class="">
+                <input type="" />
+                <button class="btn btn--blue">Upload PDF</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form--footer grid-full-span justify-self-center" style="">
+          <button class="btn btn--wide btn--outline btn--outline-blue">
+            Preview
+          </button>
+          <button class="btn btn--wide btn--blue">Submit Listing</button>
+        </div>
+      </div>
+      <section class="section__developers">
+        <figure>
+          <img src="img/ayala.png" alt="" />
+
+          <img src="img/megaworld.png" alt="" />
+          <img src="img/robinsons.png" alt="" />
+          <img src="img/vistaland.png" alt="" />
+          <img src="img/filinvest.png" alt="" />
+        </figure>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer--section">
+      <div class="footer">
+        <div class="footer__image">
+          <img src="img/site_logo.png" alt="" />
+        </div>
+        <div class="footer__content">
+          <div class="content_span">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="content_span">
+            <h4>Support</h4>
+            <ul>
+              <li>
+                <a href=""> Benefits Working with Us</a>
+              </li>
+              <li><a href="">How StayDavao Works</a></li>
+              <li>
+                <a href="">Contact Us</a>
+              </li>
+              <li><a href=""> FAQs</a></li>
+            </ul>
+          </div>
+          <div class="content_span">
+            <h4>Other Info</h4>
+            <ul>
+              <li>
+                <a href=""> Property for Sale</a>
+              </li>
+              <li><a href="">Property for Rent</a></li>
+              <li><a href="">Agents</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__social">
+          <div class="footer__social--icons">
+            <a href=""><i class="fas fa-anchor"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+          </div>
+
+          <h4>Copyright 2019 | All Rights Reserved</h4>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER -->
+  </body>
+</html>

@@ -4,10 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Agent Dashboard</title>
     <link rel="stylesheet" href="css/main.css" />
 
     <script defer src="js/app.js"></script>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -15,164 +39,157 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="container--agent">
-      <div id="overlay"></div>
-    <div class="agent--section">
-      <!-- HEADER -->
-      <header class="header header--main drop-shadow">
-        <nav class="header__nav nav">
-          <a href="/" class="nav__brand">
-            <img src="/img/logo-alt.png" alt="" />
-          </a>
+  <body>
+    <!-- HEADER -->
+    <header class="header header--main">
+      <nav class="header__nav nav">
+        <a href="/" class="nav__brand">
+          <img class="main-logo" src="img/site_logo.png" alt="" />
+          <img class="alt-logo" src="img/logo-alt.png" alt="" />
+        </a>
 
-          <div class="nav__left hide-on-small-desktop">
-            <ul class="nav nav--menu">
-              <li class="nav--link">
+        <div class="nav__left hide-on-small-desktop">
+          <ul class="nav nav--menu">
+            <li class="nav--link">
+              <a href="./listing.html">Properties for Sale</a>
+            </li>
+            <li class="nav--link">
+              <a href="./listing.html">Properties for Rent</a>
+            </li>
+            <li class="nav--link">
+              <a href="#">Leisure</a>
+            </li>
+            <li class="nav--link">
+              <a href="./agents.html">Agents</a>
+            </li>
+            <li class="nav--link">
+              <a href="#">About Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav__right">
+          <div id="menu_icon" class="nav__icon show-on-small-desktop">
+            <div class="icon--menu"></div>
+          </div>
+
+          <div class="nav--account hide-on-small-desktop">
+            <figure class="account--avatar">
+              <img src="./img/agent_avatar.png" alt="" />
+            </figure>
+
+            <a href="./agent-list-a-property.html" role="button" class="btn btn--xsmall btn--blue  ">
+              Add Listing
+            </a>
+          </div>
+        </div>
+      </nav>
+      <!-- MOBILE MENU SCREEN -->
+      <div id="mobile-menu" class="nav__mobile">
+        <div class="mobile__menu">
+          <div class="mobile__menu--nav">
+            <ul>
+              <li>
                 <a href="#">Properties for Sale</a>
               </li>
-              <li class="nav--link">
+              <li>
                 <a href="#">Properties for Rent</a>
               </li>
-              <li class="nav--link">
-                <a href="#">Leisure</a>
-              </li>
-              <li class="nav--link">
-                <a href="#">Agents</a>
-              </li>
-              <li class="nav--link">
-                <a href="#">About Us</a>
-              </li>
+              <li><a href="#">Leisure</a></li>
+              <li><a href="./agents.html">Agents</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
           </div>
-          <div class="nav__right ">
-           <div class="nav--button hidden">
-              <a
-              data-modal-target="#sign-in-modal"
-              class="btn btn--xsmall btn--outline hide-on-small-desktop"
-            >
-              Sign up
-            </a>
-            <a
-              href="./register.html"
-              class="btn btn--xsmall  hide-on-small-desktop"
-            >
-              Register
-            </a>
-           </div>
 
-            <div id="menu_icon" class="nav__icon show-on-small-desktop">
-              <div class="icon--menu"></div>
+          <div class="mobile__menu--actions">
+            <div class="mobile__menu--buttons hidden">
+              <button
+                role="button"
+                data-toggle="modal"
+                data-target="#signInModal"
+                class="btn  btn--blue"
+              >
+                Sign in
+              </button>
+
+              <button href="/" class="btn  btn--blue">
+                Register
+              </button>
             </div>
-
-            <div class="nav--account-agent hidden">
+            <div class="nav--account hide-on-small-desktop">
               <figure class="account--avatar">
-                  <img src="./img/agent_avatar.png" alt="">
+                <img src="./img/agent_avatar.png" alt="" />
               </figure>
-              <button class="btn btn--blue  account--action">Add Listing</button>
-            </div>
-            <div class="nav--account-buyer">
-                <figure class="account--avatar">
-                    <img src="./img/agent_avatar.png" alt="">
-                </figure>
-                <button id="account--dropdown" class="btn text--blue account--action">Renter Name <i class="fas fa-caret-down"></i></button>
-        
-                <!-- ACCOUNT MENU -->
-                <div class="account--menu drop-shadow" id="account--dropdown-content">
-                  <ul>
-                  <li><a href="" class="account--menu-actions">My Profile</a> </li>
-                  <li><a href="" class="account--menu-actions">Support</a> </li>
-                  <li><a href="" class="account--menu-actions">FAQs</a> </li>
-                  <li><a href="" class="account--menu-actions">Logout</a> </li>
-                  </ul>
-                </div>
-                <!-- ACCOUNT MENU -->
-            </div>
-            
-          </div>
-        </nav>
-          <!-- MOBILE MENU SCREEN -->
-        <div id="mobile-menu" class="nav__mobile drop-shadow">
-          <div  class="mobile__menu">
-            <div class="mobile__menu--nav">
-              <ul>
-                <li>
-                  <a href="#">Properties for Sale</a>
-                </li>
-                <li>
-                  <a href="#">Properties for Rent</a>
-                </li>
-                <li><a href="#">Leisure</a></li>
-                <li><a href="#">Agents</a></li>
-                <li><a href="#">About Us</a></li>
-              </ul>
-            </div>
-        
-            <div class="mobile__menu--actions">
-                <div class="mobile__menu--buttons hidden">
-                    <button
-                    data-modal-target="#sign-in-modal"
-                    class="btn btn--slim btn--outline btn--outline-blue"
-                  >
-                    Sign in
-                  </button>
-    
-                  <a href="/" class="btn btn--slim btn--blue">Register</a>
-                  </div>
-                  <div class="nav--account-agent hidden">
-                      <figure class="account--avatar">
-                          <img src="./img/agent_avatar.png" alt="">
-                      </figure>
-                      <button class="btn btn--blue  account--action">Add Listing</button>
-                  </div>
-                  <div class="nav--account-buyer">
-                        <figure class="account--avatar">
-                            <img src="./img/agent_avatar.png" alt="">
-                        </figure>
-                        <button id="account--dropdown" class="btn text--blue account--action">Renter Name <i class="fas fa-caret-down"></i></button>
-        
-                        <!-- ACCOUNT MENU -->
-                        <div class="account--menu drop-shadow" id="account--dropdown-content">
-                          <ul>
-                          <li><a href="" class="account--menu-actions">My Profile</a> </li>
-                          <li><a href="" class="account--menu-actions">Support</a> </li>
-                          <li><a href="" class="account--menu-actions">FAQs</a> </li>
-                          <li><a href="" class="account--menu-actions">Logout</a> </li>
-                          </ul>
-                        </div>
-                        <!-- ACCOUNT MENU -->
-                  </div>
+
+              <button type="button" class="btn btn--xsmall btn--blue  ">
+                Add Listing
+              </button>
             </div>
           </div>
         </div>
-         <!-- MOBILE MENU SCREEN -->
-      </header>
-      <!-- SIGN IN MODAL -->
-      <section class="register__form form__login modal_form" id="sign-in-modal">
-        <button data-close-button class="exit_btn exit_btn--is-blue">
-          &times;
-        </button>
-
-        <div class="register__form--title">
-          <h1>Sign In to StayDavao</h1>
-        </div>
-        <div class="register__form--content">
-          <input type="text" name="email" placeholder="Email Address" />
-          <input type="password" name="password" placeholder="Password" />
-
-          <span class="span__form--btn">
-            <button class="primary-btn btn-register btn-is--blue">
-              Login
+        <!-- MOBILE MENU SCREEN -->
+      </div>
+    </header>
+    <!-- SIGN IN MODAL -->
+    <div
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="signInModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h3 class="modal-title text--blue">Sign in to StayDavao</h3>
+            <button
+              type="button"
+              class="close fs-2"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
             </button>
-            <button class="primary-btn btn-register btn-is--facebook">
-              <span><i class="fab fa-facebook-f"></i></span> Create with
-              Facebook
-            </button>
-          </span>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg fs-2"
+                id="emailAddress"
+                placeholder="Email Address"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <span class="display-flex space-between">
+              <button
+                class="btn  btn--blue btn-fullwidth flex-basis-100 m-1"
+                type="submit"
+              >
+                Login
+              </button>
+              <button
+                class="btn  btn-is--facebook flex-basis-100 m-1"
+                type="submit"
+              >
+                <i class="fab fa-facebook-f"></i>Login with Facebook
+              </button>
+            </span>
+          </div>
         </div>
-      </section>
-      <!-- SIGN IN MODAL -->
-      <!-- HEADER -->
+      </div>
+    </div>
 
+    <!-- SIGN IN MODAL -->
+    <!-- HEADER -->
+    <div class="agent--section">
       <div class="agent">
         <figure class="agent__cover">
           <img src="img/agent-cover.png" alt="" />
@@ -577,247 +594,262 @@
                     </div>
                   </div>
                   <div class="conversation__body">
-                      <div class="message drop-shadow">
-                          <div class="message__avatar">
-                            <img src="img/agent_avatar.png" alt="" />
-                          </div>
-                          <div class="message__account">
-                            <h4 class="message__account--name">
-                              Jane Doe
-                            </h4>
-                            <h4 class="message__account--snippet">
-                              Message messsage message
-                            </h4>
-                          </div>
-                          <div class="message__date">
-                            April 27
-                          </div>
-                        </div>  <div class="message drop-shadow">
-                            <div class="message__avatar">
-                              <img src="img/agent_avatar.png" alt="" />
-                            </div>
-                            <div class="message__account">
-                              <h4 class="message__account--name">
-                                Jane Doe
-                              </h4>
-                              <h4 class="message__account--snippet">
-                                Message messsage message
-                              </h4>
-                            </div>
-                            <div class="message__date">
-                              April 27
-                            </div>
-                          </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>  <div class="message drop-shadow">
-                  <div class="message__avatar">
-                    <img src="img/agent_avatar.png" alt="" />
-                  </div>
-                  <div class="message__account">
-                    <h4 class="message__account--name">
-                      Jane Doe
-                    </h4>
-                    <h4 class="message__account--snippet">
-                      Message messsage message
-                    </h4>
-                  </div>
-                  <div class="message__date">
-                    April 27
-                  </div>
-                </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
+                    <div class="message drop-shadow">
+                      <div class="message__avatar">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </div>
+                      <div class="message__account">
+                        <h4 class="message__account--name">
+                          Jane Doe
+                        </h4>
+                        <h4 class="message__account--snippet">
+                          Message messsage message
+                        </h4>
+                      </div>
+                      <div class="message__date">
+                        April 27
+                      </div>
+                    </div>
                   </div>
                   <div class="conversation__footer">
                     <input
@@ -834,15 +866,22 @@
             </div>
           </div>
           <div class="tab--pane " id="review">
-            <div class="agent-comments pad--2">
-              <div class="Grid">
-                <div class="Card item Grid card card--review">
-                  <div class="card__header">
-                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <h3 class="card--review-reviewer">John Doe</h3>
-                    <h3>1 day ago</h3>
+            <div class="agent--comments d-grid p-3">
+              <div class="card d-grid drop-shadow rounded">
+                <div class="card__content mb-2">
+                  <div class="card--header d-flex align-items-center ">
+                    <div class="card--left">
+                      <span class="d-flex mr-2 icon--yellow"
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <div class="card--right d-flex align-items-center">
+                      <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+                      <h4>1 day ago</h4>
+                    </div>
                   </div>
-                  <p class="card__content">
+                  <p class="card__body mt-2">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -854,13 +893,22 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid card card--review">
-                  <div class="card__header">
-                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <h3 class="card--review-reviewer">John Doe</h3>
-                    <h3>1 day ago</h3>
+              </div>
+              <div class="card d-grid drop-shadow rounded">
+                <div class="card__content mb-2">
+                  <div class="card--header d-flex align-items-center ">
+                    <div class="card--left">
+                      <span class="d-flex mr-2 icon--yellow"
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <div class="card--right d-flex align-items-center">
+                      <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+                      <h4>1 day ago</h4>
+                    </div>
                   </div>
-                  <p class="card__content">
+                  <p class="card__body mt-2">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -872,13 +920,22 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid card card--review">
-                  <div class="card__header">
-                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <h3 class="card--review-reviewer">John Doe</h3>
-                    <h3>1 day ago</h3>
+              </div>
+              <div class="card d-grid drop-shadow rounded">
+                <div class="card__content mb-2">
+                  <div class="card--header d-flex align-items-center ">
+                    <div class="card--left">
+                      <span class="d-flex mr-2 icon--yellow"
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <div class="card--right d-flex align-items-center">
+                      <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+                      <h4>1 day ago</h4>
+                    </div>
                   </div>
-                  <p class="card__content">
+                  <p class="card__body mt-2">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -890,13 +947,22 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid card card--review">
-                  <div class="card__header">
-                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <h3 class="card--review-reviewer">John Doe</h3>
-                    <h3>1 day ago</h3>
+              </div>
+              <div class="card d-grid drop-shadow rounded">
+                <div class="card__content mb-2">
+                  <div class="card--header d-flex align-items-center ">
+                    <div class="card--left">
+                      <span class="d-flex mr-2 icon--yellow"
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <div class="card--right d-flex align-items-center">
+                      <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+                      <h4>1 day ago</h4>
+                    </div>
                   </div>
-                  <p class="card__content">
+                  <p class="card__body mt-2">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -908,13 +974,22 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid card card--review">
-                  <div class="card__header">
-                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <h3 class="card--review-reviewer">John Doe</h3>
-                    <h3>1 day ago</h3>
+              </div>
+              <div class="card d-grid drop-shadow rounded">
+                <div class="card__content mb-2">
+                  <div class="card--header d-flex align-items-center ">
+                    <div class="card--left">
+                      <span class="d-flex mr-2 icon--yellow"
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <div class="card--right d-flex align-items-center">
+                      <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+                      <h4>1 day ago</h4>
+                    </div>
                   </div>
-                  <p class="card__content">
+                  <p class="card__body mt-2">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -926,13 +1001,22 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid card card--review">
-                  <div class="card__header">
-                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <h3 class="card--review-reviewer">John Doe</h3>
-                    <h3>1 day ago</h3>
+              </div>
+              <div class="card d-grid drop-shadow rounded">
+                <div class="card__content mb-2">
+                  <div class="card--header d-flex align-items-center ">
+                    <div class="card--left">
+                      <span class="d-flex mr-2 icon--yellow"
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <div class="card--right d-flex align-items-center">
+                      <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+                      <h4>1 day ago</h4>
+                    </div>
                   </div>
-                  <p class="card__content">
+                  <p class="card__body mt-2">
                     Duis vestibulum elit vel neque pharetra vulputate. Quisque
                     scelerisque nisi urna. Duis rutrum non risus in imperdiet.
                     Proin molestie accumsan nulla sit amet mattis. Ut vel
@@ -944,43 +1028,6 @@
                     lobortis rutrum libero.
                   </p>
                 </div>
-                <div class="Card item Grid card card--review">
-                  <div class="card__header">
-                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <h3 class="card--review-reviewer">John Doe</h3>
-                    <h3>1 day ago</h3>
-                  </div>
-                  <p class="card__content">
-                    Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                    scelerisque nisi urna. Duis rutrum non risus in imperdiet.
-                    Proin molestie accumsan nulla sit amet mattis. Ut vel
-                    tristique neque. Praesent purus eros, aliquet sit amet
-                    venenatis in, sodales in odio. Curabitur ac ligula et purus
-                    cursus vulputate accumsan sit amet erat. Vestibulum ac
-                    mauris ut nisl maximus porta eu a libero. In hac habitasse
-                    platea dictumst. Proin augue urna, pretium vel mauris sed,
-                    lobortis rutrum libero.
-                  </p>
-                </div>
-                <div class="Card item Grid card card--review">
-                  <div class="card__header">
-                    <span class="card--review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <h3 class="card--review-reviewer">John Doe</h3>
-                    <h3>1 day ago</h3>
-                  </div>
-                  <p class="card__content">
-                    Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                    scelerisque nisi urna. Duis rutrum non risus in imperdiet.
-                    Proin molestie accumsan nulla sit amet mattis. Ut vel
-                    tristique neque. Praesent purus eros, aliquet sit amet
-                    venenatis in, sodales in odio. Curabitur ac ligula et purus
-                    cursus vulputate accumsan sit amet erat. Vestibulum ac
-                    mauris ut nisl maximus porta eu a libero. In hac habitasse
-                    platea dictumst. Proin augue urna, pretium vel mauris sed,
-                    lobortis rutrum libero.
-                  </p>
-                </div>
-               
               </div>
             </div>
           </div>
@@ -1012,7 +1059,27 @@
                   </div>
                 </div>
                 <button class="btn btn--wide btn--blue">Update</button>
-            iv class="file__name">Government ID 1(required)</div>
+                <button class="btn btn--outline btn--wide btn--outline-blue">
+                  Delete
+                </button>
+              </div>
+              <div class="file">
+                <div class="file__name">Government ID 1(required)</div>
+                <div class="upload">
+                  <span class="upload__icon">
+                    <i class="fas fa-file-pdf"></i
+                  ></span>
+                  <div class="upload__name">
+                    SSS.pdf
+                  </div>
+                </div>
+                <button class="btn btn--wide btn--blue">Update</button>
+                <button class="btn btn--outline btn--wide btn--outline-blue">
+                  Delete
+                </button>
+              </div>
+              <div class="file">
+                <div class="file__name">Government ID 1(required)</div>
                 <div class="upload">
                   <span class="upload__icon">
                     <i class="fas fa-file-pdf"></i
@@ -1030,53 +1097,57 @@
           </div>
           <div class="tab--pane " id="availability">
             <div class="tab-availability">
-                <div class="calendar--inverted drop-shadow">
-                    <div class="calendar__header">
-                      <button class="btn icon--white" id="previous" onclick="previous()">
-                        <i class="fas fa-chevron-left"></i>
-                      </button>
-                      <h3 class="calendar--month" id="monthAndYear"></h3>
-                      <button class="btn icon--white" id="next" onclick="next()">
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-                    </div>
-                    <table class="calendar__content" id="calendar">
-                      <thead>
-                        <tr class="calendar--span">
-                          <th>Sun</th>
-                          <th>Mon</th>
-                          <th>Tue</th>
-                          <th>Wed</th>
-                          <th>Thu</th>
-                          <th>Fri</th>
-                          <th>Sat</th>
-                        </tr>
-                      </thead>
-              
-                      <tbody id="calendar-body"></tbody>
-                    </table>
-                  </div>
-            <div class="time">
-              <span>available times  for <span>DATE</span></span>
-              <div class="timetable">
-                <button class="btn time--toggle">7:00 PM</button>
-                <button class="btn time--toggle">8:00 PM</button>
-                <button class="btn time--toggle">9:00 PM</button>
-                <button class="btn time--toggle">10:00 PM</button>
-                <button class="btn time--toggle">11:00 PM</button>
-                <button class="btn time--toggle">12:00 PM</button>
-                <button class="btn time--toggle">1:00 PM</button>
-                <button class="btn time--toggle">2:00 PM</button>
-                <button class="btn time--toggle">3:00 PM</button>
-                <button class="btn time--toggle">4:00 PM</button>
-                <button class="btn time--toggle">5:00 PM</button>
-                <button class="btn time--toggle">6:00 PM</button>
-                <button class="btn time--toggle">7:00 PM</button>
-                <button class="btn time--toggle">8:00 PM</button>
-                <button class="btn time--toggle">9:00 PM</button>
+              <div class="calendar--inverted drop-shadow">
+                <div class="calendar__header">
+                  <button
+                    class="btn icon--white"
+                    id="previous"
+                    onclick="previous()"
+                  >
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <h3 class="calendar--month" id="monthAndYear"></h3>
+                  <button class="btn icon--white" id="next" onclick="next()">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+                <table class="calendar__content" id="calendar">
+                  <thead>
+                    <tr class="calendar--span">
+                      <th>Sun</th>
+                      <th>Mon</th>
+                      <th>Tue</th>
+                      <th>Wed</th>
+                      <th>Thu</th>
+                      <th>Fri</th>
+                      <th>Sat</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="calendar-body"></tbody>
+                </table>
               </div>
-              <button class="btn btn--wide btn--blue">Save Date</button>
-            </div>
+              <div class="time">
+                <span>available times for <span>DATE</span></span>
+                <div class="timetable">
+                  <button class="btn time--toggle">7:00 PM</button>
+                  <button class="btn time--toggle">8:00 PM</button>
+                  <button class="btn time--toggle">9:00 PM</button>
+                  <button class="btn time--toggle">10:00 PM</button>
+                  <button class="btn time--toggle">11:00 PM</button>
+                  <button class="btn time--toggle">12:00 PM</button>
+                  <button class="btn time--toggle">1:00 PM</button>
+                  <button class="btn time--toggle">2:00 PM</button>
+                  <button class="btn time--toggle">3:00 PM</button>
+                  <button class="btn time--toggle">4:00 PM</button>
+                  <button class="btn time--toggle">5:00 PM</button>
+                  <button class="btn time--toggle">6:00 PM</button>
+                  <button class="btn time--toggle">7:00 PM</button>
+                  <button class="btn time--toggle">8:00 PM</button>
+                  <button class="btn time--toggle">9:00 PM</button>
+                </div>
+                <button class="btn btn--wide btn--blue">Save Date</button>
+              </div>
             </div>
           </div>
         </div>

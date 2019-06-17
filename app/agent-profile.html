@@ -4,8 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Agent Profile</title>
     <link rel="stylesheet" href="css/main.css" />
-
+    <script defer src="js/app.js"></script>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -13,108 +32,210 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="container--agent">
-    <div class="agent--section">
-      <!-- HEADER -->
-      <header class="header header--main drop-shadow">
-        <nav class="header__nav nav">
-          <a href="/" class="nav__brand">
-            <img src="/img/logo-alt.png" alt="" />
-          </a>
+  <body>
+    <!-- HEADER -->
+    <header class="header header--main">
+      <nav class="header__nav nav">
+        <a href="/" class="nav__brand">
+          <img class="main-logo" src="img/site_logo.png" alt="" />
+          <img class="alt-logo" src="img/logo-alt.png" alt="" />
+        </a>
 
-          <div class="nav__left hide-on-small-desktop">
-            <ul class="nav nav--menu">
-              <li class="nav--link">
+        <div class="nav__left hide-on-small-desktop">
+          <ul class="nav nav--menu">
+            <li class="nav--link">
+              <a href="./listing.html">Properties for Sale</a>
+            </li>
+            <li class="nav--link">
+              <a href="./listing.html">Properties for Rent</a>
+            </li>
+            <li class="nav--link">
+              <a href="#">Leisure</a>
+            </li>
+            <li class="nav--link">
+              <a href="./agents.html">Agents</a>
+            </li>
+            <li class="nav--link">
+              <a href="#">About Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav__right">
+          <div class="nav--button hide-on-small-desktop hidden">
+            <button
+              type="button"
+              class="btn btn--xsmall btn--outline "
+              data-toggle="modal"
+              data-target="#signInModal"
+            >
+              Sign in
+            </button>
+
+            <a href="./register.html" class="btn btn--xsmall">
+              Register
+            </a>
+          </div>
+
+          <div id="menu_icon" class="nav__icon show-on-small-desktop">
+            <div class="icon--menu"></div>
+          </div>
+
+          <div class="nav--account hide-on-small-desktop">
+            <figure class="account--avatar">
+              <img src="./img/agent_avatar.png" alt="" />
+            </figure>
+
+            <!-- ACCOUNT MENU -->
+            <div class="dropdown ">
+              <a
+                class="btn dropdown-toggle menu--action p-0"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Renter Name
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item menu--action" href="#">My Profile</a>
+                <a class="dropdown-item menu--action" href="#">Support</a>
+                <a class="dropdown-item menu--action" href="#">FAQs</a>
+                <a class="dropdown-item menu--action" href="#">Logout</a>
+              </div>
+            </div>
+            <!-- ACCOUNT MENU -->
+          </div>
+        </div>
+      </nav>
+      <!-- MOBILE MENU SCREEN -->
+      <div id="mobile-menu" class="nav__mobile">
+        <div class="mobile__menu">
+          <div class="mobile__menu--nav">
+            <ul>
+              <li>
                 <a href="#">Properties for Sale</a>
               </li>
-              <li class="nav--link">
+              <li>
                 <a href="#">Properties for Rent</a>
               </li>
-              <li class="nav--link">
-                <a href="#">Leisure</a>
-              </li>
-              <li class="nav--link">
-                <a href="#">Agents</a>
-              </li>
-              <li class="nav--link">
-                <a href="#">About Us</a>
-              </li>
+              <li><a href="#">Leisure</a></li>
+              <li><a href="./agents.html">Agents</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
           </div>
-          <div class="nav__right">
-            <button
-              data-modal-target="#sign-in-modal"
-              class="btn btn--small btn--outline btn--outline-blue hide-on-small-desktop"
-            >
-              Sign up
-            </button>
-            <button class="btn btn--small btn--blue hide-on-small-desktop">
-              Register
-            </button>
 
-            <div id="menu_icon" class="nav__icon show-on-small-desktop">
-              <div class="icon--menu"></div>
-            </div>
-          </div>
-        </nav>
-        <div class="nav__mobile">
-          <!-- MOBILE MENU SCREEN -->
-          <div id="mobile-menu" class="mobile__menu">
-            <div class="mobile__menu--nav">
-              <ul>
-                <li>
-                  <a href="#">Properties for Sale</a>
-                </li>
-                <li>
-                  <a href="#">Properties for Rent</a>
-                </li>
-                <li><a href="#">Leisure</a></li>
-                <li><a href="#">Agents</a></li>
-                <li><a href="#">About Us</a></li>
-              </ul>
-            </div>
-            <div class="divider"></div>
-            <div class="mobile__menu--btns">
+          <div class="mobile__menu--actions">
+            <div class="mobile__menu--buttons hidden">
               <button
-                data-modal-target="#sign-in-modal"
-                class="outline-btn-is--blue "
+                role="button"
+                data-toggle="modal"
+                data-target="#signInModal"
+                class="btn  btn--blue"
               >
                 Sign in
               </button>
 
-              <a href="/" class="outline-btn-is--blue ">Register</a>
+              <button href="/" class="btn  btn--blue">
+                Register
+              </button>
+            </div>
+            <div class="nav--account">
+              <figure class="account--avatar">
+                <img src="./img/agent_avatar.png" alt="" />
+              </figure>
+
+              <!-- ACCOUNT MENU -->
+              <div class="dropdown ">
+                <a
+                  class="btn dropdown-toggle menu--action p-0"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Renter Name
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item menu--action" href="#">My Profile</a>
+                  <a class="dropdown-item menu--action" href="#">Support</a>
+                  <a class="dropdown-item menu--action" href="#">FAQs</a>
+                  <a class="dropdown-item menu--action" href="#">Logout</a>
+                </div>
+              </div>
+              <!-- ACCOUNT MENU -->
             </div>
           </div>
-          <!-- MOBILE MENU SCREEN -->
         </div>
-      </header>
-      <!-- SIGN IN MODAL -->
-      <section class="register__form form__login modal_form" id="sign-in-modal">
-        <button data-close-button class="exit_btn exit_btn--is-blue">
-          &times;
-        </button>
-
-        <div class="register__form--title">
-          <h1>Sign In to StayDavao</h1>
-        </div>
-        <div class="register__form--content">
-          <input type="text" name="email" placeholder="Email Address" />
-          <input type="password" name="password" placeholder="Password" />
-
-          <span class="span__form--btn">
-            <button class="primary-btn btn-register btn-is--blue">
-              Login
+        <!-- MOBILE MENU SCREEN -->
+      </div>
+    </header>
+    <!-- SIGN IN MODAL -->
+    <div
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="signInModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h3 class="modal-title text--blue">Sign in to StayDavao</h3>
+            <button
+              type="button"
+              class="close fs-2"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
             </button>
-            <button class="primary-btn btn-register btn-is--facebook">
-              <span><i class="fab fa-facebook-f"></i></span> Create with
-              Facebook
-            </button>
-          </span>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg fs-2"
+                id="emailAddress"
+                placeholder="Email Address"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <span class="display-flex space-between">
+              <button
+                class="btn  btn--blue btn-fullwidth flex-basis-100 m-1"
+                type="submit"
+              >
+                Login
+              </button>
+              <button
+                class="btn  btn-is--facebook flex-basis-100 m-1"
+                type="submit"
+              >
+                <i class="fab fa-facebook-f"></i>Login with Facebook
+              </button>
+            </span>
+          </div>
         </div>
-      </section>
-      <!-- SIGN IN MODAL -->
-      <!-- HEADER -->
+      </div>
+    </div>
 
+    <!-- SIGN IN MODAL -->
+    <!-- HEADER -->
+    <div class="agent--section">
       <div class="agent">
         <figure class="agent__cover">
           <img src="img/agent-cover.png" alt="" />
@@ -130,7 +251,11 @@
                 <h4>Licensed Real Estate Broker</h4>
               </div>
               <div class="agent__name--buttons">
-                <button class="btn btn--medium btn--white">
+                <button
+                  data-toggle="modal"
+                  data-target="#agentContact"
+                  class="btn btn--medium btn--white"
+                >
                   Contact Agent
                 </button>
               </div>
@@ -165,30 +290,95 @@
             </div>
           </div>
         </div>
+        <!-- AGENT CONTACT MODAL -->
+        <div
+          class="modal fade"
+          id="agentContact"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="agentContact"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button
+                  type="button"
+                  class="close fs-2"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="agent__contact--section">
+                  <div class="agent__contact">
+                    <div class="agent__contact--avatar">
+                      <img src="img/agent_avatar.png" alt="" />
+                      <div class="agent-info">
+                        <h4 class="text-color--blue">Jane Doe</h4>
+                        <h6 class="text-color--blue">
+                          Licensed Real Estate Broker
+                        </h6>
+                        <h6 class="info-email">janed@gmail.com</h6>
+                        <h6 class="info-contact">213-3234 / 0923-785-2345</h6>
+                      </div>
+                    </div>
+                    <div class="agent__contact--content ">
+                      <input
+                        class="form-control"
+                        type="email"
+                        id="Email"
+                        placeholder="Email Address"
+                      />
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="contactNumber"
+                        placeholder="Contact Number"
+                      />
+                      <textarea
+                        class="form-control"
+                        id="Message"
+                        rows="3"
+                        placeholder="Message"
+                      ></textarea>
+
+                      <a href="#" class="btn btn--blue">Send Message</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- AGENT CONTACT MODAL -->
       </div>
     </div>
     <main class="sd-content">
-      <div class="properties pad--2 Grid">
-        <h3>Properties Managed</h3>
-        <div class="Card grid__card--landscape align__items-center">
-          <img class="card--thumb" src="img/agent_property.png" alt="" />
-          <div class="pad--2">
-            <article class="Grid">
-              <div class="Card-grid Card-grid--2 ">
-                <div>
-                  <h2>
-                    3BR Condominium Unit in C.M. Recto, Davao
-                  </h2>
-                  <h4>
-                    <span><i class="fas fa-map-marker-alt"></i></span>C.M.
-                    Recto, Davao
-                  </h4>
-                </div>
-                <h2 class="justify__self-end text-color--blue">
-                  Php 20,000.00
+      <div class="properties">
+        <h3 class="mb-3">Properties Managed</h3>
+        <article class="card__landscape drop-shadow ">
+          <figure class="card--image">
+            <img src="img/agent_property.png" alt="" />
+          </figure>
+          <div class="card__content">
+            <div class="card--header d-flex justify-content-sm-between">
+              <div class="card--left">
+                <h2 class="card--title ">
+                  3BR Condominium Unit in C.M. Recto, Davao
                 </h2>
+                <span class="card--subtitle display-flex"
+                  ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                  Location</span
+                >
               </div>
-
+              <div class="card--right">
+                <h3 class="text--blue">20,000</h3>
+              </div>
+            </div>
+            <div class="card--body">
               <p>
                 Aenean sed nibh a magna posuere tempor. Nunc faucibus
                 pellentesque nunc in aliquet. Donec congue, nunc vel tempor
@@ -197,233 +387,388 @@
                 iaculis sit amet massa. Fusce ac condimentum turpis. Ut
                 consequat lacinia augue, vitae aliquam sapien ullamcorper at.
               </p>
-
-              <div class="Card-grid properties__grid ">
-                <span class="Card-grid Card-grid--3">
-                  <div>
-                    <span
-                      ><i class="fas fa-ruler-combined text-color--blue"></i
-                    ></span>
-
-                    <span>
-                      135
-                    </span>
-
-                    <span>sqm</span>
-                  </div>
-                  <div>
-                    <span><i class="fas fa-bed text-color--blue"></i></span>
-                    <span>
-                      2
-                    </span>
-                    <span>Beds</span>
-                  </div>
-                  <div>
-                    <span><i class="fas fa-bath text-color--blue"></i></span>
-                    <span>
-                      4
-                    </span>
-                    <span>Baths</span>
-                  </div>
-                </span>
-
-                <button class="btn btn--medium btn--blue agent--btn">
-                  View Property
-                </button>
+            </div>
+            <div
+              class="card--footer d-flex flex-mobile-column justify-content-between "
+            >
+              <div class="card--left d-flex p-3">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
               </div>
-            </article>
+              <div class="card--right p-3">
+                <a
+                  role="button"
+                  type="button"
+                  class="btn btn--slim btn--blue"
+                  href="#"
+                  >View Property</a
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card__landscape drop-shadow ">
+          <figure class="card--image">
+            <img src="img/agent_property.png" alt="" />
+          </figure>
+          <div class="card__content">
+            <div class="card--header d-flex justify-content-sm-between">
+              <div class="card--left">
+                <h2 class="card--title ">
+                  3BR Condominium Unit in C.M. Recto, Davao
+                </h2>
+                <span class="card--subtitle display-flex"
+                  ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                  Location</span
+                >
+              </div>
+              <div class="card--right">
+                <h3 class="text--blue">20,000</h3>
+              </div>
+            </div>
+            <div class="card--body">
+              <p>
+                Aenean sed nibh a magna posuere tempor. Nunc faucibus
+                pellentesque nunc in aliquet. Donec congue, nunc vel tempor
+                congue, enim sapien lobortis ipsum, in volutpat sem ex in
+                ligula. Nunc purus est, consequat condimentum faucibus sed,
+                iaculis sit amet massa. Fusce ac condimentum turpis. Ut
+                consequat lacinia augue, vitae aliquam sapien ullamcorper at.
+              </p>
+            </div>
+            <div
+              class="card--footer d-flex flex-mobile-column justify-content-between "
+            >
+              <div class="card--left d-flex p-3">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
+              <div class="card--right p-3">
+                <a
+                  role="button"
+                  type="button"
+                  class="btn btn--slim btn--blue"
+                  href="#"
+                  >View Property</a
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card__landscape drop-shadow ">
+          <figure class="card--image">
+            <img src="img/agent_property.png" alt="" />
+          </figure>
+          <div class="card__content">
+            <div class="card--header d-flex justify-content-sm-between">
+              <div class="card--left">
+                <h2 class="card--title ">
+                  3BR Condominium Unit in C.M. Recto, Davao
+                </h2>
+                <span class="card--subtitle display-flex"
+                  ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                  Location</span
+                >
+              </div>
+              <div class="card--right">
+                <h3 class="text--blue">20,000</h3>
+              </div>
+            </div>
+            <div class="card--body">
+              <p>
+                Aenean sed nibh a magna posuere tempor. Nunc faucibus
+                pellentesque nunc in aliquet. Donec congue, nunc vel tempor
+                congue, enim sapien lobortis ipsum, in volutpat sem ex in
+                ligula. Nunc purus est, consequat condimentum faucibus sed,
+                iaculis sit amet massa. Fusce ac condimentum turpis. Ut
+                consequat lacinia augue, vitae aliquam sapien ullamcorper at.
+              </p>
+            </div>
+            <div
+              class="card--footer d-flex flex-mobile-column justify-content-between "
+            >
+              <div class="card--left d-flex p-3">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
+              <div class="card--right p-3">
+                <a
+                  role="button"
+                  type="button"
+                  class="btn btn--slim btn--blue"
+                  href="#"
+                  >View Property</a
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card__landscape drop-shadow ">
+          <figure class="card--image">
+            <img src="img/agent_property.png" alt="" />
+          </figure>
+          <div class="card__content">
+            <div class="card--header d-flex justify-content-sm-between">
+              <div class="card--left">
+                <h2 class="card--title ">
+                  3BR Condominium Unit in C.M. Recto, Davao
+                </h2>
+                <span class="card--subtitle display-flex"
+                  ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                  Location</span
+                >
+              </div>
+              <div class="card--right">
+                <h3 class="text--blue">20,000</h3>
+              </div>
+            </div>
+            <div class="card--body">
+              <p>
+                Aenean sed nibh a magna posuere tempor. Nunc faucibus
+                pellentesque nunc in aliquet. Donec congue, nunc vel tempor
+                congue, enim sapien lobortis ipsum, in volutpat sem ex in
+                ligula. Nunc purus est, consequat condimentum faucibus sed,
+                iaculis sit amet massa. Fusce ac condimentum turpis. Ut
+                consequat lacinia augue, vitae aliquam sapien ullamcorper at.
+              </p>
+            </div>
+            <div
+              class="card--footer d-flex flex-mobile-column justify-content-between "
+            >
+              <div class="card--left d-flex p-3">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
+              <div class="card--right p-3">
+                <a
+                  role="button"
+                  type="button"
+                  class="btn btn--slim btn--blue"
+                  href="#"
+                  >View Property</a
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="show-more-span ">
+        <button
+          href="#"
+          class="btn btn--medium  btn--outline btn--outline-blue"
+        >
+          View More
+        </button>
+      </div>
+
+      <div class="agent--comments d-grid grid--2 mt-3 mb-3">
+        <h3 class="grid-full-span">Ratings</h3>
+        <div class="card d-grid drop-shadow rounded">
+          <div class="card__content mb-2">
+            <div class="card--header d-flex align-items-center ">
+            <div class="card--left">
+                <span class="d-flex mr-2 icon--yellow"
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ></span>
+            </div>
+             <div class="card--right d-flex align-items-center">
+                <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+              <h4>1 day ago</h4>
+             </div>
+            </div>
+            <p class="card__body mt-2">
+              Duis vestibulum elit vel neque pharetra vulputate. Quisque
+              scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
+              molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
+              Praesent purus eros, aliquet sit amet venenatis in, sodales in
+              odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
+              amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
+              In hac habitasse platea dictumst. Proin augue urna, pretium vel
+              mauris sed, lobortis rutrum libero.
+            </p>
           </div>
         </div>
-        <div class="Card grid__card--landscape align__items-center">
-          <img class="card--thumb" src="img/agent_property.png" alt="" />
-          <div class="pad--2">
-            <article class="Grid">
-              <div class="Card-grid Card-grid--2 ">
-                <div>
-                  <h2>
-                    3BR Condominium Unit in C.M. Recto, Davao
-                  </h2>
-                  <h4>
-                    <span><i class="fas fa-map-marker-alt"></i></span>C.M.
-                    Recto, Davao
-                  </h4>
-                </div>
-                <h2 class="justify__self-end text-color--blue">
-                  Php 20,000.00
-                </h2>
-              </div>
-
-              <p>
-                Aenean sed nibh a magna posuere tempor. Nunc faucibus
-                pellentesque nunc in aliquet. Donec congue, nunc vel tempor
-                congue, enim sapien lobortis ipsum, in volutpat sem ex in
-                ligula. Nunc purus est, consequat condimentum faucibus sed,
-                iaculis sit amet massa. Fusce ac condimentum turpis. Ut
-                consequat lacinia augue, vitae aliquam sapien ullamcorper at.
-              </p>
-
-              <div class="Card-grid properties__grid ">
-                <span class="Card-grid Card-grid--3">
-                  <div>
-                    <span
-                      ><i class="fas fa-ruler-combined text-color--blue"></i
-                    ></span>
-
-                    <span>
-                      135
-                    </span>
-
-                    <span>sqm</span>
-                  </div>
-                  <div>
-                    <span><i class="fas fa-bed text-color--blue"></i></span>
-                    <span>
-                      2
-                    </span>
-                    <span>Beds</span>
-                  </div>
-                  <div>
-                    <span><i class="fas fa-bath text-color--blue"></i></span>
-                    <span>
-                      4
-                    </span>
-                    <span>Baths</span>
-                  </div>
-                </span>
-
-                <button class="btn btn--medium btn--blue agent--btn">
-                  View Property
-                </button>
-              </div>
-            </article>
+        <div class="card d-grid drop-shadow rounded">
+          <div class="card__content mb-2">
+            <div class="card--header d-flex align-items-center ">
+            <div class="card--left">
+                <span class="d-flex mr-2 icon--yellow"
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ></span>
+            </div>
+             <div class="card--right d-flex align-items-center">
+                <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+              <h4>1 day ago</h4>
+             </div>
+            </div>
+            <p class="card__body mt-2">
+              Duis vestibulum elit vel neque pharetra vulputate. Quisque
+              scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
+              molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
+              Praesent purus eros, aliquet sit amet venenatis in, sodales in
+              odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
+              amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
+              In hac habitasse platea dictumst. Proin augue urna, pretium vel
+              mauris sed, lobortis rutrum libero.
+            </p>
           </div>
         </div>
-        <div class="Card grid__card--landscape align__items-center">
-          <img class="card--thumb" src="img/agent_property.png" alt="" />
-          <div class="pad--2">
-            <article class="Grid">
-              <div class="Card-grid Card-grid--2 ">
-                <div>
-                  <h2>
-                    3BR Condominium Unit in C.M. Recto, Davao
-                  </h2>
-                  <h4>
-                    <span><i class="fas fa-map-marker-alt"></i></span>C.M.
-                    Recto, Davao
-                  </h4>
-                </div>
-                <h2 class="justify__self-end text-color--blue">
-                  Php 20,000.00
-                </h2>
-              </div>
-
-              <p>
-                Aenean sed nibh a magna posuere tempor. Nunc faucibus
-                pellentesque nunc in aliquet. Donec congue, nunc vel tempor
-                congue, enim sapien lobortis ipsum, in volutpat sem ex in
-                ligula. Nunc purus est, consequat condimentum faucibus sed,
-                iaculis sit amet massa. Fusce ac condimentum turpis. Ut
-                consequat lacinia augue, vitae aliquam sapien ullamcorper at.
-              </p>
-
-              <div class="Card-grid properties__grid ">
-                <span class="Card-grid Card-grid--3">
-                  <div>
-                    <span
-                      ><i class="fas fa-ruler-combined text-color--blue"></i
-                    ></span>
-
-                    <span>
-                      135
-                    </span>
-
-                    <span>sqm</span>
-                  </div>
-                  <div>
-                    <span><i class="fas fa-bed text-color--blue"></i></span>
-                    <span>
-                      2
-                    </span>
-                    <span>Beds</span>
-                  </div>
-                  <div>
-                    <span><i class="fas fa-bath text-color--blue"></i></span>
-                    <span>
-                      4
-                    </span>
-                    <span>Baths</span>
-                  </div>
-                </span>
-
-                <button class="btn btn--medium btn--blue agent--btn">
-                  View Property
-                </button>
-              </div>
-            </article>
+        <div class="card d-grid drop-shadow rounded">
+          <div class="card__content mb-2">
+            <div class="card--header d-flex align-items-center ">
+            <div class="card--left">
+                <span class="d-flex mr-2 icon--yellow"
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ></span>
+            </div>
+             <div class="card--right d-flex align-items-center">
+                <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+              <h4>1 day ago</h4>
+             </div>
+            </div>
+            <p class="card__body mt-2">
+              Duis vestibulum elit vel neque pharetra vulputate. Quisque
+              scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
+              molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
+              Praesent purus eros, aliquet sit amet venenatis in, sodales in
+              odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
+              amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
+              In hac habitasse platea dictumst. Proin augue urna, pretium vel
+              mauris sed, lobortis rutrum libero.
+            </p>
           </div>
         </div>
-        <div class="Card grid__card--landscape align__items-center">
-          <img class="card--thumb" src="img/agent_property.png" alt="" />
-          <div class="pad--2">
-            <article class="Grid">
-              <div class="Card-grid Card-grid--2 ">
-                <div>
-                  <h2>
-                    3BR Condominium Unit in C.M. Recto, Davao
-                  </h2>
-                  <h4>
-                    <span><i class="fas fa-map-marker-alt"></i></span>C.M.
-                    Recto, Davao
-                  </h4>
-                </div>
-                <h2 class="justify__self-end text-color--blue">
-                  Php 20,000.00
-                </h2>
-              </div>
-
-              <p>
-                Aenean sed nibh a magna posuere tempor. Nunc faucibus
-                pellentesque nunc in aliquet. Donec congue, nunc vel tempor
-                congue, enim sapien lobortis ipsum, in volutpat sem ex in
-                ligula. Nunc purus est, consequat condimentum faucibus sed,
-                iaculis sit amet massa. Fusce ac condimentum turpis. Ut
-                consequat lacinia augue, vitae aliquam sapien ullamcorper at.
-              </p>
-
-              <div class="Card-grid properties__grid ">
-                <span class="Card-grid Card-grid--3">
-                  <div>
-                    <span
-                      ><i class="fas fa-ruler-combined text-color--blue"></i
-                    ></span>
-
-                    <span>
-                      135
-                    </span>
-
-                    <span>sqm</span>
-                  </div>
-                  <div>
-                    <span><i class="fas fa-bed text-color--blue"></i></span>
-                    <span>
-                      2
-                    </span>
-                    <span>Beds</span>
-                  </div>
-                  <div>
-                    <span><i class="fas fa-bath text-color--blue"></i></span>
-                    <span>
-                      4
-                    </span>
-                    <span>Baths</span>
-                  </div>
-                </span>
-
-                <button class="btn btn--medium btn--blue agent--btn">
-                  View Property
-                </button>
-              </div>
-            </article>
+        <div class="card d-grid drop-shadow rounded">
+          <div class="card__content mb-2">
+            <div class="card--header d-flex align-items-center ">
+            <div class="card--left">
+                <span class="d-flex mr-2 icon--yellow"
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ></span>
+            </div>
+             <div class="card--right d-flex align-items-center">
+                <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+              <h4>1 day ago</h4>
+             </div>
+            </div>
+            <p class="card__body mt-2">
+              Duis vestibulum elit vel neque pharetra vulputate. Quisque
+              scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
+              molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
+              Praesent purus eros, aliquet sit amet venenatis in, sodales in
+              odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
+              amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
+              In hac habitasse platea dictumst. Proin augue urna, pretium vel
+              mauris sed, lobortis rutrum libero.
+            </p>
+          </div>
+        </div>
+        <div class="card d-grid drop-shadow rounded">
+          <div class="card__content mb-2">
+            <div class="card--header d-flex align-items-center ">
+            <div class="card--left">
+                <span class="d-flex mr-2 icon--yellow"
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ></span>
+            </div>
+             <div class="card--right d-flex align-items-center">
+                <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+              <h4>1 day ago</h4>
+             </div>
+            </div>
+            <p class="card__body mt-2">
+              Duis vestibulum elit vel neque pharetra vulputate. Quisque
+              scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
+              molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
+              Praesent purus eros, aliquet sit amet venenatis in, sodales in
+              odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
+              amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
+              In hac habitasse platea dictumst. Proin augue urna, pretium vel
+              mauris sed, lobortis rutrum libero.
+            </p>
+          </div>
+        </div>
+        <div class="card d-grid drop-shadow rounded">
+          <div class="card__content mb-2">
+            <div class="card--header d-flex align-items-center ">
+            <div class="card--left">
+                <span class="d-flex mr-2 icon--yellow"
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ></span>
+            </div>
+             <div class="card--right d-flex align-items-center">
+                <h4 class="text--blue fs-2 mr-3">John Doe</h4>
+              <h4>1 day ago</h4>
+             </div>
+            </div>
+            <p class="card__body mt-2">
+              Duis vestibulum elit vel neque pharetra vulputate. Quisque
+              scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
+              molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
+              Praesent purus eros, aliquet sit amet venenatis in, sodales in
+              odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
+              amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
+              In hac habitasse platea dictumst. Proin augue urna, pretium vel
+              mauris sed, lobortis rutrum libero.
+            </p>
           </div>
         </div>
       </div>
@@ -435,214 +780,69 @@
           View More
         </button>
       </div>
-      
+      <section class="section__developers">
+        <figure>
+          <img src="img/ayala.png" alt="" />
 
-      <div class="agent-comments pad--2">
-          <h1 style="text-align:center;grid-column: full-start/full-end;">
-            Ratings
-          </h1>
-          <div class="Card-grid--2">
-            <div class="Card item Grid pad--2 card card--review">
-              <div class="card__header">
-                <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                <h4>John Doe</h4>
-                <h4>1 day ago</h4>
-              </div>
-              <p class="card__content">
-                Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
-                molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
-                Praesent purus eros, aliquet sit amet venenatis in, sodales in
-                odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
-                amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
-                In hac habitasse platea dictumst. Proin augue urna, pretium vel
-                mauris sed, lobortis rutrum libero.
-              </p>
-            </div>
-            <div class="Card item Grid pad--2">
-              <div class="Card-grid--2">
-                <h4>John Doe</h4>
-                <h4>1 day ago</h4>
-              </div>
-              <p class="">
-                Vestibulum commodo sapien non elit porttitor, vitae volutpat nibh
-                mollis. Nulla porta risus id neque tempor, in efficitur justo
-                imperdiet. Etiam a ex at ante tincidunt imperdiet. Nunc congue ex
-                vel nisl viverra, sit amet aliquet lectus ullamcorper. Praesent
-                luctus lacus non lorem elementum, eu tristique sapien suscipit.
-                Sed bibendum, ipsum nec viverra malesuada, erat nisi sodales
-                purus, eget hendrerit dui ligula eu enim. Ut non est nisi.
-                Pellentesque tristique pretium dolor eu commodo. Proin iaculis
-                nibh vitae lectus mollis bibendum. Quisque varius eget urna sit
-                amet luctus. Suspendisse potenti. Curabitur ac placerat est, sit
-                amet sodales risus. Pellentesque viverra dui auctor, ullamcorper
-                turpis pharetra, facilisis quam.
-              </p>
-            </div>
-            <div class="Card item Grid pad--2">
-              <div class="Card-grid--2">
-                <h4>John Doe</h4>
-                <h4>1 day ago</h4>
-              </div>
-              <p class="">
-                Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
-                molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
-                Praesent purus eros, aliquet sit amet venenatis in, sodales in
-                odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
-                amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
-                In hac habitasse platea dictumst. Proin augue urna, pretium vel
-                mauris sed, lobortis rutrum libero.
-              </p>
-            </div>
-            <div class="Card item Grid pad--2">
-              <div class="Card-grid--2">
-                <h4>John Doe</h4>
-                <h4>1 day ago</h4>
-              </div>
-              <p class="">
-                Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
-                molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
-                Praesent purus eros, aliquet sit amet venenatis in, sodales in
-                odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
-                amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
-                In hac habitasse platea dictumst. Proin augue urna, pretium vel
-                mauris sed, lobortis rutrum libero. Donec dapibus mauris id odio
-                ornare tempus. Duis sit amet accumsan justo, quis tempor ligula.
-                Quisque quis pharetra felis. Ut quis consequat orci, at consequat
-                felis. Suspendisse auctor laoreet placerat. Nam et risus non lacus
-                dignissim lacinia sit amet nec eros. Nulla vel urna quis libero
-                pharetra varius. Nulla tellus nunc, malesuada at scelerisque eget,
-                cursus at eros. Maecenas pellentesque lacus quis erat eleifend
-                sagittis. Sed vel maximus ante, quis mattis neque. Nullam dapibus
-                erat sed nulla cursus accumsan. Nulla volutpat libero lacinia
-                venenatis sodales. Ut in pellentesque velit.
-              </p>
-            </div>
-            <div class="Card item Grid pad--2">
-              <div class="Card-grid--2">
-                <h4>John Doe</h4>
-                <h4>1 day ago</h4>
-              </div>
-              <p class="">
-                Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
-                molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
-                Praesent purus eros, aliquet sit amet venenatis in, sodales in
-                odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
-                amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
-                In hac habitasse platea dictumst. Proin augue urna, pretium vel
-                mauris sed, lobortis rutrum libero.
-              </p>
-            </div>
-            <div class="Card item Grid pad--2">
-              <div class="Card-grid--2">
-                <h4>John Doe</h4>
-                <h4>1 day ago</h4>
-              </div>
-              <p class="">
-                Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
-                molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
-                Praesent purus eros, aliquet sit amet venenatis in, sodales in
-                odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
-                amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
-                In hac habitasse platea dictumst. Proin augue urna, pretium vel
-                mauris sed, lobortis rutrum libero.
-              </p>
-            </div>
-            <div class="Card item Grid pad--2">
-              <div class="Card-grid--2">
-                <h4>John Doe</h4>
-                <h4>1 day ago</h4>
-              </div>
-              <p class="">
-                Duis vestibulum elit vel neque pharetra vulputate. Quisque
-                scelerisque nisi urna. Duis rutrum non risus in imperdiet. Proin
-                molestie accumsan nulla sit amet mattis. Ut vel tristique neque.
-                Praesent purus eros, aliquet sit amet venenatis in, sodales in
-                odio. Curabitur ac ligula et purus cursus vulputate accumsan sit
-                amet erat. Vestibulum ac mauris ut nisl maximus porta eu a libero.
-                In hac habitasse platea dictumst. Proin augue urna, pretium vel
-                mauris sed, lobortis rutrum libero.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="show-more-span ">
-            <button
-              href="#"
-              class="btn btn--medium  btn--outline btn--outline-blue"
-            >
-              View More
-            </button>
-          </div>
-        <section class="section__developers">
-          <figure>
-            <img src="img/ayala.png" alt="" />
-  
-            <img src="img/megaworld.png" alt="" />
-            <img src="img/robinsons.png" alt="" />
-            <img src="img/vistaland.png" alt="" />
-            <img src="img/filinvest.png" alt="" />
-          </figure>
-        </section>
-    
-
+          <img src="img/megaworld.png" alt="" />
+          <img src="img/robinsons.png" alt="" />
+          <img src="img/vistaland.png" alt="" />
+          <img src="img/filinvest.png" alt="" />
+        </figure>
+      </section>
     </main>
-     <!-- FOOTER -->
-     <footer class="footer--section">
-        <div class="footer">
-          <div class="footer__image">
-            <img src="img/site_logo.png" alt="" />
+    <!-- FOOTER -->
+    <footer class="footer--section">
+      <div class="footer">
+        <div class="footer__image">
+          <img src="img/site_logo.png" alt="" />
+        </div>
+        <div class="footer__content">
+          <div class="content_span">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
           </div>
-          <div class="footer__content">
-            <div class="content_span">
-              <h4>Company</h4>
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Careers</a></li>
-              </ul>
-            </div>
-            <div class="content_span">
-              <h4>Support</h4>
-              <ul>
-                <li>
-                  <a href=""> Benefits Working with Us</a>
-                </li>
-                <li><a href="">How StayDavao Works</a></li>
-                <li>
-                  <a href="">Contact Us</a>
-                </li>
-                <li><a href=""> FAQs</a></li>
-              </ul>
-            </div>
-            <div class="content_span">
-              <h4>Other Info</h4>
-              <ul>
-                <li>
-                  <a href=""> Property for Sale</a>
-                </li>
-                <li><a href="">Property for Rent</a></li>
-                <li><a href="">Agents</a></li>
-              </ul>
-            </div>
+          <div class="content_span">
+            <h4>Support</h4>
+            <ul>
+              <li>
+                <a href=""> Benefits Working with Us</a>
+              </li>
+              <li><a href="">How StayDavao Works</a></li>
+              <li>
+                <a href="">Contact Us</a>
+              </li>
+              <li><a href=""> FAQs</a></li>
+            </ul>
           </div>
-          <div class="footer__social">
-            <div class="footer__social--icons">
-              <a href=""><i class="fab fa-facebook-f"></i></a>
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-instagram"></i></a>
-              <a href=""><i class="fab fa-youtube"></i></a>
-            </div>
-  
-            <h4>Copyright 2019 | All Rights Reserved</h4>
+          <div class="content_span">
+            <h4>Other Info</h4>
+            <ul>
+              <li>
+                <a href=""> Property for Sale</a>
+              </li>
+              <li><a href="">Property for Rent</a></li>
+              <li><a href="">Agents</a></li>
+            </ul>
           </div>
         </div>
-      </footer>
-      <!-- FOOTER -->
+        <div class="footer__social">
+          <div class="footer__social--icons">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+          </div>
+
+          <h4>Copyright 2019 | All Rights Reserved</h4>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER -->
   </body>
 </html>

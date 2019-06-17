@@ -1,12 +1,6 @@
 @import "../abstracts/RFS";
 // ===================================//
 
-.card {
-  border-radius: 0.6rem;
-  padding: 2rem;
-  background-color: $white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
 // CARD TYPE
 .card--review {
   display: grid;
@@ -25,6 +19,22 @@
     }
   }
 }
+.card--report {
+  @include for-large-phone-only {
+    width: 100%;
+  }
+  .card__content {
+    @include for-large-phone-only {
+      height: 50%;
+      width: 100%;
+    }
+    .card--footer {
+      @include for-large-phone-only {
+        padding: 1rem;
+      }
+    }
+  }
+}
 
 // CARD COMPONENTS
 .card {
@@ -39,5 +49,135 @@
   }
   &__content {
     @include font-size(1.3rem);
+    padding: 2rem;
+  }
+}
+
+// CARD LAYOUT
+.card--deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 2rem;
+  justify-items: center;
+  @include for-tablet-portrait-up {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+  }
+}
+.card--deck-report {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  justify-items: center;
+
+  @include for-tablet-landscape-up {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+  @include for-large-phone-only {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+}
+// CARD ORIENTATION
+.card__landscape {
+  display: grid;
+  grid-template-columns: 50rem 1fr;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  @include for-reg-desktop-up {
+    grid-template-columns: 28rem 1fr;
+  }
+  @include for-tablet-landscape-up {
+    grid-template-columns: 1fr;
+    grid-template-rows: 20rem 1fr;
+  }
+}
+.card__landscape--sm {
+  display: grid;
+  grid-template-columns: 13rem 1fr;
+  align-items: center;
+  background-color: $blue;
+}
+// CARD STYLES
+.sd-card {
+  background-color: $white;
+  border-radius: 1rem;
+}
+.card--property {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-rows: 25rem 1fr;
+
+  @include for-tablet-portrait-up {
+    grid-template-rows: 15rem 1fr;
+  }
+}
+
+.card--image {
+  position: relative;
+  height: 100%;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.card--image-box {
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+.card--body {
+  padding: 2rem 1rem;
+}
+.card--footer {
+  margin-top: 1.5rem;
+}
+.card {
+  &--title {
+    font-weight: 600;
+    @include font-size(2.3rem);
+  }
+  &--subtitle {
+    margin: 0.5rem 0;
+    font-weight: 400;
+    @include font-size(1.4rem);
+  }
+  &--feature {
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: baseline;
+  }
+  &--description {
+    @include font-size(2rem);
+  }
+  &--price {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    @include font-size(3.5rem);
+    font-weight: 600;
+    color: $white;
+  }
+  &--icon {
+    color: $blue;
+  }
+}
+.feature {
+  &--icon {
+    color: $blue;
+  }
+  &--title {
+    position: relative;
+    font-weight: 700;
+  }
+  &--unit {
+    margin: 0;
   }
 }

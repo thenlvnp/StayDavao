@@ -4,17 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script defer type="text/javascript" src="js/main.js"></script>
-    <script defer type="text/javascript" src="js/mobile_menu.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <script defer src="js/app.js"></script>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/main.css" />
-    <script defer src="/js/main.js"></script>
-    <script defer src="/js/mobile_menu.js"></script>
     <title>Listing</title>
   </head>
   <body class="container--slim">
@@ -24,52 +39,24 @@
         <img src="img/landing_img.jpg" alt="image" />
       </figure>
       <div class="hero__content">
-        <h1>Search. See. Be Home.</h1>
+        <h2>Search. See. Be Home.</h2>
 
         <div class="hero__nav">
           <div class="nav__content">
-            <div class="form form--dropdown form--lightgray text--darkgray">
-              <span class="form__placeholder">Property Type</span>
-              <span class="form__icon"><i class="fas fa-sort-down"></i></span>
-
-              <div id="dropdown" class="form--options form--lightgray">
-                <div class="form--item">
-                  Property Type
-                </div>
-                <div class="form--item">
-                  Property Type 1
-                </div>
-                <div class="form--item">
-                  Property Type 2
-                </div>
-              </div>
-            </div>
-
-            <div
-              id="dropdown"
-              class="form form--dropdown form--lightgray text--darkgray"
-            >
-              <span class="form__placeholder">Offer Type</span>
-              <span class="form__icon"><i class="fas fa-sort-down"></i></span>
-
-              <div class="form--options form--lightgray">
-                <div class="form--item">
-                  Offer Type
-                </div>
-                <div class="form--item">
-                  Offer Type 1
-                </div>
-                <div class="form--item">
-                  Offer Type 2
-                </div>
-              </div>
-            </div>
+            <select class="form-control form-control-lg" id="formType">
+              <option>Property Type</option>
+            </select>
+            <select class="form-control form-control-lg" id="formType">
+              <option>Offer Type</option>
+            </select>
             <input
-              class="form form--lightgray"
               type="text"
-              placeholder="Location or Places Nearby"
+              class="form-control form-control-lg"
+              id="formPrice"
+              placeholder="Max Price"
             />
-            <button class="btn btn-small btn--blue btn--group">
+
+            <button class="btn btn--blue ">
               <span><i class="fas fa-search btn__icon"></i></span> Search
               Property
             </button>
@@ -81,7 +68,8 @@
       <header class="header header--inverted">
         <nav class="header__nav nav--inverted">
           <a href="/" class="nav__brand">
-            <img src="/img/site_logo.png" alt="" />
+            <img class="main-logo" src="img/site_logo.png" alt="" />
+            <img class="alt-logo" src="img/logo-alt.png" alt="" />
           </a>
 
           <div class="nav__left hide-on-small-desktop">
@@ -104,37 +92,30 @@
             </ul>
           </div>
           <div class="nav__right">
-            <div id="account" class="comp--account">
-                <div class="account">
-                    <div class="account__avatar">
-                      <img src="img/agent_avatar.png" alt="" />
-                    </div>
-                    <div id="account" class="account__menu">
-                      <span class="menu--title text--white">Renter Name</span>
-                      <span class="menu--icon icon--white"
-                        ><i class="fas fa-sort-down"></i
-                      ></span>
-      
-                      <ul id="account-menu" class="account__menu--items">
-                        <li class="menu--link"><a href="">My Profile</a></li>
-                        <li class="menu--link"><a href="">Support</a></li>
-                        <li class="menu--link"><a href="">FAQs</a></li>
-                        <li class="menu--link"><a href="">Log Out</a></li>
-                      </ul>
-                    </div>
-                  </div>
+            <div class="nav--button hide-on-small-desktop">
+              <button
+                type="button"
+                class="btn btn--xsmall btn--outline "
+                data-toggle="modal"
+                data-target="#signInModal"
+              >
+                Sign in
+              </button>
+
+              <a href="./register.html" class="btn btn--xsmall">
+                Register
+              </a>
             </div>
-          
 
             <div id="menu_icon" class="nav__icon show-on-small-desktop">
               <div class="icon--menu"></div>
             </div>
           </div>
         </nav>
-        <div id="mobile-menu" class="nav__mobile" >
-          <!-- MOBILE MENU SCREEN -->
-          <div  class="mobile">
-            <div class="mobile__nav">
+        <!-- MOBILE MENU SCREEN -->
+        <div id="mobile-menu" class="nav__mobile">
+          <div class="mobile__menu">
+            <div class="mobile__menu--nav">
               <ul>
                 <li>
                   <a href="#">Properties for Sale</a>
@@ -146,464 +127,329 @@
                 <li><a href="./agents.html">Agents</a></li>
                 <li><a href="#">About Us</a></li>
               </ul>
-              <div class="mobile__divider"></div>
             </div>
-           
-            <div class="mobile__btns">
-              <button
-                data-modal-target="#sign-in-modal"
-                class="btn btn--small btn--blue"
-              >
-                Sign in
-              </button>
 
-              <button href="/" class="btn btn--small btn--blue">Register</button>
+            <div class="mobile__menu--actions">
+              <div class="mobile__menu--buttons">
+                <button
+                  role="button"
+                  data-toggle="modal"
+                  data-target="#signInModal"
+                  class="btn  btn--blue"
+                >
+                  Sign in
+                </button>
+
+                <button href="/" class="btn  btn--blue">
+                  Register
+                </button>
+              </div>
             </div>
           </div>
           <!-- MOBILE MENU SCREEN -->
         </div>
       </header>
       <!-- SIGN IN MODAL -->
-      <section class="register__form form__login modal_form" id="sign-in-modal">
-        <button data-close-button class="exit_btn exit_btn--is-blue">
-          &times;
-        </button>
-
-        <div class="register__form--title">
-          <h4 class="text--blue">Sign In to StayDavao</h4>
+      <div
+        class="modal fade"
+        id="signInModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="signInModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content ">
+            <div class="modal-header">
+              <h3 class="modal-title text--blue">Sign in to StayDavao</h3>
+              <button
+                type="button"
+                class="close fs-2"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg fs-2"
+                  id="emailAddress"
+                  placeholder="Email Address"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control form-control-lg"
+                  id="password"
+                  placeholder="Password"
+                />
+              </div>
+              <span class="display-flex space-between">
+                <button
+                  class="btn  btn--blue btn-fullwidth flex-basis-100 m-1"
+                  type="submit"
+                >
+                  Login
+                </button>
+                <button
+                  class="btn  btn-is--facebook flex-basis-100 m-1"
+                  type="submit"
+                >
+                  <i class="fab fa-facebook-f"></i>Login with Facebook
+                </button>
+              </span>
+            </div>
+          </div>
         </div>
-        <div class="register__form--content">
-          <input type="text" name="email" placeholder="Email Address" />
-          <input type="password" name="password" placeholder="Password" />
+      </div>
 
-          <span class="span__form--btn">
-            <button class="btn btn--small btn--blue">
-              Login
-            </button>
-            <button class="btn btn--small btn-is--facebook">
-              <span class="icon--white"><i class="fab fa-facebook-f"></i></span>
-              Create with Facebook
-            </button>
-          </span>
-        </div>
-      </section>
       <!-- SIGN IN MODAL -->
       <!-- HEADER -->
     </section>
     <main class="sd-content">
       <section class="spaces__filter">
-        <div class="form--group-column">
-          <label class="form__title" for=""> Price Range</label>
-
-          <div class="form--group">
+        <div class="form-group">
+          <label for="formPrice">Price Range</label>
+          <div class="Grid Grid--2 grid--gap-1">
             <input
-              class="form form--white"
               type="number"
-              placeholder="minimum value"
+              class="form-control formPrice"
+              id="formPrice"
+              placeholder="Min Price"
             />
-            <div class="form--divider"></div>
             <input
-              class="form form--white"
               type="number"
-              placeholder="maximum value"
+              class="form-control formPrice"
+              id="formPrice"
+              placeholder="Max Price"
             />
           </div>
         </div>
-        <div class="form--group-column">
-          <label class="form__title" for="">Beds</label>
-
+        <div class="form-group ">
+          <label for="formBedroom">Bedrooms</label>
           <input
-            class="form form--narrow form--white "
             type="number"
-            placeholder="1"
+            class="form-control formBedroom"
+            id="formBedroom"
+            placeholder="Beds"
           />
         </div>
-        <div class="form--group-column">
-          <div
-            id="dropdown"
-            class="form form--dropdown form--white text--darkgray"
-          >
-            <span class="form__placeholder">Property Type</span>
-            <span class="form__icon"><i class="fas fa-sort-down"></i></span>
-
-            <div class="form--options form--white">
-              <div class="form--item">
-                Property Type
-              </div>
-              <div class="form--item">
-                Property Type 1
-              </div>
-              <div class="form--item">
-                Property Type 2
-              </div>
-            </div>
-          </div>
+        <div class="form-group">
+          <label for="formType">Property Type</label>
+          <select class="form-control" id="formType">
+            <option>Large select</option>
+          </select>
         </div>
-        <div class="form--group-column">
-          <label class="form__title" for="">Location or Places Nearby</label>
-
+        <div class="form-group">
+          <label for="formPlace">Location Placed Nearby</label>
           <input
-            class="form form--white"
             type="text"
-            placeholder="SM City Davao"
+            class="form-control "
+            id="formPlace"
+            placeholder="Places Nearby"
           />
         </div>
-        <button class="btn btn--blue form--wide">Apply Filters</button>
+
+        <button class="btn btn--blue">Apply Filters</button>
       </section>
 
-      <section class="section__spaces">
-        <div class="sd-cards">
-          <div class="card card-shadow">
-            <div class="card__image">
-              <img src="img/space_image.png" alt="" />
-              <h4 class="card__image--price text-shadow">Php 20,000</h4>
+      <section id="properties" class="section__spaces">
+        <div class="card--deck">
+          <div class="sd-card card--property drop-shadow">
+            <figure class="card--image">
+              <h4 class="card--price">
+                20,000
+              </h4>
+              <img class="rounded-top" src="img/property_image.png" alt="Card image cap" />
+            </figure>
+            <div class="card--body ">
+              <h2 class="card--title text--blue">Property Name</h2>
+              <span class="card--subtitle display-flex"
+                ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                Location</span
+              >
+              <div class="card--footer d-flex">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
             </div>
-
-            <article class="card__details">
-              <div class="card__details--name">
-                <h4 class="card__details--name">Property Name</h4>
-                <h5 class="card__details--location">
-                  <span><i class="fas fa-map-marker-alt"></i></span>Property
-                  Location or Address
-                </h5>
-              </div>
-
-              <div class="card__details--features">
-                <ul class="features ">
-                  <li class="features--item">
-                    <span><i class="fas fa-ruler-combined"></i></span>
-
-                    <span class="feature__value">
-                      135
-                    </span>
-
-                    <span class="feature__unit">sqm</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bed"></i></span>
-                    <span class="feature__value">
-                      2
-                    </span>
-                    <span class="feature__unit">Beds</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bath"></i></span>
-                    <span class="feature__value">
-                      4
-                    </span>
-                    <span class="feature__unit">Baths</span>
-                  </li>
-                </ul>
-              </div>
-            </article>
           </div>
-          <div class="card card-shadow">
-            <div class="card__image">
-              <img src="img/space_image.png" alt="" />
-              <h4 class="card__image--price text-shadow">Php 20,000</h4>
+          <div class="sd-card card--property drop-shadow">
+            <figure class="card--image">
+              <h4 class="card--price">
+                20,000
+              </h4>
+              <img class="rounded-top" src="img/property_image.png" alt="Card image cap" />
+            </figure>
+            <div class="card--body ">
+              <h2 class="card--title text--blue">Property Name</h2>
+              <span class="card--subtitle display-flex"
+                ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                Location</span
+              >
+              <div class="card--footer d-flex">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
             </div>
-
-            <article class="card__details">
-              <div class="card__details--name">
-                <h4 class="card__details--name">Property Name</h4>
-                <h5 class="card__details--location">
-                  <span><i class="fas fa-map-marker-alt"></i></span>Property
-                  Location or Address
-                </h5>
-              </div>
-
-              <div class="card__details--features">
-                <ul class="features ">
-                  <li class="features--item">
-                    <span><i class="fas fa-ruler-combined"></i></span>
-
-                    <span class="feature__value">
-                      135
-                    </span>
-
-                    <span class="feature__unit">sqm</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bed"></i></span>
-                    <span class="feature__value">
-                      2
-                    </span>
-                    <span class="feature__unit">Beds</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bath"></i></span>
-                    <span class="feature__value">
-                      4
-                    </span>
-                    <span class="feature__unit">Baths</span>
-                  </li>
-                </ul>
-              </div>
-            </article>
           </div>
-          <div class="card card-shadow">
-            <div class="card__image">
-              <img src="img/space_image.png" alt="" />
-              <h4 class="card__image--price text-shadow">Php 20,000</h4>
+          <div class="sd-card card--property drop-shadow">
+            <figure class="card--image">
+              <h4 class="card--price">
+                20,000
+              </h4>
+              <img class="rounded-top" src="img/property_image.png" alt="Card image cap" />
+            </figure>
+            <div class="card--body ">
+              <h2 class="card--title text--blue">Property Name</h2>
+              <span class="card--subtitle display-flex"
+                ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                Location</span
+              >
+              <div class="card--footer d-flex">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
             </div>
-
-            <article class="card__details">
-              <div class="card__details--name">
-                <h4 class="card__details--name">Property Name</h4>
-                <h5 class="card__details--location">
-                  <span><i class="fas fa-map-marker-alt"></i></span>Property
-                  Location or Address
-                </h5>
-              </div>
-
-              <div class="card__details--features">
-                <ul class="features ">
-                  <li class="features--item">
-                    <span><i class="fas fa-ruler-combined"></i></span>
-
-                    <span class="feature__value">
-                      135
-                    </span>
-
-                    <span class="feature__unit">sqm</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bed"></i></span>
-                    <span class="feature__value">
-                      2
-                    </span>
-                    <span class="feature__unit">Beds</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bath"></i></span>
-                    <span class="feature__value">
-                      4
-                    </span>
-                    <span class="feature__unit">Baths</span>
-                  </li>
-                </ul>
-              </div>
-            </article>
           </div>
-          <div class="card card-shadow">
-            <div class="card__image">
-              <img src="img/space_image.png" alt="" />
-              <h4 class="card__image--price text-shadow">Php 20,000</h4>
+          <div class="sd-card card--property drop-shadow">
+            <figure class="card--image">
+              <h4 class="card--price">
+                20,000
+              </h4>
+              <img class="rounded-top" src="img/property_image.png" alt="Card image cap" />
+            </figure>
+            <div class="card--body ">
+              <h2 class="card--title text--blue">Property Name</h2>
+              <span class="card--subtitle display-flex"
+                ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                Location</span
+              >
+              <div class="card--footer d-flex">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
             </div>
-
-            <article class="card__details">
-              <div class="card__details--name">
-                <h4 class="card__details--name">Property Name</h4>
-                <h5 class="card__details--location">
-                  <span><i class="fas fa-map-marker-alt"></i></span>Property
-                  Location or Address
-                </h5>
-              </div>
-
-              <div class="card__details--features">
-                <ul class="features ">
-                  <li class="features--item">
-                    <span><i class="fas fa-ruler-combined"></i></span>
-
-                    <span class="feature__value">
-                      135
-                    </span>
-
-                    <span class="feature__unit">sqm</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bed"></i></span>
-                    <span class="feature__value">
-                      2
-                    </span>
-                    <span class="feature__unit">Beds</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bath"></i></span>
-                    <span class="feature__value">
-                      4
-                    </span>
-                    <span class="feature__unit">Baths</span>
-                  </li>
-                </ul>
-              </div>
-            </article>
           </div>
-          <div class="card card-shadow">
-            <div class="card__image">
-              <img src="img/space_image.png" alt="" />
-              <h4 class="card__image--price text-shadow">Php 20,000</h4>
+          <div class="sd-card card--property drop-shadow">
+            <figure class="card--image">
+              <h4 class="card--price">
+                20,000
+              </h4>
+              <img class="rounded-top" src="img/property_image.png" alt="Card image cap" />
+            </figure>
+            <div class="card--body ">
+              <h2 class="card--title text--blue">Property Name</h2>
+              <span class="card--subtitle display-flex"
+                ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                Location</span
+              >
+              <div class="card--footer d-flex">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
             </div>
-
-            <article class="card__details">
-              <div class="card__details--name">
-                <h4 class="card__details--name">Property Name</h4>
-                <h5 class="card__details--location">
-                  <span><i class="fas fa-map-marker-alt"></i></span>Property
-                  Location or Address
-                </h5>
-              </div>
-
-              <div class="card__details--features">
-                <ul class="features ">
-                  <li class="features--item">
-                    <span><i class="fas fa-ruler-combined"></i></span>
-
-                    <span class="feature__value">
-                      135
-                    </span>
-
-                    <span class="feature__unit">sqm</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bed"></i></span>
-                    <span class="feature__value">
-                      2
-                    </span>
-                    <span class="feature__unit">Beds</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bath"></i></span>
-                    <span class="feature__value">
-                      4
-                    </span>
-                    <span class="feature__unit">Baths</span>
-                  </li>
-                </ul>
-              </div>
-            </article>
           </div>
-          <div class="card card-shadow">
-            <div class="card__image">
-              <img src="img/space_image.png" alt="" />
-              <h4 class="card__image--price text-shadow">Php 20,000</h4>
+          <div class="sd-card card--property drop-shadow">
+            <figure class="card--image">
+              <h4 class="card--price">
+                20,000
+              </h4>
+              <img class="rounded-top" src="img/property_image.png" alt="Card image cap" />
+            </figure>
+            <div class="card--body ">
+              <h2 class="card--title text--blue">Property Name</h2>
+              <span class="card--subtitle display-flex"
+                ><i class="card--icon fas fa-map-marker-alt fs-2"></i>Property
+                Location</span
+              >
+              <div class="card--footer d-flex">
+                <div class="card--feature">
+                  <i class="card--icon fas fa-ruler-combined"></i>
+                  <h3 class="feature--title">135</h3>
+                  <small class="feature--unit">sqm</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bed"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Beds</small>
+                </div>
+                <div class="card--feature">
+                  <i class="card--icon fas fa-bath"></i>
+                  <h3 class="feature--title">5</h3>
+                  <small class="feature--unit">Baths</small>
+                </div>
+              </div>
             </div>
-
-            <article class="card__details">
-              <div class="card__details--name">
-                <h4 class="card__details--name">Property Name</h4>
-                <h5 class="card__details--location">
-                  <span><i class="fas fa-map-marker-alt"></i></span>Property
-                  Location or Address
-                </h5>
-              </div>
-
-              <div class="card__details--features">
-                <ul class="features ">
-                  <li class="features--item">
-                    <span><i class="fas fa-ruler-combined"></i></span>
-
-                    <span class="feature__value">
-                      135
-                    </span>
-
-                    <span class="feature__unit">sqm</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bed"></i></span>
-                    <span class="feature__value">
-                      2
-                    </span>
-                    <span class="feature__unit">Beds</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bath"></i></span>
-                    <span class="feature__value">
-                      4
-                    </span>
-                    <span class="feature__unit">Baths</span>
-                  </li>
-                </ul>
-              </div>
-            </article>
-          </div>
-          <div class="card card-shadow">
-            <div class="card__image">
-              <img src="img/space_image.png" alt="" />
-              <h4 class="card__image--price text-shadow">Php 20,000</h4>
-            </div>
-
-            <article class="card__details">
-              <div class="card__details--name">
-                <h4 class="card__details--name">Property Name</h4>
-                <h5 class="card__details--location">
-                  <span><i class="fas fa-map-marker-alt"></i></span>Property
-                  Location or Address
-                </h5>
-              </div>
-
-              <div class="card__details--features">
-                <ul class="features ">
-                  <li class="features--item">
-                    <span><i class="fas fa-ruler-combined"></i></span>
-
-                    <span class="feature__value">
-                      135
-                    </span>
-
-                    <span class="feature__unit">sqm</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bed"></i></span>
-                    <span class="feature__value">
-                      2
-                    </span>
-                    <span class="feature__unit">Beds</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bath"></i></span>
-                    <span class="feature__value">
-                      4
-                    </span>
-                    <span class="feature__unit">Baths</span>
-                  </li>
-                </ul>
-              </div>
-            </article>
-          </div>
-          <div class="card card-shadow">
-            <div class="card__image">
-              <img src="img/space_image.png" alt="" />
-              <h4 class="card__image--price text-shadow">Php 20,000</h4>
-            </div>
-
-            <article class="card__details">
-              <div class="card__details--name">
-                <h4 class="card__details--name">Property Name</h4>
-                <h5 class="card__details--location">
-                  <span><i class="fas fa-map-marker-alt"></i></span>Property
-                  Location or Address
-                </h5>
-              </div>
-
-              <div class="card__details--features">
-                <ul class="features ">
-                  <li class="features--item">
-                    <span><i class="fas fa-ruler-combined"></i></span>
-
-                    <span class="feature__value">
-                      135
-                    </span>
-
-                    <span class="feature__unit">sqm</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bed"></i></span>
-                    <span class="feature__value">
-                      2
-                    </span>
-                    <span class="feature__unit">Beds</span>
-                  </li>
-                  <li class="features--item">
-                    <span><i class="fas fa-bath"></i></span>
-                    <span class="feature__value">
-                      4
-                    </span>
-                    <span class="feature__unit">Baths</span>
-                  </li>
-                </ul>
-              </div>
-            </article>
           </div>
         </div>
       </section>

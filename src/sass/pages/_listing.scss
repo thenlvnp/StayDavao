@@ -11,126 +11,17 @@
     grid-template-columns: repeat(4, max-content);
     grid-column-gap: 1rem;
     justify-content: center;
+    align-items: center;
 
-    @include for-tablet-portrait-up {
+    @include for-small-desktop-up {
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, max-content);
       grid-gap: 1rem;
+      grid-template-rows: repeat(2, max-content);
     }
-  }
-}
-// BASE INPUT FORM STYLE
-%input_form {
-  position: relative;
-  border: none;
-  height: 4rem;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  &::placeholder {
-    font-family: $font-primary;
-    @include font-size(1.2rem);
-  }
-  &:focus {
-    border: none;
-  }
-}
-.form {
-  @extend %input_form;
-  width: 20rem;
-  background-color: rgb(218, 218, 218);
 
-  @include for-small-desktop-up {
-    width: 100%;
-  }
-  &--group {
-    display: flex;
-    align-items: center;
-  }
-  &--group-column {
-    display: flex;
-    flex-direction: column;
-    justify-items: start;
-    margin: 0 1rem;
-  }
-  // FORM COMPONENTS
-  &__title {
-    @include font-size(1.3rem);
-    margin-bottom: 0.8rem;
-  }
-  &__icon {
-    @include font-size(1.3rem);
-    padding-bottom: 0.8rem;
-  }
-  &__placeholder {
-    @include font-size(1.3rem);
-  }
-  &--divider {
-    height: 0.5rem;
-    width: 1rem;
-    z-index: 200;
-    margin: 0 0.5rem;
-
-    background-color: $dark-gray;
-  }
-  &--item {
-    font-family: $font-primary;
-    color: $dark-gray;
-    @include font-size(1.3rem);
-    padding: 1rem;
-    position: relative;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      background-color: $dark-gray;
-      transition: all 0.2s ease-in-out;
-      color: $white;
+    .form-control {
+      height: 100%;
     }
-  }
-  &--options {
-    position: absolute;
-    z-index: 100;
-    left: 0;
-    top: 5rem;
-    width: 100%;
-    border-radius: 0.5rem;
-
-    transform: scaleY(0);
-    transition: scale 0.3s ease-in-out;
-
-    &-expanded {
-      transform: scaleY(1);
-      transition: scale 0.3s ease-in-out;
-    }
-  }
-  // FORM STYLES
-  &--inverted {
-    width: 20rem;
-    background-color: $white;
-  }
-  &--dropdown {
-    @extend %input_form;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-  }
-  // FORM SIZES
-  &--narrow {
-    @extend %input_form;
-    width: 4rem;
-    background-color: $white;
-  }
-  &--wide {
-    height: 4rem;
-    width: 25rem;
-  }
-  // FORM COLORS
-  &--white {
-    background-color: $white;
-  }
-  &--lightgray {
-    background-color: $light-gray;
   }
 }
 
@@ -138,10 +29,23 @@
   grid-column: full-start/full-end;
   background-color: $light-gray;
 
-  padding: 3rem 0;
-  display: flex;
-  flex-wrap: wrap;
+  padding: 3rem 3rem;
 
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 1rem;
   justify-content: center;
-  align-items: flex-end;
+
+  @include for-small-desktop-up {
+    grid-template-columns: repeat(2, auto);
+  }
+  @include for-phone-only {
+    grid-template-columns: 1fr;
+  }
+  button {
+    align-self: center;
+    @include for-small-desktop-up {
+      grid-column: span 2;
+    }
+  }
 }

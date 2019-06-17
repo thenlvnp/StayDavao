@@ -4,12 +4,11 @@
   and https://www.taniarascia.com/easiest-flex-grid-ever/
  */
 
- /*
+/*
  Object: Core Flexbox grid
  */
 
-
- // Mobie first (grids forms a single column on smaller screens)
+// Mobie first (grids forms a single column on smaller screens)
 
 .Flex-column {
   flex-basis: 100%;
@@ -27,7 +26,6 @@
   .Flex-column {
     flex: 1;
   }
-
 }
 
 /**
@@ -40,10 +38,9 @@
  * E.g. class="Flex-column Flex--75"
  */
 
- // This needs updating to something less hacky
+// This needs updating to something less hacky
 
 @include at-least($phone-wide) {
-
   .Flex--75 {
     flex: 7.5;
   }
@@ -67,7 +64,6 @@
   .Flex--15 {
     flex: 1.5;
   }
-
 }
 
 /**
@@ -75,7 +71,6 @@
  * Add to Flex-row to give columns gutters
  * E.g. class="Flex-row Flex--gutters"
  */
-
 
 .Flex--gutters > div {
   margin: 16px;
@@ -87,10 +82,10 @@
  * E.g. class="Flex-row Flex--nr"
  */
 
-.Flex-row.Flex--nr{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+.Flex-row.Flex--nr {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 /**
@@ -102,6 +97,79 @@
   border: 1px solid #33cccc;
 
   &:hover {
-   background: rgba(51, 153, 204,.6);
- }
+    background: rgba(51, 153, 204, 0.6);
+  }
+}
+
+.flex-mobile-column {
+  @include for-phone-only {
+    flex-direction: column;
+  }
+}
+
+.flex-basis {
+  &-5 {
+    flex-basis: 5%;
+  }
+  &-10 {
+    flex-basis: 10%;
+  }
+  &-40 {
+    flex-basis: 40%;
+  }
+  &-50 {
+    flex-basis: 50%;
+  }
+  &-60 {
+    flex-basis: 60%;
+  }
+  &-70 {
+    flex-basis: 70%;
+  }
+  &-80 {
+    flex-basis: 80%;
+  }
+  &-90 {
+    flex-basis: 90%;
+  }
+  &-100 {
+    flex-basis: 100%;
+  }
+  &-md-50 {
+    @include for-tablet-landscape-up {
+      flex-basis: 50%;
+    }
+  }
+  &-md-60 {
+    @include for-tablet-landscape-up {
+      flex-basis: 60%;
+    }
+  }
+  &-md-70 {
+    @include for-tablet-landscape-up {
+      flex-basis: 70%;
+    }
+  }
+  &-md-80 {
+    @include for-tablet-landscape-up {
+      flex-basis: 80%;
+    }
+  }
+  &-md-90 {
+    @include for-tablet-landscape-up {
+      flex-basis: 90%;
+    }
+  }
+  &-md-100 {
+    @include for-tablet-landscape-up {
+      flex-basis: 100%;
+    }
+  }
+}
+.flex {
+  &-md-column {
+    @include for-tablet-landscape-up {
+      flex-direction: column;
+    }
+  }
 }

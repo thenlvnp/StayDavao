@@ -10,13 +10,29 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/main.css" />
     <script defer src="js/app.js"></script>
     <title>Register</title>
   </head>
   <body class="container">
-    <div id="overlay"></div>
     <section class="hero hero--fullheight">
       <figure class="hero__image">
         <div class="overlay"></div>
@@ -27,7 +43,9 @@
 
         <div class="hero_register_nav Card-grid--2">
           <button
-            data-modal-target="#reg-agent-modal"
+            type="button"
+            data-toggle="modal"
+            data-target="#agentModal"
             class="btn btn--xtralarge btn--white"
           >
             <h3 class="btn_title">OWNER/AGENT</h3>
@@ -35,8 +53,9 @@
           </button>
 
           <button
-            data-modal-target="#reg-buyer-modal"
-            id="buyer_btn"
+            type="button"
+            data-toggle="modal"
+            data-target="#buyerModal"
             class="btn btn--xtralarge btn--blue"
           >
             <h3 class="btn_title">BUYER/RENTER</h3>
@@ -44,7 +63,12 @@
           </button>
         </div>
         <h4 class="hero_subtitle--link">
-          Already have an account?<a href="">Log In</a>
+          Already have an account?<a
+            data-toggle="modal"
+            data-target="#signInModal"
+            href=""
+            >Log In</a
+          >
         </h4>
       </div>
 
@@ -52,7 +76,8 @@
       <header class="header header--inverted">
         <nav class="header__nav nav--inverted">
           <a href="/" class="nav__brand">
-            <img src="/img/site_logo.png" alt="" />
+            <img class="main-logo" src="img/site_logo.png" alt="" />
+            <img class="alt-logo" src="img/logo-alt.png" alt="" />
           </a>
 
           <div class="nav__left hide-on-small-desktop">
@@ -75,28 +100,30 @@
             </ul>
           </div>
           <div class="nav__right">
-            <a
-              data-modal-target="#sign-in-modal"
-              class="btn btn--small btn--outline btn--outline-blue hide-on-small-desktop"
-            >
-              Sign up
-            </a>
-            <a
-              href="./register.html"
-              class="btn btn--small btn--blue hide-on-small-desktop"
-            >
-              Register
-            </a>
+            <div class="nav--button hide-on-small-desktop">
+              <button
+                type="button"
+                class="btn btn--xsmall btn--outline "
+                data-toggle="modal"
+                data-target="#signInModal"
+              >
+                Sign in
+              </button>
+
+              <a href="./register.html" class="btn btn--xsmall">
+                Register
+              </a>
+            </div>
 
             <div id="menu_icon" class="nav__icon show-on-small-desktop">
               <div class="icon--menu"></div>
             </div>
           </div>
         </nav>
+        <!-- MOBILE MENU SCREEN -->
         <div id="mobile-menu" class="nav__mobile">
-          <!-- MOBILE MENU SCREEN -->
-          <div class="mobile">
-            <div class="mobile__nav">
+          <div class="mobile__menu">
+            <div class="mobile__menu--nav">
               <ul>
                 <li>
                   <a href="#">Properties for Sale</a>
@@ -108,137 +135,235 @@
                 <li><a href="./agents.html">Agents</a></li>
                 <li><a href="#">About Us</a></li>
               </ul>
-              <div class="mobile__divider"></div>
             </div>
 
-            <div class="mobile__btns">
-              <button
-                data-modal-target="#sign-in-modal"
-                class="btn btn--small btn--blue"
-              >
-                Sign in
-              </button>
+            <div class="mobile__menu--actions">
+              <div class="mobile__menu--buttons">
+                <button
+                  role="button"
+                  data-toggle="modal"
+                  data-target="#signInModal"
+                  class="btn  btn--blue"
+                >
+                  Sign in
+                </button>
 
-              <button href="/" class="btn btn--small btn--blue">
-                Register
-              </button>
+                <button href="/" class="btn  btn--blue">
+                  Register
+                </button>
+              </div>
             </div>
           </div>
           <!-- MOBILE MENU SCREEN -->
         </div>
       </header>
       <!-- SIGN IN MODAL -->
-      <section class="register__form form__login modal_form" id="sign-in-modal">
-        <button data-close-button class="exit_btn exit_btn--is-blue">
-          &times;
-        </button>
-
-        <div class="register__form--title">
-          <h1>Sign In to StayDavao</h1>
+      <div
+        class="modal fade"
+        id="signInModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="signInModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content ">
+            <div class="modal-header">
+              <h3 class="modal-title text--blue">Sign in to StayDavao</h3>
+              <button
+                type="button"
+                class="close fs-2"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg fs-2"
+                  id="emailAddress"
+                  placeholder="Email Address"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control form-control-lg"
+                  id="password"
+                  placeholder="Password"
+                />
+              </div>
+              <span class="display-flex space-between">
+                <button
+                  class="btn  btn--blue btn-fullwidth flex-basis-100 m-1"
+                  type="submit"
+                >
+                  Login
+                </button>
+                <button
+                  class="btn  btn-is--facebook flex-basis-100 m-1"
+                  type="submit"
+                >
+                  <i class="fab fa-facebook-f"></i>Login with Facebook
+                </button>
+              </span>
+            </div>
+          </div>
         </div>
-        <div class="register__form--content">
-          <input type="text" name="email" placeholder="Email Address" />
-          <input type="password" name="password" placeholder="Password" />
+      </div>
 
-          <span class="span__form--btn">
-            <button class="primary-btn btn-register btn-is--blue">
-              Login
-            </button>
-            <button class="primary-btn btn-register btn-is--facebook">
-              <span><i class="fab fa-facebook-f"></i></span> Create with
-              Facebook
-            </button>
-          </span>
-        </div>
-      </section>
       <!-- SIGN IN MODAL -->
       <!-- HEADER -->
     </section>
 
     <!--BUYER/RENTER REGISTER MODAL -->
-    <section class="register__form form__buyer modal_form" id="reg-buyer-modal">
-      <button data-close-button class="exit_btn">&times;</button>
-
-      <div class="register__form--title">
-        <h3>Register as Buyer/Renter</h3>
-      </div>
-      <div class="register__form--content">
-        <span class="span_name">
-          <input type="text" name="firstname" placeholder="First Name" />
-          <input type="text" name="lastname" placeholder="Last Name" />
-        </span>
-        <input type="text" name="email" placeholder="Email Address" />
-        <input type="password" name="password" placeholder="Password" />
-        <input
-          type="password"
-          name="confirmpassword"
-          placeholder="Confirm Password"
-        />
-        <input type="text" name="contactnumber" placeholder="Contact number" />
-        <span class="span_terms">
-          <input
-            type="checkbox"
-            checked="checked"
-            name="acceptterms"
-            value=""
-          />
-          <p>
-            I agree to the
-            <a href="">stayDavao Terms and Conditions Agreement.</a>
-          </p>
-        </span>
-        <span class="span__form--btn">
-          <button class="btn btn--white ">
-            Register
-          </button>
-          <button class="btn btn-is--facebook">
-            <span><i class="fab fa-facebook-f"></i></span> Create with Facebook
-          </button>
-        </span>
+    <section class="modal fade " tabindex="-1" role="dialog" id="buyerModal">
+      <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content bg-blue">
+          <div class="modal-header">
+            <h3 class="modal-title text--white">Register as Buyer/Renter</h3>
+            <button
+              type="button"
+              class="close text--white"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body Grid">
+            <div class="Grid Grid--2 grid--gap-1">
+              <input
+                class="form-control "
+                type="text"
+                placeholder="Firstname"
+              />
+              <input class="form-control " type="text" placeholder="Lastname" />
+            </div>
+            <input
+              class="form-control "
+              type="text"
+              placeholder="Email Address"
+            />
+            <input class="form-control " type="text" placeholder="Password" />
+            <input
+              class="form-control "
+              type="text"
+              placeholder="Confirm Password"
+            />
+            <input
+              class="form-control "
+              type="text"
+              placeholder="Contact Number"
+            />
+            <div class="form-group">
+              <div class="form-check ">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                  required
+                />
+                <label class="form-check-label text--white" for="invalidCheck">
+                  I Agree to the <a href="">StayDavao terms and conditions</a>
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-center">
+            <button type="submit" class="btn btn--wide btn--white flx-bs-50">
+              Register
+            </button>
+            <button
+              type="button"
+              class="btn btn--wide  btn-is--facebook flx-bs-50"
+              type="submit"
+            >
+              <i class="fab fa-facebook-f"></i>Login with Facebook
+            </button>
+          </div>
+        </div>
       </div>
     </section>
     <!-- REGISTER MODAL -->
     <!--AGENT REGISTER MODAL  -->
-    <section class="register__form form__owner modal_form" id="reg-agent-modal">
-      <button data-close-button class="exit_btn exit_btn--is-blue">
-        &times;
-      </button>
-      <div class="register__form--title">
-        <h3>Register as Owner/Agent</h3>
-      </div>
-      <div class="register__form--content">
-        <span class="span_name">
-          <input type="text" name="firstname" placeholder="First Name" />
-          <input type="text" name="lastname" placeholder="Last Name" />
-        </span>
-        <input type="text" name="email" placeholder="Email Address" />
-        <input type="password" name="password" placeholder="Password" />
-        <input
-          type="password"
-          name="confirmpassword"
-          placeholder="Confirm Password"
-        />
-        <input type="text" name="contactnumber" placeholder="Contact number" />
-        <span class="span_terms">
-          <input
-            type="checkbox"
-            checked="checked"
-            name="acceptterms"
-            value=""
-          />
-          <p>
-            I agree to the
-            <a href="">stayDavao Terms and Conditions Agreement.</a>
-          </p>
-        </span>
-        <span class="span__form--btn">
-          <button class="btn  btn--blue ">
-            Register
-          </button>
-          <button class="btn  btn-is--facebook">
-            <span><i class="fab fa-facebook-f"></i></span> Create with Facebook
-          </button>
-        </span>
+    <section class="modal fade" tabindex="-1" role="dialog" id="agentModal">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title text--blue">Register as Owner/Agent</h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body Grid">
+            <div class="Grid Grid--2 grid--gap-1">
+              <input
+                class="form-control "
+                type="text"
+                placeholder="Firstname"
+              />
+              <input class="form-control " type="text" placeholder="Lastname" />
+            </div>
+            <input
+              class="form-control "
+              type="text"
+              placeholder="Email Address"
+            />
+            <input class="form-control " type="text" placeholder="Password" />
+            <input
+              class="form-control "
+              type="text"
+              placeholder="Confirm Password"
+            />
+            <input
+              class="form-control "
+              type="text"
+              placeholder="Contact Number"
+            />
+            <div class="form-group">
+              <div class="form-check ">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                  required
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  I Agree to the <a href="">StayDavao terms and conditions</a>
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-center">
+            <button type="submit" class="btn btn--wide btn--blue flx-bs-50">
+              Register
+            </button>
+            <button
+              type="button"
+              class="btn btn--wide  btn-is--facebook flx-bs-50"
+              type="submit"
+            >
+              <i class="fab fa-facebook-f"></i>Login with Facebook
+            </button>
+          </div>
+        </div>
       </div>
     </section>
     <!--AGENT REGISTER MODAL  -->
@@ -284,7 +409,7 @@
         </div>
         <div class="footer__social">
           <div class="footer__social--icons">
-            <a href=""><i class="fas fa-anchor"></i></a>
+            <a href=""><i class="fab fa-facebook-f"></i></a>
             <a href=""><i class="fab fa-twitter"></i></a>
             <a href=""><i class="fab fa-instagram"></i></a>
             <a href=""><i class="fab fa-youtube"></i></a>

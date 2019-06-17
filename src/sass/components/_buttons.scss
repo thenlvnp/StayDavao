@@ -5,11 +5,11 @@
   cursor: pointer;
   border: none;
   font-family: $font-primary;
-  font-weight: normal;
+  font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   text-align: center;
-  padding: 1.8rem 2rem;
+  padding: 1.5rem 2rem;
   background: transparent;
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -79,11 +79,14 @@
       }
     }
   }
+  &--toggle {
+    width: 100%;
+  }
   // BTN SIZES
   &--xsmall {
     @include font-size(1.2rem);
-    padding: 1rem 2rem;
-    margin: 0 0.5rem;
+    padding: 0.8rem 1.5rem;
+
     @include for-tablet-portrait-up {
       padding: 0.5rem 1rem;
     }
@@ -119,7 +122,13 @@
   }
 
   &--large {
+    padding: 2rem 2.2rem;
+
     @include font-size(1.5rem);
+
+    @include for-tablet-portrait-up {
+      padding: 1.8rem 1.5rem;
+    }
   }
   &--xtralarge {
     @include font-size(1.5rem);
@@ -131,7 +140,10 @@
     }
   }
 }
-
+.btn-group-toggle > .active {
+  background-color: $blue;
+  color: $white;
+}
 .hero-btn {
   padding: 1.5rem 3.5rem;
   font-size: 1.3rem;
@@ -147,7 +159,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #516aab;
+    background-color: #516aab !important;
     &:hover {
       background-color: #425b9b;
 
@@ -155,7 +167,9 @@
     }
   }
 }
-
+.btn-fullwidth {
+  width: 100%;
+}
 // TOGGLE BUTTON
 
 .knobs,
