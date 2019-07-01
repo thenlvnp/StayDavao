@@ -63,13 +63,13 @@
                 <a href="./listing.html">Properties for Sale</a>
               </li>
               <li class="nav--link">
-                <a href="./listing.html">Properties for Rent</a>
+                <a href="/listing.html">Properties for Rent</a>
               </li>
               <li class="nav--link">
                 <a href="#">Leisure</a>
               </li>
               <li class="nav--link">
-                <a href="./agent-profile.html">Agents</a>
+                <a href="/agent-profile.html">Agents</a>
               </li>
               <li class="nav--link">
                 <a href="#aboutSection">About Us</a>
