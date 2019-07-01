@@ -5,220 +5,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="js/datepicker.js" />
+    <script defer src="js/app.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
   </head>
-  <body style="background-color:brown;">
-    <section class="appointment">
-      <div class="appointment__agent">
-        <div class="agent">
-          <figure class="agent__image">
-            <img src="img/agent_avatar.png" alt="" />
-          </figure>
-          <div class="agent__details">
-            <h1 class="agent__details--name">Jane Doe</h1>
-            <h4 class="agent__details--title">Licensed Real Estate Broker</h4>
-            <h4 class="agent__details--email">
-              Email Address: janed@gmail.com
-            </h4>
-            <h4 class="agent__details--contact">
-              Contact Number/s: 213-3234 / 0923-785-2345
-            </h4>
+  <body>
+    <div
+      class="fade rounded"
+      id="setAppointment"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="setAppointment"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-blue ">
+          <div class="modal-body p-0">
+            <div class="appointment__header">
+              <button
+                type="button"
+                class="close fs-2 appointment--closeBtn"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="agent__contact--wrapper">
+                <div class="agent__contact--inner">
+                  <figure class="agent__image">
+                    <img src="img/agent_avatar.png" alt="" />
+                  </figure>
+                  <div class="agent__info">
+                    <h4 class="text-color--blue">Jane Doe</h4>
+                    <h6 class="text-color--blue">
+                      Licensed Real Estate Broker
+                    </h6>
+                    <h6 class="info-email">janed@gmail.com</h6>
+                    <h6 class="info-contact">213-3234 / 0923-785-2345</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="apppointment__content">
+              <div class="appointment__details p-3">
+                <!-- DATE PICKER -->
+                <div class="calendar drop-shadow mr-2">
+                  <div class="calendar__header">
+                    <button
+                      class="btn btn-prevMonth"
+                      id="previous"
+                      onclick="previous()"
+                    >
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 class="calendar--month" id="monthAndYear"></h3>
+                    <button
+                      class="btn btn-nextMonth"
+                      id="next"
+                      onclick="next()"
+                    >
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                  <table class="calendar__content" id="calendar">
+                    <thead>
+                      <tr class="calendar--span">
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                      </tr>
+                    </thead>
+
+                    <tbody id="calendar-body"></tbody>
+                  </table>
+                </div>
+                <!-- DATE PICKER -->
+
+                <!-- TIMEPICKER v2 -->
+                <div class="timePicker drop-shadow mr-2">
+                  <div class="timePicker__header">
+                    <h3 class="timePicker--title">Time</h3>
+                  </div>
+                  <table class="timePicker__content">
+                    <thead class="timeOfDay--wrapper">
+                      <tr class="timePicker--span">
+                        <th class="time--timeOfDay">Morning</th>
+                        <th class="time--timeOfDay">Afternoon</th>
+                        <th class="time--timeOfDay">Evening</th>
+                      </tr>
+                    </thead>
+
+                    <tbody id="timePicker__body">
+                      <tr>
+                        <td class="time--title">7:00</td>
+                        <td class="time--title">1:00</td>
+                        <td class="time--title">6:00</td>
+                      </tr>
+                      <tr>
+                        <td class="time--title">8:00</td>
+                        <td class="time--title">2:00</td>
+                        <td class="time--title">7:00</td>
+                      </tr>
+                      <tr>
+                        <td class="time--title">9:00</td>
+                        <td class="time--title">3:00</td>
+                        <td class="time--title">8:00</td>
+                      </tr>
+                      <tr>
+                        <td class="time--title">10:00</td>
+                        <td class="time--title">4:00</td>
+                        <td class="time--title">9:00</td>
+                      </tr>
+                      <tr>
+                        <td class="time--title">11:00</td>
+                        <td class="time--title">5:00</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- TIMEPICKER v2 -->
+
+                <div class="appointment__details--info">
+                  <input
+                    class="form-control form--outline-white bg-transparent "
+                    type="text"
+                    id="fullName"
+                    placeholder="Fullname"
+                  />
+                  <input
+                    class="form-control form--outline-white bg-transparent "
+                    type="email"
+                    id="Email"
+                    placeholder="Email Address"
+                  />
+                  <input
+                    class="form-control form--outline-white bg-transparent  "
+                    type="text"
+                    id="contactNumber"
+                    placeholder="Contact Number"
+                  />
+
+                  <a
+                    href="#"
+                    class="btn btn--small btn--white align-self-center"
+                    >Send Message</a
+                  >
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="appointment__details">
-        <!-- DATE PICKER -->
-        <div class="appointment__details--date_time">
-          <div class="calander noselect">
-            <div class="cal_head paper-shadow-top-z-2">
-              <button class="button_left">
-                <i class="material-icons">keyboard_arrow_left</i>
-              </button>
-
-              <span id="month_label">Month</span>
-
-              <button class="button_right">
-                <i class="material-icons">keyboard_arrow_right</i>
-              </button>
-            </div>
-
-            <div class="cal_body paper-shadow-bottom-z-1">
-              <table>
-                <tbody id="cal"></tbody>
-              </table>
-            </div>
-
-            <div class="cal_output paper-shadow-top-z-1">
-              <span id="outputText"></span>
-            </div>
-          </div>
-          <div class="timepicker">
-            <h1 class="timepicker__title">Time</h1>
-            <div class="timepicker__timeofDay">
-              <h3>Morning</h3>
-              <h3>Afternoon</h3>
-              <h3>Evening</h3>
-            </div>
-            <div class="timepicker__timeSlot">
-              <!-- MORNING TIME SLOT -->
-              <div class="timepicker__timeSlot--morning time">
-                <div class="slot__1">
-                  <input
-                    id="tab1"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab1" class="time__title">7:00</label>
-                </div>
-                <div class="slot__2">
-                  <input
-                    id="tab2"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab2" class="time__title">8:00</label>
-                </div>
-                <div class="slot__3">
-                  <input
-                    id="tab3"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab3" class="time__title">9:00</label>
-                </div>
-                <div class="slot__4">
-                  <input
-                    id="tab4"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab4" class="time__title">10:00</label>
-                </div>
-                <div class="slot__5">
-                  <input
-                    id="tab5"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab5" class="time__title">11:00</label>
-                </div>
-              </div>
-              <!-- AFTERNOON TIME SLOT -->
-              <div class="timepicker__timeSlot--afternoon time">
-                <div class="slot__1">
-                  <input
-                    id="tab6"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab6" class="time__title">1:00</label>
-                </div>
-                <div class="slot__2">
-                  <input
-                    id="tab7"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab7" class="time__title">2:00</label>
-                </div>
-                <div class="slot__3">
-                  <input
-                    id="tab8"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab8" class="time__title">3:00</label>
-                </div>
-                <div class="slot__4">
-                  <input
-                    id="tab9"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab9" class="time__title">4:00</label>
-                </div>
-                <div class="slot__5">
-                  <input
-                    id="tab10"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab10" class="time__title">5:00</label>
-                </div>
-              </div>
-              <!-- EVENING TIME SLOT -->
-              <div class="timepicker__timeSlot--evening time">
-                <div class="slot__1">
-                  <input
-                    id="tab11"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab11" class="time__title">6:00</label>
-                </div>
-                <div class="slot__2">
-                  <input
-                    id="tab12"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab12" class="time__title">7:00</label>
-                </div>
-                <div class="slot__3">
-                  <input
-                    id="tab13"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab13" class="time__title">8:00</label>
-                </div>
-                <div class="slot__4">
-                  <input
-                    id="tab14"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab14" class="time__title">9:00</label>
-                </div>
-                <div class="slot__5" style="visibility:hidden;">
-                  <input
-                    id="tab15"
-                    class="time__toggle"
-                    type="radio"
-                    name="tabs"
-                  />
-                  <label for="tab15" class="time__title">7:00</label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DATE PICKER -->
-        <div class="appointment__details--info">
-          <input type="text" name="fullname" placeholder="FullName" />
-          <input type="email" name="email" placeholder="Email" />
-          <input type="tel" name="contact" placeholder="Contact Number" />
-          <button class="primary-btn btn-register btn-is--white">
-            Set Appointment
-          </button>
-        </div>
-      </div>
-    </section>
+    </div>
+   
   </body>
 </html>

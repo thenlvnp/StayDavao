@@ -288,7 +288,8 @@
             >
               Contact Owner/Agent
             </button>
-            <button class="btn btn--outline btn--outline-blue card__button">
+            <button  data-toggle="modal"
+            data-target="#setAppointment" class="btn btn--outline btn--outline-blue card__button">
               Set Appointment
             </button>
           </div>
@@ -315,20 +316,21 @@
                       </button>
                     </div>
                <div class="modal-body">
-                  <div class="agent__contact--section">
-                      <div class="agent__contact">
-                        <div class="agent__contact--avatar">
+                  <div class="agent__contact--wrapper d-grid">
+                      <div class="agent__contact--inner">
+                        <figure class="agent__image">
                           <img src="img/agent_avatar.png" alt="" />
-                          <div class="agent-info">
-                            <h4 class="text-color--blue">Jane Doe</h4>
-                            <h6 class="text-color--blue">
-                              Licensed Real Estate Broker
-                            </h6>
-                            <h6 class="info-email">janed@gmail.com</h6>
-                            <h6 class="info-contact">213-3234 / 0923-785-2345</h6>
-                          </div>
+                        </figure>
+                        <div class="agent__info">
+                          <h4 class="text-color--blue">Jane Doe</h4>
+                          <h6 class="text-color--blue">
+                            Licensed Real Estate Broker
+                          </h6>
+                          <h6 class="info-email">janed@gmail.com</h6>
+                          <h6 class="info-contact">213-3234 / 0923-785-2345</h6>
                         </div>
-                        <div class="agent__contact--content ">
+                      </div>
+                      <div class="agent__contact--content">
                           <input
                             class="form-control"
                             type="email"
@@ -350,13 +352,167 @@
     
                           <a href="#" class="btn btn--blue">Send Message</a>
                         </div>
-                      </div>
                     </div>
+                 
                </div>
               </div>
             </div>
           </div>
           <!-- AGENT CONTACT MODAL -->
+          <!-- SET APPOINTMENT MODAL -->
+          <div
+          class="modal rounded fade"
+          id="setAppointment"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="setAppointment"
+          aria-hidden="true"
+        >
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content bg-blue ">
+              <div class="modal-body p-0">
+                <div class="appointment__header">
+                  <button
+                    type="button"
+                    class="close fs-2 appointment--closeBtn"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <div class="agent__contact--wrapper">
+                    <div class="agent__contact--inner">
+                      <figure class="agent__image">
+                        <img src="img/agent_avatar.png" alt="" />
+                      </figure>
+                      <div class="agent__info">
+                        <h4 class="text-color--blue">Jane Doe</h4>
+                        <h6 class="text-color--blue">
+                          Licensed Real Estate Broker
+                        </h6>
+                        <h6 class="info-email">janed@gmail.com</h6>
+                        <h6 class="info-contact">213-3234 / 0923-785-2345</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="apppointment__content">
+                  <div class="appointment__details p-3">
+                    <!-- DATE PICKER -->
+                    <div class="calendar drop-shadow mr-2">
+                      <div class="calendar__header">
+                        <button
+                          class="btn btn-prevMonth"
+                          id="previous"
+                          onclick="previous()"
+                        >
+                          <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h3 class="calendar--month" id="monthAndYear"></h3>
+                        <button
+                          class="btn btn-nextMonth"
+                          id="next"
+                          onclick="next()"
+                        >
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                      </div>
+                      <table class="calendar__content" id="calendar">
+                        <thead>
+                          <tr class="calendar--span">
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                          </tr>
+                        </thead>
+    
+                        <tbody id="calendar-body"></tbody>
+                      </table>
+                    </div>
+                    <!-- DATE PICKER -->
+    
+                    <!-- TIMEPICKER v2 -->
+                    <div class="timePicker drop-shadow mr-2">
+                      <div class="timePicker__header">
+                        <h3 class="timePicker--title">Time</h3>
+                      </div>
+                      <table class="timePicker__content">
+                        <thead class="timeOfDay--wrapper">
+                          <tr class="timePicker--span">
+                            <th class="time--timeOfDay">Morning</th>
+                            <th class="time--timeOfDay">Afternoon</th>
+                            <th class="time--timeOfDay">Evening</th>
+                          </tr>
+                        </thead>
+    
+                        <tbody id="timePicker__body">
+                          <tr>
+                            <td class="time--title">7:00</td>
+                            <td class="time--title">1:00</td>
+                            <td class="time--title">6:00</td>
+                          </tr>
+                          <tr>
+                            <td class="time--title">8:00</td>
+                            <td class="time--title">2:00</td>
+                            <td class="time--title">7:00</td>
+                          </tr>
+                          <tr>
+                            <td class="time--title">9:00</td>
+                            <td class="time--title">3:00</td>
+                            <td class="time--title">8:00</td>
+                          </tr>
+                          <tr>
+                            <td class="time--title">10:00</td>
+                            <td class="time--title">4:00</td>
+                            <td class="time--title">9:00</td>
+                          </tr>
+                          <tr>
+                            <td class="time--title">11:00</td>
+                            <td class="time--title">5:00</td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- TIMEPICKER v2 -->
+    
+                    <div class="appointment__details--info">
+                      <input
+                        class="form-control form--outline-white bg-transparent "
+                        type="text"
+                        id="fullName"
+                        placeholder="Fullname"
+                      />
+                      <input
+                        class="form-control form--outline-white bg-transparent "
+                        type="email"
+                        id="Email"
+                        placeholder="Email Address"
+                      />
+                      <input
+                        class="form-control form--outline-white bg-transparent  "
+                        type="text"
+                        id="contactNumber"
+                        placeholder="Contact Number"
+                      />
+    
+                      <a
+                        href="#"
+                        class="btn btn--small btn--white align-self-center"
+                        >Send Message</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- SET APPOINTMENT MODAL -->
         </div>
         <div class="property__overview--tabs">
           <input

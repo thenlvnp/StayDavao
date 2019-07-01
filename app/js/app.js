@@ -6,7 +6,7 @@ if (openMenubtn != null) {
     menuNav.classList.toggle("nav--active");
   });
 }
-
+// AGENT DASHBOARD TABS
 const el_tab = document.getElementById("nav-tab");
 
 if (el_tab) {
@@ -31,6 +31,37 @@ if (el_tab) {
       event.target.closest("a").href.split("#")[1]
     ).className += " tab--pane-active";
   }
+}
+// BUYER PROFILE TABS
+const buyerTabs = document.getElementById("buyerMenu");
+if (buyerTabs) {
+  console.log(buyerTabs);
+  buyerTabs.addEventListener("click", activateBuyerTab, false);
+}
+
+function activateBuyerTab(event) {
+  console.log("CLICK");
+  const activeTab = document.querySelectorAll(".bMenu--active");
+  const activePane = document.querySelectorAll(".bContent--active");
+  const clickedPane = document.getElementById(event.target.href.split("#")[1]);
+  event.preventDefault();
+  activeTab.forEach(tab => {
+    tab.className = tab.className.replace("bMenu--active", "");
+    activePane.forEach(pane => {
+      pane.className = pane.className.replace("bContent--active", "");
+    });
+  });
+  // activate new tab and panel
+  console.log(clickedPane);
+
+  if (event.target.href) {
+    console.log("its a link");
+    event.target.className += " bMenu--active";
+    clickedPane.className += " bContent--active";
+  } else {
+    console.log("not link");
+  }
+  // console.log();
 }
 
 // BOOSTSTRAP
@@ -120,7 +151,7 @@ function showCalendar(month, year) {
           month === today.getMonth()
         ) {
           // color today's date
-          cell.classList.add("bg-info");
+          // cell.classList.add("current--day");
         }
         // console.log(cellText);
         cell.classList.add("calendar--day");
