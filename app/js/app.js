@@ -63,6 +63,140 @@ function activateBuyerTab(event) {
   }
   // console.log();
 }
+// REGISTER PAGE VALUES
+
+$("#registerAgent").click(function() {
+  var $agentDetails = {};
+  // Account Firstname
+  const $agentFirstname = $("#accountFirstname").val();
+  // Account Lastname
+  const $agentLastname = $("#accountlastname").val();
+  // Account Email
+  const $agentEmail = $("#accountEmail").val();
+  // Account Password
+  const $agentPassword = $("#accountPassword").val();
+  // Account ConfirmPassword
+  const $agentConfirmpass = $("#accountConfirmpass").val();
+  // Account Contact
+  const $agentContact = $("#accountContact").val();
+
+  // prettier-ignore
+  $agentDetails = 
+    {
+      "firstname": $agentFirstname,
+      "lastname":$agentFirstname,
+      "email":$agentEmail,
+      "password":$agentPassword,
+      "confirmpass":$agentConfirmpass,
+      "contact":$agentContact
+    }
+  ;
+  alert(JSON.stringify($agentDetails));
+});
+$("#registerRenter").click(function() {
+  var $renterDetails = {};
+  // Account Firstname
+  const $renterFirstname = $("#accountFirstname").val();
+  // Account Lastname
+  const $renterLastname = $("#accountlastname").val();
+  // Account Email
+  const $renterEmail = $("#accountEmail").val();
+  // Account Password
+  const $renterPassword = $("#accountPassword").val();
+  // Account ConfirmPassword
+  const $renterConfirmpass = $("#accountConfirmpass").val();
+  // Account Contact
+  const $renterContact = $("#accountContact").val();
+
+  // prettier-ignore
+  $renterDetails = 
+    {
+      "firstname": $renterFirstname,
+      "lastname":$renterLastname,
+      "email":$renterEmail,
+      "password":$renterPassword,
+      "confirmpass":$renterConfirmpass,
+      "contact":$renterContact
+    }
+  ;
+  alert(JSON.stringify($renterDetails));
+});
+// LIST PROPERTY VALUES
+$("#submitListing").click(function() {
+  // Property type Value
+  const $offerType = $("input[name='offerType']:checked").val();
+  // Residential Type Value
+  const $propertyType = $("#propertyType").val();
+  // Residential Type Value
+  const $subType = $("#propertySubtype").val();
+
+  // No. of Bedrooms
+  const $bedrooms = $("#inputbedroom").val();
+  // No. of Bathrooms
+  const $bathrooms = $("#inputbathrooms").val();
+  // Property Area
+  const $propertyArea = $("#inputArea").val();
+  // Property Location
+  const $propertyLocation = $("#inputLocation").val();
+  // Property Location
+  const $propertyPrice = $("#inputPrice").val();
+  // Property Email
+  const $propertyEmail = $("#inputEmail").val();
+  // Property Contact
+  const $propertyContact = $("#inputContact").val();
+  // Amenities Available
+  const $checkedAmenities = [];
+  $.map($("input[name='amenitiesAvailable']:checked"), function(el) {
+    $checkedAmenities.push(
+      $(el)
+        .next()
+        .text()
+    );
+  });
+  // Property Listing Title
+  const $propertyTitle = $("#listingTitle").val();
+  // Property Location
+  const $propertyDesc = $("#inputDescription").val();
+  // prettier-ignore
+  var $listingDetails={
+"offertype":$offerType,
+"propertytype":$propertyType,
+"subtype":$subType,
+"bedroom":$bedrooms,
+"bathroom":$bathrooms,
+"propertyarea":$propertyArea,
+"email":$propertyEmail,
+"contact":$propertyContact,
+"location":$propertyLocation,
+"price":$propertyPrice,
+"amenities":
+  $checkedAmenities
+,
+"title":$propertyTitle,
+"description":$propertyDesc
+}
+  alert(JSON.stringify($listingDetails));
+  // console.log($subType);
+});
+
+// AGENT CONTACT MODAL
+
+$(".agentContactBtn").click(function() {
+  // Customer Email
+  const $custEmail = $("#agentEmail").val();
+  // Customer Contact No.
+  const $custContact = $("#agentContact").val();
+  // Customer Message
+  const $custMessage = $("#agentMessage").val();
+  // prettier-ignore
+  const $inquiryDetails={
+"customerEmail":$custEmail,
+"customerContact":$custContact,
+"customerMessage":$custMessage
+   }
+
+  alert(JSON.stringify($inquiryDetails));
+});
 
 // BOOSTSTRAP
 // require("bootstrap");
@@ -165,6 +299,6 @@ function showCalendar(month, year) {
   }
 }
 
-const calendarDay = document.querySelectorAll(".calendar--day");
+// const calendarDay = document.querySelectorAll(".calendar--day");
 
-console.log(calendarDay);
+// console.log(calendarDay);

@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
+    <script
+    defer
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
     <link rel="stylesheet" href="css/main.css" />
-    <script defer src="js/main.js"></script>
+    <script defer src="js/app.js"></script>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
-    <script
-      defer
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
+  
     <script
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -154,7 +154,7 @@
           <div class="modal-body">
             <div class="form-group">
               <input
-                type="text"
+                type="email"
                 class="form-control form-control-lg fs-2"
                 id="emailAddress"
                 placeholder="Email Address"
@@ -209,6 +209,7 @@
                 >
 
                 <div
+                
                   class="btn-group btn-group-toggle w-100 align-items-center"
                   data-toggle="buttons"
                 >
@@ -216,24 +217,26 @@
                     class="btn btn--outline-blue  rounded-left active fs-2 btn--toggle"
                   >
                     <input
+                    id="typeForsale"
                       type="radio"
-                      name="options"
-                      id="option1"
+                      name="offerType"
+                     value="ForSale"
                       autocomplete="off"
                       checked
                     />
-                    For Sale
+                   <span> For Sale</span>
                   </label>
                   <label
                     class="btn btn--outline btn--outline-blue fs-2 btn--toggle"
                   >
                     <input
+                    id="typeForrent"
                       type="radio"
-                      name="options"
-                      id="option2"
+                      name="offerType"
+                      value="ForRent"
                       autocomplete="off"
                     />
-                    For Rent
+                   <span> For Rent</span>
                   </label>
                 </div>
               </div>
@@ -244,11 +247,11 @@
                     for="exampleFormControlSelect1"
                     >Property Type</label
                   >
-                  <select class="form-control form--outline-blue" required>
-                    <option value="">Residential</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <select id="propertyType" class="form-control form--outline-blue" required>
+                    <option value="residential">Residential</option>
+                    <option value="option1">One</option>
+                    <option value="option2">Two</option>
+                    <option value="option3">Three</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -257,11 +260,11 @@
                     for="exampleFormControlSelect1"
                     >Subtype</label
                   >
-                  <select class="form-control form--outline-blue" required>
-                    <option value="">Condominium</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <select id="propertySubtype" class="form-control form--outline-blue" required>
+                    <option value="condominium">Condominium</option>
+                    <option value="condominium1">One</option>
+                    <option value="condominium2">Two</option>
+                    <option value="condominium3">Three</option>
                   </select>
                 </div>
               </div>
@@ -269,13 +272,13 @@
                 <div class="form-group ">
                   <label
                     class="fs-1 text-uppercase text--darkgray font-weight-bold"
-                    for="inputbedroom"
+                    for="inputBedroom"
                     >Bedrooms</label
                   >
                   <input
                     type="number"
                     class="form-control form--outline-blue"
-                    id="inputbedroom"
+                    id="inputBedroom"
                     placeholder="Bedrooms"
                   />
                 </div>
@@ -356,13 +359,13 @@
               <div class="form-group">
                 <label
                   class="fs-1 text-uppercase text--darkgray font-weight-bold"
-                  for="exampleInputEmail1"
+                  for="inputPrice"
                   >Price</label
                 >
                 <input
                   type="number"
                   class="form-control form--outline-blue"
-                  id="exampleInputEmail1"
+                  id="inputPrice"
                   aria-describedby="emailHelp"
                   placeholder="Price"
                 />
@@ -376,19 +379,62 @@
             <form class="p-3">
               <h4>select included amenities</h4>
               <div class="d-flex flex-wrap align-items-center ">
-                <button class="form--toggle ">Hot and Cold Shower</button>
-                <button class="form--toggle">Wifi</button>
-                <button class="form--toggle">Fitness Gym</button>
-                <button class="form--toggle">Parking Space</button>
-                <button class="form--toggle">BBQ Area</button>
-                <button class="form--toggle">24/6 Security</button>
-                <button class="form--toggle">Restaurant</button>
-                <button class="form--toggle">Bar</button>
-                <button class="form--toggle">Spa</button>
-                <button class="form--toggle">Clubhouse</button>
-                <button class="form--toggle">PLayground</button>
-                <button class="form--toggle">Tennis Court</button>
-                <button class="form--toggle">Basketball Court</button>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">  Hot and Cold Shower</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Wifi</span>
+                </label>
+                <label>
+                  <input type="checkbox" value="" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Fitness Gym</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Parking Space</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">BBQ Area</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">24/6 Security</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Restaurant</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Bar</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Spa</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Clubhouse</span>
+                </label>
+               
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Playground</span>
+                </label>
+               
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Tennis Court</span>
+                </label>
+               
+                <label>
+                  <input type="checkbox" name="amenitiesAvailable" id="" class="toggle--amenities" />
+                 <span class="form--toggle">Basketball Court</span>
+                </label>
+               
               </div>
             </form>
           </div>
@@ -404,20 +450,20 @@
                 <input
                   type="email"
                   class="form-control form--outline-blue"
-                  id="inputEmail4"
+                  id="inputEmail"
                   placeholder="Email"
                 />
               </div>
               <div class="form-group ">
                 <label
                   class="fs-1 text-uppercase text--darkgray font-weight-bold"
-                  for="inputEmail4"
+                  for="inputContact"
                   >Contact Number</label
                 >
                 <input
                   type="number"
                   class="form-control form--outline-blue"
-                  id="inputEmail4"
+                  id="inputContact"
                   placeholder="Contact Number"
                 />
               </div>
@@ -476,11 +522,11 @@
             </div>
           </div>
         </div>
-        <div class="form--footer grid-full-span justify-self-center" style="">
+        <div class="form--footer grid-full-span justify-self-center" >
           <button class="btn btn--wide btn--outline btn--outline-blue">
             Preview
           </button>
-          <button class="btn btn--wide btn--blue">Submit Listing</button>
+          <button type="submit" id="submitListing" class="btn btn--wide btn--blue">Submit Listing</button>
         </div>
       </div>
       <section class="section__developers">
