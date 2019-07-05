@@ -91,7 +91,7 @@ $("#registerAgent").click(function() {
       "contact":$agentContact
     }
   ;
-  alert(JSON.stringify($agentDetails));
+  alert(JSON.stringify($agentDetails, undefined, 2));
 });
 $("#registerRenter").click(function() {
   var $renterDetails = {};
@@ -119,7 +119,7 @@ $("#registerRenter").click(function() {
       "contact":$renterContact
     }
   ;
-  alert(JSON.stringify($renterDetails));
+  alert(JSON.stringify($renterDetails, undefined, 2));
 });
 // LIST PROPERTY VALUES
 $("#submitListing").click(function() {
@@ -175,7 +175,7 @@ $("#submitListing").click(function() {
 "title":$propertyTitle,
 "description":$propertyDesc
 }
-  alert(JSON.stringify($listingDetails));
+  alert(JSON.stringify($listingDetails, undefined, 2));
   // console.log($subType);
 });
 
@@ -195,7 +195,7 @@ $(".agentContactBtn").click(function() {
 "customerMessage":$custMessage
    }
 
-  alert(JSON.stringify($inquiryDetails));
+  alert(JSON.stringify($inquiryDetails, undefined, 2));
 });
 
 // BOOSTSTRAP
